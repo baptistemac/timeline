@@ -1,0 +1,1134 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"wid",
+				"width"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"quan",
+				"quantity"
+			],
+			[
+				"scr",
+				"screens"
+			],
+			[
+				"ma",
+				"mapView"
+			],
+			[
+				"attribute",
+				"attribute_key"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"map",
+				"mapview"
+			],
+			[
+				"fields",
+				"fields_id"
+			],
+			[
+				"screen",
+				"screen_id"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"fi",
+				"field_id"
+			],
+			[
+				"fiel",
+				"fields_id"
+			],
+			[
+				"field",
+				"field_id"
+			],
+			[
+				"key",
+				"keyboards"
+			],
+			[
+				"scree",
+				"screen_id"
+			],
+			[
+				"s",
+				"screens"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"sc",
+				"screensView"
+			],
+			[
+				"parse",
+				"parseInt"
+			],
+			[
+				"t",
+				"top"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"add",
+				"addScreen"
+			],
+			[
+				"main",
+				"MainView"
+			],
+			[
+				"bo",
+				"border"
+			],
+			[
+				"commentaire",
+				"commentaire"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"padd",
+				"padding-right"
+			],
+			[
+				"getDate",
+				"getDateYear"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"n",
+				"none"
+			],
+			[
+				"date",
+				"Date"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"window",
+				"window_height"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"r",
+				"right"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"po",
+				"PostsListView"
+			],
+			[
+				"get",
+				"get_item"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"tra",
+				"translateX"
+			],
+			[
+				"a",
+				"absolute"
+			],
+			[
+				"log",
+				"loginFormView"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"curre",
+				"currentTarget"
+			],
+			[
+				"cur",
+				"currentTarget"
+			],
+			[
+				"on",
+				"onprogress"
+			],
+			[
+				"item",
+				"items"
+			],
+			[
+				"to",
+				"toJSON"
+			],
+			[
+				"rend",
+				"renderedContent"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"b",
+				"bounds"
+			],
+			[
+				"c",
+				"center"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"li",
+				"list-style-type"
+			],
+			[
+				"ge",
+				"getElementById"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 2254,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "data/data.json",
+			"settings":
+			{
+				"buffer_size": 502,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/main.js",
+			"settings":
+			{
+				"buffer_size": 1002,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/views/MainView.js",
+			"settings":
+			{
+				"buffer_size": 813,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/views/ColsView.js",
+			"settings":
+			{
+				"buffer_size": 654,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/index.html",
+			"settings":
+			{
+				"buffer_size": 860,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/sass/fiche.scss",
+			"settings":
+			{
+				"buffer_size": 117,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/views/FicheView.js",
+			"settings":
+			{
+				"buffer_size": 510,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/sass/timeline.scss",
+			"settings":
+			{
+				"buffer_size": 1150,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 47.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"packa li",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Pa ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: pl",
+				"Package Control: List Packages"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/12 - Timeline/site/public/routes.js",
+		"/Applications/MAMP/htdocs/12 - Timeline/site/public/TimeLine.js",
+		"/Applications/MAMP/htdocs/12 - Timeline/site/timeline.sublime-project",
+		"/Applications/MAMP/htdocs/12 - Timeline/site/public/sass/_base.scss",
+		"/Applications/MAMP/htdocs/12 - Timeline/site/public/main.js",
+		"/Applications/MAMP/htdocs/12 - Timeline/site/public/sass/timeline.scss",
+		"/Applications/MAMP/htdocs/09 - WatchLater/site/v9/public/views/LoginView.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/src/soundBufferLoader.js",
+		"/Users/baptistemac/Dropbox/Création libre/XX - StoryTelling/storytelling.html",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/sass/keyboard.scss",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/sass/keygame.scss",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/src/sound.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/src/sound-buffer-loader.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/main.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/data/data.json",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/sass/compass.scss",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/keygame.sublime-project",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/.sass-cache/24fa9a973df0ff418873cc7bb75bddf3f37f3338/_horizontal-list.scssc",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/node_modules/express/node_modules/connect/node_modules/serve-index/node_modules/negotiator/test/language.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/node_modules/express/node_modules/connect/node_modules/multiparty/node_modules/readable-stream/lib/_stream_transform.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/.sass-cache/20053c5a9681015a2bb653505e94576d5de1036f/_interaction.scssc",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/package.json",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/Procfile",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/data.json",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/node_modules/express/node_modules/connect/lib/middleware/methodOverride.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/config.rb",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/assets/sounds/confetti.mp3",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/sass/core.scss",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/admin/mainView.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/views/ScreensView.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/views/FieldView.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/views/KeyboardView.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/admin/admin.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/admin/admin.html",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/admin/admin.css",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/views/RivalView.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/models/todo.characters.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/admin/ScreenView.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/screens.json",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/models/item.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/views/MainView.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/admin/screens.json",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/node_modules/logfmt/node_modules/split/examples/pretty.js",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/public/admin/json.txt",
+		"/Applications/MAMP/htdocs/11 - Keygame/site/node_modules/express/node_modules/connect/node_modules/multiparty/package.json",
+		"/Applications/MAMP/htdocs/09 - WatchLater/backbone/WatchLater-v8/app.js",
+		"/Applications/MAMP/htdocs/09 - WatchLater/backbone/WatchLater-v8/package.json",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/json/json.php",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/mobile/test2/dragend.js",
+		"/Applications/MAMP/htdocs/09 - WatchLater/backbone/WatchLater-v8/public/sass/item.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/models/item.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/views/CalendarView.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/views/ItemsListView.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/views/MainView.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/routes.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/main.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/index.html",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/sass/core.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/sass/reset.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/sass/lang.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/sass/cheesystory.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/sass/_base.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/test/slideToucher-master/index.html",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/mobile/index.html",
+		"/Users/baptistemac/Downloads/mobile-ui-patterns-master/page-swipe/index.html",
+		"/Users/baptistemac/Downloads/mobile-ui-patterns-master/page-swipe/iscroll.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/mobile/js/demo.js",
+		"/Users/baptistemac/Library/Caches/Cleanup At Startup/Transmit/DB62C058-BD0C-46C2-B27B-B9B94F23027F/index.html",
+		"/Users/baptistemac/Downloads/source/css/style.css",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/libs/vendors/jquery.mousewheel.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v22/index.php",
+		"/Users/baptistemac/Downloads/source/index.html",
+		"/Applications/MAMP/htdocs/grit/benchmarks.rb",
+		"/Users/baptistemac/Downloads/source/js/swipe.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v22/js/cheesystory.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v22/js/plugins.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v22/js/script.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v22/js/visuel.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/index.php",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/ftp/css/fonts.css",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v22/css/boilerplate.css",
+		"/Users/baptistemac/Dropbox/WatchLater/v3/app.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/json/json.php",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/json/_json.php",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/json/json2.php",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/htaccess.txt",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/CheesyStory.js",
+		"/Users/baptistemac/Dropbox/WatchLater/v3/public/models/item.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/SmartD.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/public/js/nav.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/sass/boilerplate.css",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/sass/_base.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/js/keyboard.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/js/_cheesystory.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/sass/boilerplate.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/sass/cheesystory.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/js/visuel.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/js/cheesystory.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/js/plugins.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/app.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/web-test.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/server.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/package.json",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/items.db",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/site/blog.db",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/sass/style.scss",
+		"/Applications/MAMP/htdocs/09 - WatchLater/backbone/WatchLater-v8/public/sass/watchlater.scss",
+		"/Applications/MAMP/htdocs/09 - WatchLater/backbone/WatchLater-v8/public/sass/_base.scss",
+		"/Applications/MAMP/htdocs/09 - WatchLater/backbone/WatchLater-v8/public/sass/core.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/js/header.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/js/script.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/js/lang.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/js/calljson.js",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/sass/style.css",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/sass/fonts.css",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/sass/screen.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/sass/print.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/sass/ie.scss",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/v2/script/connect.php",
+		"/Applications/MAMP/htdocs/01 - Chessy Story/index.php",
+		"/Applications/MAMP/htdocs/09 - WatchLater/backbone/WatchLater-v8/public/index.html",
+		"/Applications/MAMP/htdocs/10 - SmartD/site/public/models/item.js",
+		"/Applications/MAMP/htdocs/10 - SmartD/site/public/views/EditboardView.js",
+		"/Applications/MAMP/htdocs/10 - SmartD/site/public/views/BoardView.js",
+		"/Applications/MAMP/htdocs/10 - SmartD/site/public/views/MainView.js",
+		"/Applications/MAMP/htdocs/10 - SmartD/site/public/main.js",
+		"/Applications/MAMP/htdocs/10 - SmartD/site/public/routes.js",
+		"/Applications/MAMP/htdocs/10 - SmartD/site/public/sass/reset.scss"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"<file>",
+			"<open files>",
+			"",
+			"file",
+			"",
+			"<open files>,/Applications/MAMP/htdocs/09 - WatchLater/backbone/v7",
+			"<open files>,/Applications/MAMP/htdocs/09 - WatchLater/backbone/v4"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"obj",
+			"befor",
+			"after",
+			"obj",
+			"rival",
+			"setPrincessKey",
+			"princess",
+			"setPrincessKey",
+			"fiel",
+			"mainv",
+			"setPrincessKey",
+			"UPDATE",
+			"setPrincessKey",
+			"dest",
+			"rival",
+			"render",
+			"curr",
+			"h1",
+			"symbol",
+			"li",
+			"attrib",
+			"integer",
+			"screen",
+			"without",
+			"impossibles_keys",
+			"doub",
+			"double",
+			"transit",
+			"trans",
+			"keys_available",
+			"rand",
+			"keyb",
+			"keyboard",
+			"get_typ",
+			"add",
+			"saveJson",
+			"label:before ",
+			"store",
+			"3%",
+			"heade",
+			"calen",
+			"sha",
+			"open",
+			"2121",
+			"focus",
+			"init_month",
+			"date",
+			"sha",
+			"image",
+			"radius",
+			"current_m",
+			"opa",
+			"toggleClass",
+			"url_pa",
+			"desc",
+			"mouse",
+			"deltaFactor",
+			"handler",
+			"el",
+			"comment",
+			"lang",
+			"fr",
+			".en",
+			"en",
+			"fr",
+			"lang",
+			"hihi",
+			"items",
+			"_vis",
+			"_visue",
+			"row",
+			"items",
+			"smartd",
+			"display_image",
+			"prev_",
+			"prev_visuel",
+			"overf",
+			"html",
+			"build_v",
+			"jsondata",
+			"jsondata2",
+			"set_current_visuel",
+			"active_event_comment",
+			"active_fleche",
+			"fle",
+			"init",
+			"css",
+			"ul",
+			"header",
+			"css",
+			"btn",
+			"watc",
+			"droite",
+			"translate3d",
+			"translate#d",
+			"items",
+			"SPRITE",
+			"curr",
+			"tit",
+			"destro",
+			"box-sizing",
+			"gray1",
+			"b3",
+			"d3",
+			"render",
+			"collection",
+			"item_save",
+			"item_update",
+			"remove_contenteditable",
+			"update",
+			"btn-create",
+			"hide",
+			".hide",
+			"save",
+			"curr",
+			"make_contenteditable",
+			"id",
+			"save",
+			".img",
+			".info",
+			"el",
+			"save",
+			"brig",
+			"scale",
+			"rotate",
+			"pink",
+			"sidebar",
+			"sidebar-open"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"$Color1Dark",
+			"",
+			".5s",
+			"d35133",
+			"ee6242",
+			"libs",
+			"fileuploadvalidate: '",
+			"//",
+			"    fileuploadvalidate: ",
+			"",
+			"//",
+			"'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 8,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								897,
+								903
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "data/data.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 502,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								191,
+								191
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 18.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1002,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								764,
+								819
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/views/MainView.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 813,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								678,
+								678
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/views/ColsView.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 654,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								541,
+								541
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 860,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								379,
+								379
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "public/sass/fiche.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "public/views/FicheView.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 510,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								400,
+								400
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "public/sass/timeline.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1143,
+								1143
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 421.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.CSS Extended Completions":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "timeline.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"data",
+				"data/data.json"
+			],
+			[
+				"compass",
+				"public/sass/compass.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 205.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

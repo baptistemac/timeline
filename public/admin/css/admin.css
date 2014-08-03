@@ -1,0 +1,217 @@
+/* line 4, ../sass/admin.scss */
+*:focus {
+  outline: 0 none;
+}
+
+/* line 8, ../sass/admin.scss */
+a {
+  color: #202020;
+}
+
+/* line 12, ../sass/admin.scss */
+#screens, #specials_screens, #objects, #fields, #keyboards {
+  display: none;
+}
+
+/* line 16, ../sass/admin.scss */
+.container h1 {
+  display: inline-block;
+  font-size: 1.6em;
+  padding: 30px 0 20px 20px;
+  float: left;
+}
+
+/* line 23, ../sass/admin.scss */
+#nav {
+  position: fixed;
+  width: 100%;
+  height: 66px;
+  top: 0;
+  text-align: left;
+  background-color: white;
+  z-index: 10;
+  padding-left: 10px;
+  box-shadow: 2px 0px 15px rgba(0, 0, 0, 0.1);
+}
+/* line 34, ../sass/admin.scss */
+#nav li.current a {
+  background-color: black;
+  color: white;
+}
+/* line 38, ../sass/admin.scss */
+#nav li a {
+  display: block;
+  float: left;
+  font-size: .9em;
+  line-height: 1.6em;
+  padding: 17px 12px;
+}
+/* line 46, ../sass/admin.scss */
+#nav #save {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  border-radius: 2px;
+}
+
+/* 
+#sidebar {
+  position: fixed;
+  width: 230px;
+  height: 100%;
+  top: 0;
+  text-align: left;
+  background-color: white;
+  z-index: 10;
+  padding: 40px;
+  box-shadow: 2px 0px 15px rgba(0,0,0,.1);
+  li a {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1em;
+  }
+} */
+/* line 73, ../sass/admin.scss */
+.add {
+  width: 100%;
+  padding: 0px;
+  background-color: #eeeeee;
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  z-index: 2;
+}
+/* line 81, ../sass/admin.scss */
+.add a {
+  font-size: 2.8em;
+  display: block;
+  line-height: 1.0em;
+}
+/* line 85, ../sass/admin.scss */
+.add a:hover {
+  background-color: white;
+}
+
+/* line 91, ../sass/admin.scss */
+.button {
+  padding: 10px 12px 5px;
+  text-transform: uppercase;
+  color: black;
+  border: 1px solid gray;
+  background: white;
+}
+
+/* line 99, ../sass/admin.scss */
+.remove {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5em;
+}
+
+/* line 105, ../sass/admin.scss */
+.remove:before {
+  content: 'x';
+  width: 20px;
+  height: 20px;
+  display: block;
+  color: white;
+}
+
+/* line 114, ../sass/admin.scss */
+.container {
+  margin-bottom: 60px;
+  margin-top: 66px;
+}
+/* line 118, ../sass/admin.scss */
+.container .screen:last-child {
+  margin-bottom: 60px;
+}
+/* line 121, ../sass/admin.scss */
+.container .screen, .container .object {
+  position: relative;
+  height: auto;
+}
+/* line 126, ../sass/admin.scss */
+.container .screen .box {
+  padding: 80px;
+}
+/* line 132, ../sass/admin.scss */
+.container input[type="text"] {
+  padding: 10px;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0px solid black;
+}
+/* line 139, ../sass/admin.scss */
+.container input.color {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 144, ../sass/admin.scss */
+.container input.color:focus {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+/* line 147, ../sass/admin.scss */
+.container input.pattern, .container input.sound, .container input.type {
+  width: 23%;
+}
+/* line 152, ../sass/admin.scss */
+.container .screen .fields {
+  position: absolute;
+  left: 20px;
+  top: 73px;
+  width: 50px;
+}
+/* line 159, ../sass/admin.scss */
+.container input[type="checkbox"] {
+  display: none;
+}
+/* line 162, ../sass/admin.scss */
+.container label {
+  cursor: pointer;
+  font-size: 13px;
+}
+/* line 166, ../sass/admin.scss */
+.container label:before {
+  content: "";
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  padding-top: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /*background-color: rgba(255,255,255,.2);*/
+}
+/* line 179, ../sass/admin.scss */
+.container input[type=checkbox]:checked + label.marais:before {
+  background-color: #f7ede2;
+}
+/* line 182, ../sass/admin.scss */
+.container input[type=checkbox]:checked + label.foret:before {
+  background-color: #cae9da;
+}
+/* line 185, ../sass/admin.scss */
+.container input[type=checkbox]:checked + label.mer:before {
+  background-color: #ecf5fc;
+}
+/* line 188, ../sass/admin.scss */
+.container input[type=checkbox]:checked + label.montagne:before {
+  background-color: #f7e2f6;
+}
+/* line 192, ../sass/admin.scss */
+.container label.marais:before {
+  content: 'Marais';
+}
+/* line 195, ../sass/admin.scss */
+.container label.foret:before {
+  content: 'Forêt';
+}
+/* line 198, ../sass/admin.scss */
+.container label.mer:before {
+  content: 'Mer';
+}
+/* line 201, ../sass/admin.scss */
+.container label.montagne:before {
+  content: 'Montagne';
+}

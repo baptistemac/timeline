@@ -1,0 +1,55 @@
+
+{	
+
+	"categorie" : [
+		{
+			"name": "Ailleurs",
+			"id": 0
+		},
+		{
+			"name": "Palestine",
+			"id": 0
+		},
+		{
+			"name": "France",
+			"id": 0
+		},
+		{
+			"name": "Mexique",
+			"id": 0
+		},
+		{
+			"name": "Espagne",
+			"id": 0
+		}
+
+	],
+
+	"events" : [
+		{
+			"type": "book",
+			"title": "La société de consommation",
+			"author": "Jean Baudrillard",
+			"date": {
+				"debut": "",
+				"fin": ""
+			},
+			"image": "la-societe-de-consommation.png",
+			"link": "http://www.google.ca"
+		},
+
+		{
+			"type": "book",
+			"title": "La société de consommation",
+			"author": "Jean Baudrillard",
+			"date": {
+				"debut": "",
+				"fin": ""
+			},
+			"image": "la-societe-de-consommation.png",
+			"link": "http://www.google.ca"
+		}
+
+	]
+
+}

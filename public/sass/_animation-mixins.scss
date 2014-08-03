@@ -1,0 +1,39 @@
+
+
+// Animation
+//----------------------------
+
+@mixin animation($animation){
+  -webkit-animation: $animation;
+  -moz-animation: $animation;
+  -ms-animation: $animation;
+  -o-animation: $animation;
+  animation: $animation;
+}
+
+@mixin keyframes($animationName){
+  @-webkit-keyframes $animationName {
+    @content;
+  }
+  @-moz-keyframes $animationName {
+    @content;
+  }
+  @-ms-keyframes $animationName {
+    @content;
+  }
+  @-o-keyframes $animationName {
+    @content;
+  }
+  @keyframes $animationName {
+    @content;
+  }
+}
+
+
+// Prefixes
+//----------------------------
+@mixin tp1_prefixes($name, $value) {
+  @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+    #{$vendor}#{$name}: #{$value};
+  }
+}
