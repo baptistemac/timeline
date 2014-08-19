@@ -1,23 +1,29 @@
 yepnope({
   load: {
-    jquery:       'libs/vendors/jquery-1.10.2.js',
-    underscore:   'libs/vendors/underscore.js',
-    backbone:     'libs/vendors/backbone.js',
-    mustache:     'libs/vendors/mustache.js',
+    jquery          : 'libs/vendors/jquery-1.10.2.js',
+    underscore      : 'libs/vendors/underscore.js',
+    backbone        : 'libs/vendors/backbone.js',
+    mustache        : 'libs/vendors/mustache.js',
     
     //NameSpace
-    timeline:      'TimeLine.js',
+    timeline        : 'TimeLine.js',
     
     //Models
-    //objets        : 'models/objects.js',
+    //objets          : 'models/objects.js',
     
     //Controllers
-    mainview      : 'views/MainView.js',
-    colsview      : 'views/ThemesView.js',
-    ficheview     : 'views/FicheView.js',
+    mainview        : 'views/MainView.js',
+    headerview      : 'views/HeaderView.js',
+    navview         : 'views/NavView.js',
+    modalview       : 'views/ModalView.js',
+    categoryview    : 'views/CategoryView.js',
+    categoriesview  : 'views/CategoriesView.js',
+    complementsview : 'views/ComplementsView.js',
+    mapview         : 'views/MapView.js',
+    ficheview       : 'views/FicheView.js',
     
     //Routes
-    routes        : 'routes.js'
+    routes          : 'routes.js'
 
   },
 
@@ -37,7 +43,7 @@ yepnope({
       //collection: itemscollection
       });
 
-      Backbone.history.start();
+      //Backbone.history.start();
 
 
     });

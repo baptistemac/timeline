@@ -1,0 +1,102 @@
+{
+
+	"settings": {
+		"title": "Histoire de la sédition",
+		"date": { "start": "1880-01-01", "end": "2014-01-01" },
+		"echelle_1an": 20  
+	},
+
+
+    "categorie" : [
+		{
+			"name": "Palestine",
+			"events": [
+				{ "title":"intifada", "date": { "start":"1880-10-14" } },
+				{ "title":"2ème intifada", "date": { "start":"1880-10-14" } }
+			],
+			"info" : [
+				{ 
+					"name": "présidents",
+					"events": [
+						{ "title": "Truman" },
+						{ "title": "Patate" }
+					]
+				}
+			]
+		},
+		{
+			"name": "France",
+			"events": [{"title":"Prise de la Bastille"}, {"title":"Consitution des droits de l'homme"}]
+		},
+		{
+			"name": "Russie",
+			"events": [{"title":"Révolution"}, {"title":"truc"}]
+		},
+		{
+			"name": "France",
+			"events": [{"title":"Prise de la Bastille"}, {"title":"Consitution des droits de l'homme"}]
+		},
+		{
+			"name": "Russie",
+			"events": [{"title":"Révolution"}, {"title":"truc"}]
+		}
+	]
+
+}
+
+    /*
+{	
+
+	"categorie" : [
+		{
+			"name": "Ailleurs",
+			"id": 0
+		},
+		{
+			"name": "Palestine",
+			"id": 0
+		},
+		{
+			"name": "France",
+			"id": 0
+		},
+		{
+			"name": "Mexique",
+			"id": 0
+		},
+		{
+			"name": "Espagne",
+			"id": 0
+		}
+
+	],
+
+	"events" : [
+		{
+			"type": "book",
+			"title": "La société de consommation",
+			"author": "Jean Baudrillard",
+			"date": {
+				"debut": "",
+				"fin": ""
+			},
+			"image": "la-societe-de-consommation.png",
+			"link": "http://www.google.ca"
+		},
+
+		{
+			"type": "book",
+			"title": "La société de consommation",
+			"author": "Jean Baudrillard",
+			"date": {
+				"debut": "",
+				"fin": ""
+			},
+			"image": "la-societe-de-consommation.png",
+			"link": "http://www.google.ca"
+		}
+
+	]
+
+}
+*/

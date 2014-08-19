@@ -1,14 +1,10 @@
 /*
-Syntax error: Undefined variable: "$primaryFont".
-        on line 21 of /Applications/MAMP/htdocs/12 - Timeline/site/public/sass/core.scss
+Syntax error: Undefined variable: "$grey2".
+        on line 11 of /Applications/MAMP/htdocs/12 - Timeline/site/public/sass/map.scss
 
 Backtrace:
-/Applications/MAMP/htdocs/12 - Timeline/site/public/sass/core.scss:21
+/Applications/MAMP/htdocs/12 - Timeline/site/public/sass/map.scss:11
 /Library/Ruby/Gems/1.8/gems/sass-3.2.12/lib/sass/../sass/script/variable.rb:49:in `_perform'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.12/lib/sass/../sass/script/node.rb:40:in `perform'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.12/lib/sass/../sass/script/list.rb:71:in `_perform'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.12/lib/sass/../sass/script/list.rb:71:in `map'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.12/lib/sass/../sass/script/list.rb:71:in `_perform'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.12/lib/sass/../sass/script/node.rb:40:in `perform'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.12/lib/sass/../sass/tree/visitors/perform.rb:298:in `visit_prop'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.12/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
@@ -87,4 +83,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$primaryFont\".\A         on line 21 of /Applications/MAMP/htdocs/12 - Timeline/site/public/sass/core.scss"; }
+  content: "Syntax error: Undefined variable: \"$grey2\".\A         on line 11 of /Applications/MAMP/htdocs/12 - Timeline/site/public/sass/map.scss"; }

@@ -1,0 +1,207 @@
+
+#categories {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	overflow-y: hidden;
+	z-index: 1;
+	background: white;
+
+	.line {
+		width: 100%;
+		height: 40px;
+		//border-top: 1px solid $grey3;
+		//border-bottom: 1px solid $grey3;
+		background-color: $grey4;
+		margin-top: 50px;
+		font-size: .8em;
+		padding-top: 11px;
+		font-weight: 500;
+		time, span {
+			display: block;
+			float: left;
+			position: relative;
+			margin-right: 150px;
+			margin-left: -25px;
+			width: 50px;
+			font-size: 1.2em;
+			color: $grey1;
+			text-align: center;
+			&::before {
+				content: '';
+				position: absolute;
+				display: block;
+				width: 1px;
+				left: 24px;
+				bottom: -10px;
+				height: 6px;
+				background-color: $grey2;
+			}
+		}
+	}
+
+	&.categories-1 > .category { height: 100% }
+	&.categories-2 > .category { height: 50% }
+	&.categories-3 > .category { height: 33.33% }
+	&.categories-4 > .category { height: 25% }
+	&.categories-5 > .category { height: 20% }
+	&.categories-6 > .category { height: 16.66% }
+	&.categories-7 > .category { height: 14.28% }
+	&.categories-8 > .category { height: 12.5% }
+	&.categories-9 > .category { height: 11.11% }
+	&.categories-10 > .category { height: 10% }
+
+	.category {
+		position: relative;
+		width: 100%;
+		//float: left;
+		//border-top: 1px solid $grey4;
+		border-bottom: 1px solid $grey4;
+
+		.events {
+			position: absolute;
+			top: 0px;
+			width: 100%;
+			height: 60%;
+			font-size: .8em;
+			//background: rgba(0,0,0,.2);
+			.name {
+				position: fixed;
+				left: 0px;
+				//background: white;
+				padding: 10px 20px 10px 10px;
+				color: $grey3;
+				z-index: 3;
+				cursor: grab;
+				cursor: -moz-grab;
+				cursor: -webkit-grab;
+				@include background-image(linear-gradient(to right, white, rgba(255,255,255,0.9) 90%, transparent));
+				&::before {
+					content: '...';
+					position: absolute;
+					display: none;
+					left: 5px;
+					color: $grey3;
+					@include transform( rotate(90deg) );
+				}
+				&:hover {
+					&::before {
+						display: block;
+					}
+				}
+			}
+			.event {
+				position: absolute;
+				bottom: 0px;
+				left: 500px;
+				max-width: 150px;
+				//max-height: 20px;
+				text-align: center;
+				font-size: .9em;
+				line-height: 1.4em;
+				color: $grey1;
+				padding: 8px 8px 10px 8px;
+				border: 1px solid transparent;
+				cursor: pointer;
+				@include border-radius(2px);
+				z-index: 2;
+				time {
+					display: none;
+					position: absolute;
+					top: -18px;
+					right: -1px;
+					font-size: .75em;
+					font-weight: 700;
+					//letter-spacing: 1px;
+					color: $grey3;
+					//background-color: white;
+				}
+				// Icone du type
+				&::before {
+					content: '✶';
+					position: absolute;
+					bottom: -7px;
+					left: 50%;
+					width: 14px;
+					height: 14px;
+					margin-left: -7px;
+					color: $mainColor;
+					font-size: .7em;
+					line-height: 1.6em;
+					background-color: white;
+					border: 1px solid $mainColor;
+					@include border-radius(50%);
+				}
+				&.book::before {
+					content: '◆';
+					font-size: .7em;
+					line-height: 1.4em;
+				}
+				&.author::before {
+					content: '♥';
+					font-size: .5em;
+					line-height: 1.9em;
+				}
+				// ligne verticale
+				&::after {
+					content: '';
+					position: absolute;
+					display: none;
+					bottom: -1000px;
+					left: 50%;
+					width: 1px;
+					height: 2000px;
+					margin-left: -1px;
+					background-color: $grey4;
+					z-index: -1;
+				}
+				
+				&:hover, &:focus {
+					//color: $mainColor;
+					border: 1px solid $grey4;
+					time { display: block; }
+					&::after {
+						display: block;
+					}
+				}
+				&.active {
+					border: 1px solid $mainColor;
+					time { display: block; color: $grey2; }
+				}
+			}
+		}
+		.event:nth-of-type(n+1) {}
+
+		.complements {
+			.complement {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				height: 40%;
+				font-size: .8em;
+				//background: rgba(0,0,0,.2);
+				border-top: 1px solid $grey4;
+				//border-bottom: 1px solid $grey4;
+				box-sizing: initial;
+				.name {
+					position: fixed;
+					//background: white;
+					padding: 12px 20px 10px 10px;
+					@include background-image(linear-gradient(to right, white, rgba(255,255,255,0.9) 90%, transparent));
+				}
+				> span {
+					display: inline-block;
+					height: 100%;
+					padding: 12px 0 0 5px;
+					text-overflow: ellipsis;
+					overflow: hidden;
+					width: 44px;
+					color: $grey3;
+					border-left: 1px solid $grey4;
+				}
+			}
+		}
+	}
+
+}

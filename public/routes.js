@@ -3,11 +3,13 @@ var TimeLine = (function(timeline) {
   timeline.Router.RoutesManager = Backbone.Router.extend({
 
     initialize: function(args) {
+      Backbone.history.start( { pushState: true } );
       //this.collection = args.collection;
       //console.log("this.collection", this.collection);
     },
 
     routes: {
+      "edit"          : "edit",
       "hello"         : "hello",
       "*path"         : "root"
     },
@@ -22,6 +24,10 @@ var TimeLine = (function(timeline) {
         }
       });
       */
+    },
+
+    edit: function () {
+      $("h1").html("Edit");
     },
 
     hello: function() {

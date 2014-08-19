@@ -4,42 +4,149 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>TimeLine</title>
   <link href="css/timeline.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
 
   <div class="container">
-
-    <div class="top">
-      <a class="nav" href="#">
+    
+    <!-- -->
+    <script type="text/template" id="header_template">
+      <a class="burger" href="nav">
         <span></span><span></span><span></span>
       </a>
-      <p class="title">Histoire de la sédition</p>
-      <p class="date">2014 - 1789</p>
-      <a href="#" class="btn edit">Éditer</a>
-    </div>
-    
-    <script type="text/template" id="themes_template">
-      <div class="line"></div>
-      
-      {{#categorie}}
-      <div class="theme">
-        <span class="name">{{name}}</span>
-        {{#events}}
-        <div class="event">{{title}}</div>
-        {{/events}}
+      <h1>{{title}}</h1>
+      <p class="date"><time datetime="{{date.start}}">{{date.start}}</time> - <time datetime="{{date.end}}">{{date.end}}</time></p>
+      <a href="./login" class="btn style2 login">Login</a>
+      <!--
+      <a href="#" class="btn style2 add">Add</a>
+      <a href="edit" class="btn style1 edit">Edit</a>
+      <a href="./" class="btn style1 exitedit">Exit edit</a>
+      -->
+    </script>
+
+    <header id="header"></header>
+
+
+    <!-- -->
+    <script type="text/template" id="categories_template">
+
+      <div class="line">
+        <time datetime="1880">1880</time>
+        <span>1890</span>
+        <span>1900</span>
+        <span>1910</span>
+        <span>1920</span>
+        <span>1930</span>
+        <span>1940</span>
+        <span>1950</span>
+        <span>1960</span>
+        <span>1970</span>
+        <span>1980</span>
       </div>
-      {{/categorie}}
+      
+      {{#categories}}
+      <div class="category" data-id="{{id}}">
+          
+        <div class="events">
+          <span class="name">{{name}}</span>
+          {{#events}}
+            <a href="#" class="event {{type}}" data-id="{{id}}" style="left:{{left}}px">{{title}}<time datetime="{{date.start}}">{{date.start}}</time></a>
+          {{/events}}
+        </div>
+        
+        <ul class="complements">
+          <li class="complement">
+            <a href="#" class="add_complement name">Présidents</a>
+            <span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span>
+          </li>
+        </ul>
+
+      </div>
+      {{/categories}}
 
     </script>
-    <div id="themes"></div>
+
+    <div id="categories"></div>
+
+
+
+
+    <!-- -->
+    <script type="text/template" id="category_template">
+      
+      <div class="category" data-id="{{id}}">
+          
+        <div class="events">
+          <span class="name">{{name}}</span>
+          {{#events}}
+            <a href="#" class="event {{type}}" data-id="{{id}}" style="left:{{left}}px">{{title}}<time datetime="{{date.start}}">{{date.start}}</time></a>
+          {{/events}}
+        </div>
+        
+        <ul class="complements">
+          <li class="complement">
+            <a href="#" class="add_complement name">Présidents</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </script>
+
+
 
     <script type="text/template" id="fiche_template">
-    coucou
+    <div class="fiche {{type}}">
+      <div class="fiche-top">
+        {{#date.start}}<time datetime="{{date.start}}">{{date.start}}</time>{{/date.start}}
+        {{#date.end}}<time datetime="{{date.end}}">- {{date.end}}</time>{{/date.end}}
+        <a class="close" href="#">close</a>
+      </div>
+      {{#img}}<img src="./img/media/{{img}}" alt="{{title}}" class="visuel">{{/img}}
+      <div class="fiche-content">
+        <h2>{{title}}</h2>
+        {{#author}}<p class="author">{{author}}</p>{{/author}}
+        {{#link}}<a href="{{link}}" target="blank">Wikipédia</a>{{/link}}
+        {{type}}
+        {{#chapeau}}<p class="chapeau">{{chapeau}}</p>{{/chapeau}}
+        {{#text}}<p class="text">{{text}}</p>{{/text}}
+      </div>
+    </div>
     </script>
+
     <div id="fiche"></div>
+  
+    <!-- -->
+    <script type="text/template" id="map_template">
+
+      {{#categories}}
+        <div class="categorie">
+          {{#events}}
+            <span class="event {{type}}" data-id="{{id}}" style="left:{{prct}}%" title="{{title}}"></span>
+          {{/events}}
+          </div>
+      {{/categories}}
+
+    </script>
+
+    <div id="map"></div>
 
   </div> <!-- fin de .container -->
+  
+  <script type="text/template" id="modal_template">
+  
+  <div class="modal {{class}} {{#show}}show{{/show}}">
+    <div class="md-content">
+      <h2>{{title}}</h2>
+      <p>{{{message}}}</p>
+    </div>
+  </div>
+  <div class="overlay"></div>
+  </script>
+
+  <div id="modal"></div>
 
 </body>
 

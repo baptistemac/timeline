@@ -1,0 +1,18 @@
+@media screen and (orientation:portrait) {
+
+	#modal {
+		.md-portrait {
+			visibility: visible;
+			.md-content {
+				@include transform( scale(1) );
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+		.overlay {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+

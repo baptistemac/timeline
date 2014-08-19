@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+@import url(http://fonts.googleapis.com/css?family=Lato);
 /* Fonts */
 /* Colors */
 /* Times */
@@ -36,30 +36,120 @@ ul {
   box-sizing: border-box;
 }
 
-/* line 14, ../sass/core.scss */
+/*
 html, body, .container, .screen {
-  height: 100%;
+	height: 100%;
 }
-
-/* line 18, ../sass/core.scss */
+*/
+/* line 20, ../sass/core.scss */
 body {
-  font: 1.4em/1.3 "Josefin Sans", "sans-serif";
-  background-color: lightgrey;
+  font: 1em/1.3 "Lato", "sans-serif";
+  background-color: whitesmoke;
+  color: #404040;
 }
 
-/* line 27, ../sass/core.scss */
+/* line 26, ../sass/core.scss */
+h1 {
+  font-size: 1.3em;
+  color: #404040;
+  font-weight: 500;
+}
+
+/* line 32, ../sass/core.scss */
+h2 {
+  padding: 20px;
+}
+
+/* line 36, ../sass/core.scss */
+a {
+  color: #42bb93;
+}
+
+/* line 42, ../sass/core.scss */
+label {
+  display: block;
+  float: left;
+  text-align: right;
+  padding: 23px 20px 0px 0;
+  width: 30%;
+}
+
+/* line 50, ../sass/core.scss */
+input {
+  width: 70%;
+  float: left;
+  font-size: 1em;
+  padding: 15px 15px;
+  margin: 10px 0;
+  border: 1px solid whitesmoke;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+/* line 58, ../sass/core.scss */
+input:focus {
+  border-color: #c9c9c9;
+}
+
+/* line 63, ../sass/core.scss */
+button {
+  margin: 20px;
+  cursor: pointer;
+}
+
+/* line 68, ../sass/core.scss */
+.btn {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
+  font-size: 1em;
+}
+/* line 73, ../sass/core.scss */
+.btn.style1 {
+  padding: 7px 15px 8px;
+  color: white;
+  background-color: #42bb93;
+}
+/* line 77, ../sass/core.scss */
+.btn.style1:hover, .btn.style1:focus {
+  background-color: #3ea684;
+}
+/* line 82, ../sass/core.scss */
+.btn.style2 {
+  padding: 6px 14px 7px;
+  color: #42bb93;
+  background: white;
+  border: 1px solid #42bb93;
+}
+/* line 87, ../sass/core.scss */
+.btn.style2:hover, .btn.style2:focus {
+  color: #3ea684;
+  border-color: #3ea684;
+}
+
+/* line 96, ../sass/core.scss */
+a, input, button {
+  outline: none;
+}
+
+/* line 105, ../sass/core.scss */
 .hide {
   display: none !important;
 }
 
-/* line 30, ../sass/core.scss */
+/* line 108, ../sass/core.scss */
 ::-moz-selection {
   background: black;
   color: #FFFFFF;
   text-shadow: none;
 }
 
-/* line 31, ../sass/core.scss */
+/* line 109, ../sass/core.scss */
 ::selection {
   background: black;
   color: #FFFFFF;
@@ -67,66 +157,50 @@ body {
   opacity: .1;
 }
 
-/* line 34, ../sass/core.scss */
+/* line 112, ../sass/core.scss */
 ::-webkit-input-placeholder {
   color: #FFFFFF;
 }
 
-/* line 35, ../sass/core.scss */
+/* line 113, ../sass/core.scss */
 :-moz-placeholder {
   color: #FFFFFF;
 }
 
-/* line 36, ../sass/core.scss */
+/* line 114, ../sass/core.scss */
 ::-moz-placeholder {
   color: #FFFFFF;
 }
 
-/* line 37, ../sass/core.scss */
+/* line 115, ../sass/core.scss */
 :-ms-input-placeholder {
   color: #FFFFFF;
 }
 
-/* line 3, ../sass/fiche.scss */
-#fiche {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 20%;
-  height: 100%;
-  background: white;
-}
-
-/* line 10, ../sass/timeline.scss */
-a.btn {
-  background: white;
-  padding: 20px;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-}
-
-/* line 16, ../sass/timeline.scss */
-.top {
+/* line 2, ../sass/header.scss */
+header {
   position: fixed;
   width: 100%;
   height: 50px;
-  background-color: #d9d9d9;
+  background-color: white;
+  z-index: 3;
 }
-/* line 21, ../sass/timeline.scss */
-.top .nav {
+/* line 9, ../sass/header.scss */
+header .burger {
   float: left;
-  width: 80px;
+  width: 45px;
   height: 100%;
+  margin: 0 5px 0 10px;
   padding: 13px 0;
+  -webkit-transition: margin 0.2s ease-in-out;
+  -moz-transition: margin 0.2s ease-in-out;
+  -o-transition: margin 0.2s ease-in-out;
+  transition: margin 0.2s ease-in-out;
 }
-/* line 26, ../sass/timeline.scss */
-.top .nav > span {
+/* line 16, ../sass/header.scss */
+header .burger > span {
   display: block;
-  width: 35px;
+  width: 25px;
   height: 2px;
   margin: 4px auto;
   -webkit-border-radius: 2px;
@@ -134,101 +208,659 @@ a.btn {
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   border-radius: 2px;
-  background-color: black;
-  -webkit-transition: width 0.08s ease-in-out;
-  -moz-transition: width 0.08s ease-in-out;
-  -o-transition: width 0.08s ease-in-out;
-  transition: width 0.08s ease-in-out;
+  background-color: #42bb93;
+  -webkit-transition: all 0.2s ease-in-out, width 0.08s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out, width 0.08s ease-in-out;
+  -o-transition: all 0.2s ease-in-out, width 0.08s ease-in-out;
+  transition: all 0.2s ease-in-out, width 0.08s ease-in-out;
 }
-/* line 36, ../sass/timeline.scss */
-.top .nav:hover > span {
-  width: 40px;
+/* line 26, ../sass/header.scss */
+header .burger:hover > span, header .burger:focus > span {
+  background-color: #3ea684;
+  width: 30px;
 }
-/* line 41, ../sass/timeline.scss */
-.top p.title {
+/* line 32, ../sass/header.scss */
+header h1 {
   display: inline-block;
-  padding: 12px 0;
+  padding: 10px 0;
 }
-/* line 45, ../sass/timeline.scss */
-.top p.date {
+/* line 36, ../sass/header.scss */
+header p.date {
   display: inline-block;
   color: #a1a1a1;
+  padding-left: 5px;
+  font-size: .95em;
 }
-/* line 49, ../sass/timeline.scss */
-.top a.edit {
+/* line 42, ../sass/header.scss */
+header a.btn {
   float: right;
-  padding: 6px 20px;
-  margin: 5px;
+  margin: 8px 8px 8px 0;
 }
 
-/* line 57, ../sass/timeline.scss */
-#themes {
+/* line 5, ../sass/nav.scss */
+.container.nav .burger > span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin-top: 11px;
+}
+/* line 9, ../sass/nav.scss */
+.container.nav .burger > span:nth-child(2) {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+/* line 12, ../sass/nav.scss */
+.container.nav .burger > span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  margin-top: -13px;
+}
+/* line 16, ../sass/nav.scss */
+.container.nav .burger ~ h1, .container.nav .burger ~ .date {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
+}
+/* line 19, ../sass/nav.scss */
+.container.nav .burger:hover ~ h1, .container.nav .burger:hover ~ .date {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
+/* line 24, ../sass/nav.scss */
+.container.nav #categories {
+  width: 1000px !important;
+  overflow: hidden;
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  -o-transform: scale(0.3);
+  transform: scale(0.3);
+  /* -webkit-transform-origin: left; */
+  -webkit-box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  -moz-transition: -moz-transform 0.3s ease-in-out;
+  -o-transition: -o-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+}
+/* line 34, ../sass/nav.scss */
+.container.nav #categories::before {
+  content: '';
+  position: absolute;
+  z-index: 5;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  border-radius: 16px;
+}
+/* line 44, ../sass/nav.scss */
+.container.nav #categories:hover::before {
+  border: 10px solid #42bb93;
+}
+
+/* line 4, ../sass/modal.scss */
+#modal .modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  max-width: 630px;
+  min-width: 320px;
+  height: auto;
+  z-index: 2000;
+  visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+/* line 17, ../sass/modal.scss */
+#modal .modal .md-content {
+  position: relative;
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -o-transform: scale(0.7);
+  transform: scale(0.7);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #404040;
+  text-align: center;
+  background-color: white;
+  margin: 0 auto;
+  padding: 40px;
+}
+/* line 29, ../sass/modal.scss */
+#modal .modal.show {
+  visibility: visible;
+}
+/* line 31, ../sass/modal.scss */
+#modal .modal.show .md-content {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  visibility: visible;
+  opacity: 1;
+}
+/* line 36, ../sass/modal.scss */
+#modal .modal.show ~ .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+/* line 43, ../sass/modal.scss */
+#modal .modal.error h2 {
+  color: #f14c4c;
+}
+/* line 46, ../sass/modal.scss */
+#modal .modal.error ~ .overlay {
+  border-color: #f14c4c;
+}
+/* line 51, ../sass/modal.scss */
+#modal .overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.94);
+  border-top: 10px solid #42bb93;
+  border-bottom: 10px solid #42bb93;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* line 2, ../sass/categories.scss */
+#categories {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 50px;
-  background: #eaeaea;
+  top: 0;
+  overflow-y: hidden;
+  z-index: 1;
+  background: white;
+}
+/* line 11, ../sass/categories.scss */
+#categories .line {
+  width: 100%;
+  height: 40px;
+  background-color: whitesmoke;
+  margin-top: 50px;
+  font-size: .8em;
+  padding-top: 11px;
+  font-weight: 500;
+}
+/* line 21, ../sass/categories.scss */
+#categories .line time, #categories .line span {
+  display: block;
+  float: left;
+  position: relative;
+  margin-right: 150px;
+  margin-left: -25px;
+  width: 50px;
+  font-size: 1.2em;
+  color: #404040;
+  text-align: center;
+}
+/* line 31, ../sass/categories.scss */
+#categories .line time::before, #categories .line span::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 1px;
+  left: 24px;
+  bottom: -10px;
+  height: 6px;
+  background-color: #a1a1a1;
+}
+/* line 44, ../sass/categories.scss */
+#categories.categories-1 > .category {
+  height: 100%;
+}
+/* line 45, ../sass/categories.scss */
+#categories.categories-2 > .category {
+  height: 50%;
+}
+/* line 46, ../sass/categories.scss */
+#categories.categories-3 > .category {
+  height: 33.33%;
+}
+/* line 47, ../sass/categories.scss */
+#categories.categories-4 > .category {
+  height: 25%;
+}
+/* line 48, ../sass/categories.scss */
+#categories.categories-5 > .category {
+  height: 20%;
+}
+/* line 49, ../sass/categories.scss */
+#categories.categories-6 > .category {
+  height: 16.66%;
+}
+/* line 50, ../sass/categories.scss */
+#categories.categories-7 > .category {
+  height: 14.28%;
+}
+/* line 51, ../sass/categories.scss */
+#categories.categories-8 > .category {
+  height: 12.5%;
+}
+/* line 52, ../sass/categories.scss */
+#categories.categories-9 > .category {
+  height: 11.11%;
+}
+/* line 53, ../sass/categories.scss */
+#categories.categories-10 > .category {
+  height: 10%;
+}
+/* line 55, ../sass/categories.scss */
+#categories .category {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid whitesmoke;
+}
+/* line 62, ../sass/categories.scss */
+#categories .category .events {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 60%;
+  font-size: .8em;
+}
+/* line 69, ../sass/categories.scss */
+#categories .category .events .name {
+  position: fixed;
+  left: 0px;
+  padding: 10px 20px 10px 10px;
+  color: #c9c9c9;
+  z-index: 3;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  background-image: -webkit-gradient(linear, to right, to left, color-stop(0%, #ffffff), color-stop(90%, rgba(255, 255, 255, 0.9)), color-stop(100%, transparent));
+  background-image: -webkit-linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
+  background-image: -moz-linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
+  background-image: -o-linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
+  background-image: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
+}
+/* line 80, ../sass/categories.scss */
+#categories .category .events .name::before {
+  content: '...';
+  position: absolute;
+  display: none;
+  left: 5px;
+  color: #c9c9c9;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+/* line 89, ../sass/categories.scss */
+#categories .category .events .name:hover::before {
+  display: block;
+}
+/* line 94, ../sass/categories.scss */
+#categories .category .events .event {
+  position: absolute;
+  bottom: 0px;
+  left: 500px;
+  max-width: 150px;
+  text-align: center;
+  font-size: .9em;
+  line-height: 1.4em;
+  color: #404040;
+  padding: 8px 8px 10px 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  z-index: 2;
+}
+/* line 109, ../sass/categories.scss */
+#categories .category .events .event time {
+  display: none;
+  position: absolute;
+  top: -18px;
+  right: -1px;
+  font-size: .75em;
+  font-weight: 700;
+  color: #c9c9c9;
+}
+/* line 121, ../sass/categories.scss */
+#categories .category .events .event::before {
+  content: '✶';
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  color: #42bb93;
+  font-size: .7em;
+  line-height: 1.6em;
+  background-color: white;
+  border: 1px solid #42bb93;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+/* line 136, ../sass/categories.scss */
+#categories .category .events .event.book::before {
+  content: '◆';
+  font-size: .7em;
+  line-height: 1.4em;
+}
+/* line 141, ../sass/categories.scss */
+#categories .category .events .event.author::before {
+  content: '♥';
+  font-size: .5em;
+  line-height: 1.9em;
+}
+/* line 147, ../sass/categories.scss */
+#categories .category .events .event::after {
+  content: '';
+  position: absolute;
+  display: none;
+  bottom: -1000px;
+  left: 50%;
+  width: 1px;
+  height: 2000px;
+  margin-left: -1px;
+  background-color: whitesmoke;
   z-index: -1;
 }
-/* line 65, ../sass/timeline.scss */
-#themes .line {
-  float: left;
-  width: 80px;
+/* line 160, ../sass/categories.scss */
+#categories .category .events .event:hover, #categories .category .events .event:focus {
+  border: 1px solid whitesmoke;
+}
+/* line 163, ../sass/categories.scss */
+#categories .category .events .event:hover time, #categories .category .events .event:focus time {
+  display: block;
+}
+/* line 164, ../sass/categories.scss */
+#categories .category .events .event:hover::after, #categories .category .events .event:focus::after {
+  display: block;
+}
+/* line 168, ../sass/categories.scss */
+#categories .category .events .event.active {
+  border: 1px solid #42bb93;
+}
+/* line 170, ../sass/categories.scss */
+#categories .category .events .event.active time {
+  display: block;
+  color: #a1a1a1;
+}
+/* line 177, ../sass/categories.scss */
+#categories .category .complements .complement {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  font-size: .8em;
+  border-top: 1px solid whitesmoke;
+  box-sizing: initial;
+}
+/* line 187, ../sass/categories.scss */
+#categories .category .complements .complement .name {
+  position: fixed;
+  padding: 12px 20px 10px 10px;
+  background-image: -webkit-gradient(linear, to right, to left, color-stop(0%, #ffffff), color-stop(90%, rgba(255, 255, 255, 0.9)), color-stop(100%, transparent));
+  background-image: -webkit-linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
+  background-image: -moz-linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
+  background-image: -o-linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
+  background-image: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
+}
+/* line 193, ../sass/categories.scss */
+#categories .category .complements .complement > span {
+  display: inline-block;
   height: 100%;
+  padding: 12px 0 0 5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 44px;
+  color: #c9c9c9;
+  border-left: 1px solid whitesmoke;
+}
+
+/* line 2, ../sass/map.scss */
+#map {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  bottom: 12px;
+  width: 99%;
+  margin: 0 0.5%;
+  height: auto;
+  padding: 10px 0;
+  background-color: #a1a1a1;
+  z-index: 2;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  cursor: pointer;
+}
+/* line 19, ../sass/map.scss */
+#map > .categorie {
+  height: 4px;
+  border-bottom: 1px solid #c9c9c9;
+  margin-bottom: 4px;
+}
+/* line 23, ../sass/map.scss */
+#map > .categorie > .event {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  margin-top: 1px;
+  background-color: white;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+/* line 30, ../sass/map.scss */
+#map > .categorie > .event::before {
+  content: '';
+  position: absolute;
+  display: none;
+  width: 12px;
+  height: 12px;
+  margin: -3px;
+  border: 1px solid white;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+/* line 40, ../sass/map.scss */
+#map > .categorie > .event.active::before {
+  display: block;
+}
+/* line 46, ../sass/map.scss */
+#map.show {
+  opacity: 1;
+  visibility: visible;
+}
+/* line 50, ../sass/map.scss */
+#map:hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* line 3, ../sass/fiche.scss */
+#fiche {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 50px;
+  width: 30%;
+  min-width: 300px;
+  max-width: 300px;
+  height: 100%;
+  padding-bottom: 50px;
+  overflow: scroll;
+  background: whitesmoke;
+  border-left: 1px solid whitesmoke;
+  z-index: 2;
+}
+/* line 18, ../sass/fiche.scss */
+#fiche.open {
+  display: block;
+}
+/* line 23, ../sass/fiche.scss */
+#fiche .fiche .fiche-top {
+  width: 100%;
+  height: 40px;
+  padding: 9px 30px;
+  background-color: whitesmoke;
+}
+/* line 29, ../sass/fiche.scss */
+#fiche .fiche .close {
+  text-indent: -99999px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+/* line 38, ../sass/fiche.scss */
+#fiche .fiche .close::before, #fiche .fiche .close::after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  right: 14px;
+  width: 2px;
+  height: 16px;
+  background: #42bb93;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* line 49, ../sass/fiche.scss */
+#fiche .fiche .close::after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+/* line 52, ../sass/fiche.scss */
+#fiche .fiche .close:hover {
   background-color: white;
 }
-/* line 72, ../sass/timeline.scss */
-#themes.themes-1 > .theme {
+/* line 59, ../sass/fiche.scss */
+#fiche .fiche .visuel {
   width: 100%;
+  max-height: 250px;
 }
-/* line 73, ../sass/timeline.scss */
-#themes.themes-2 > .theme {
-  width: 50%;
+/* line 63, ../sass/fiche.scss */
+#fiche .fiche.book .visuel {
+  display: block;
+  max-width: 30%;
+  margin: 40px auto 20px;
 }
-/* line 74, ../sass/timeline.scss */
-#themes.themes-3 > .theme {
-  width: 33.33%;
+/* line 68, ../sass/fiche.scss */
+#fiche .fiche .fiche-content {
+  padding: 0 30px;
 }
-/* line 75, ../sass/timeline.scss */
-#themes.themes-4 > .theme {
-  width: 25%;
+/* line 71, ../sass/fiche.scss */
+#fiche .fiche h2 {
+  padding: 10px 0;
+  font-size: 1.3em;
 }
-/* line 76, ../sass/timeline.scss */
-#themes.themes-5 > .theme {
-  width: 20%;
+/* line 75, ../sass/fiche.scss */
+#fiche .fiche p {
+  padding: 10px 0;
+  font-size: 0.9em;
+  line-height: 1.5em;
 }
-/* line 77, ../sass/timeline.scss */
-#themes.themes-6 > .theme {
-  width: 16.66%;
+/* line 80, ../sass/fiche.scss */
+#fiche .fiche .author {
+  color: #a1a1a1;
 }
-/* line 78, ../sass/timeline.scss */
-#themes.themes-7 > .theme {
-  width: 14.28%;
+/* line 83, ../sass/fiche.scss */
+#fiche .fiche .chapeau {
+  font-size: 1.05em;
+  font-style: italic;
+  color: #a1a1a1;
 }
-/* line 79, ../sass/timeline.scss */
-#themes.themes-8 > .theme {
-  width: 12.5%;
-}
-/* line 80, ../sass/timeline.scss */
-#themes.themes-9 > .theme {
-  width: 11.11%;
-}
-/* line 81, ../sass/timeline.scss */
-#themes.themes-10 > .theme {
-  width: 10%;
-}
-/* line 83, ../sass/timeline.scss */
-#themes .theme {
-  position: relative;
-  height: 100%;
-  float: left;
-  border: 1px solid #d9d9d9;
-}
-/* line 88, ../sass/timeline.scss */
-#themes .theme .name {
-  position: fixed;
-  right: 2%;
-  text-transform: uppercase;
-  margin: 20px;
-  font-size: 12px;
+
+@media screen and (orientation: portrait) {
+  /* line 4, ../sass/tablette.scss */
+  #modal .md-portrait {
+    visibility: visible;
+  }
+  /* line 6, ../sass/tablette.scss */
+  #modal .md-portrait .md-content {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    visibility: visible;
+    opacity: 1;
+  }
+  /* line 12, ../sass/tablette.scss */
+  #modal .overlay {
+    opacity: 1;
+    visibility: visible;
+  }
 }

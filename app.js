@@ -34,9 +34,13 @@ app.listen(port, function() {
 function Routes() {
   
   // Défintion des variables utiles
-  var jsonfile = "./data/data.json";
+  var timeline_folder   = "./data/timeline";
+  var complement_folder = "./data/complement";
+
+  //var jsonfile = "./data/data.json";
   var backupfile = "./data/backup/data_"+get_today()+".json";
   
+  /*
   // POST screens
   app.post('/data', function(req, res){
     console.log("post");
@@ -59,12 +63,14 @@ function Routes() {
     res.json(json);
 
   });
+  */
 
-  // GET data
-  app.get('/data', function(req, res){
-    console.log("get data");
+  // GET timeline
+  app.get('/timeline/:id', function(req, res){
+    var id = req.params.id;
+    console.log("get data", timeline_folder, id );
     var data = {};
-    fs.readFile( jsonfile, "utf8", function (err, data) {
+    fs.readFile( timeline_folder+"/"+id+".json", "utf8", function (err, data) {
       if (err) throw err;
       data = JSON.parse(data);
       console.log("data", data);
@@ -73,10 +79,21 @@ function Routes() {
     
   });
 
-  app.get('/admin*', function(req, res){
-    res.sendfile( __dirname + '/public/admin/admin.html' );
+  // GET complements
+  app.get('/complements/:id', function(req, res){
+    var id = req.params.id;
+    console.log("get data", complement_folder, id );
+    var data = {};
+    fs.readFile( complement_folder+"/"+id+".json", "utf8", function (err, data) {
+      if (err) throw err;
+      data = JSON.parse(data);
+      console.log("data", data);
+      res.json(data);
+    });
+    
   });
 
+  
   // Fontions utiles
 
   function get_today () {
