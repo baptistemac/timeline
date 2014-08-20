@@ -1,3 +1,8 @@
+.timeline {
+	overflow: scroll;
+	position: relative;
+}
+
 
 #categories {
 	width: 100%;
@@ -22,7 +27,7 @@
 			display: block;
 			float: left;
 			position: relative;
-			margin-right: 150px;
+			margin-right: 175px;
 			margin-left: -25px;
 			width: 50px;
 			font-size: 1.2em;
@@ -63,7 +68,7 @@
 			position: absolute;
 			top: 0px;
 			width: 100%;
-			height: 60%;
+			height: 70%;
 			font-size: .8em;
 			//background: rgba(0,0,0,.2);
 			.name {
@@ -95,7 +100,8 @@
 				position: absolute;
 				bottom: 0px;
 				left: 500px;
-				max-width: 150px;
+				width: 120px;
+				margin-left: -60px;
 				//max-height: 20px;
 				text-align: center;
 				font-size: .9em;
@@ -143,6 +149,24 @@
 					font-size: .5em;
 					line-height: 1.9em;
 				}
+				&.period {
+					background: $grey4;
+					padding: 5px;
+					@include border-radius(0);
+					border-color: transparent;
+					margin-left: 0;
+					&::before {
+						display: none;
+					}
+					&::after {
+						left: 0%;
+						width: 100%;
+						border-left: 1px solid $grey4;
+						border-right: 1px solid $grey4;
+						background-color: transparent;
+
+					}
+				}
 				// ligne verticale
 				&::after {
 					content: '';
@@ -157,7 +181,7 @@
 					z-index: -1;
 				}
 				
-				&:hover, &:focus {
+				&:hover, &:focus, &.active {
 					//color: $mainColor;
 					border: 1px solid $grey4;
 					time { display: block; }
@@ -178,28 +202,44 @@
 				position: absolute;
 				bottom: 0;
 				width: 100%;
-				height: 40%;
+				height: 30%;
 				font-size: .8em;
 				//background: rgba(0,0,0,.2);
 				border-top: 1px solid $grey4;
 				//border-bottom: 1px solid $grey4;
 				box-sizing: initial;
-				.name {
+				.name, .add_complement {
 					position: fixed;
+					margin-top: -1px;
+					font-size: .9em;
 					//background: white;
 					padding: 12px 20px 10px 10px;
 					@include background-image(linear-gradient(to right, white, rgba(255,255,255,0.9) 90%, transparent));
+					z-index: 1;
 				}
 				> span {
+					position: absolute;
 					display: inline-block;
 					height: 100%;
-					padding: 12px 0 0 5px;
+					padding: 10px 0 0 5px;
 					text-overflow: ellipsis;
 					overflow: hidden;
 					width: 44px;
 					color: $grey3;
 					border-left: 1px solid $grey4;
+					border-right: 1px solid $grey4;
+					&:hover {
+						background-color: $grey4;
+					}
 				}
+			}
+		}
+
+		// sur .category :
+		&.active {
+			//border-color: $grey4;
+			.events .name {
+				color: $grey1;
 			}
 		}
 	}

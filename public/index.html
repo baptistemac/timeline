@@ -33,67 +33,78 @@
     <script type="text/template" id="categories_template">
 
       <div class="line">
-        <time datetime="1880">1880</time>
-        <span>1890</span>
-        <span>1900</span>
-        <span>1910</span>
-        <span>1920</span>
-        <span>1930</span>
-        <span>1940</span>
-        <span>1950</span>
-        <span>1960</span>
-        <span>1970</span>
-        <span>1980</span>
-      </div>
-      
-      {{#categories}}
-      <div class="category" data-id="{{id}}">
-          
-        <div class="events">
-          <span class="name">{{name}}</span>
-          {{#events}}
-            <a href="#" class="event {{type}}" data-id="{{id}}" style="left:{{left}}px">{{title}}<time datetime="{{date.start}}">{{date.start}}</time></a>
-          {{/events}}
-        </div>
-        
-        <ul class="complements">
-          <li class="complement">
-            <a href="#" class="add_complement name">Présidents</a>
-            <span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span><span class="">Fillmore</span>
-          </li>
-        </ul>
+      {{#dates}}
+        <time datetime="{{.}}">{{.}}</time>
+      {{/dates}}
 
       </div>
+
+      {{#categories}}
+        <div class="category" id="cat-{{id}}"></div>
       {{/categories}}
 
     </script>
 
-    <div id="categories"></div>
-
-
-
+  <!--
+<span>1890</span>
+<span>1900</span>
+<span>1910</span>
+<span>1920</span>
+<span>1930</span>
+<span>1940</span>
+<span>1950</span>
+<span>1960</span>
+<span>1970</span>
+<span>1980</span>
+  -->
 
     <!-- -->
     <script type="text/template" id="category_template">
       
-      <div class="category" data-id="{{id}}">
-          
         <div class="events">
           <span class="name">{{name}}</span>
           {{#events}}
-            <a href="#" class="event {{type}}" data-id="{{id}}" style="left:{{left}}px">{{title}}<time datetime="{{date.start}}">{{date.start}}</time></a>
+            <a href="#" class="event {{type}}" data-id="{{id}}" style="left:{{left}}px; width:{{width}}px;">{{title}}<time datetime="{{date.start}}">{{date.start}}</time></a>
           {{/events}}
         </div>
         
         <ul class="complements">
+        {{#complements}}
           <li class="complement">
-            <a href="#" class="add_complement name">Présidents</a>
+            <a href="#" class="add_complement name" title="{{name}}">{{shortname}}</a>
+            {{#events}}
+              <span style="left:{{left}}px; width:{{width}}px;" title="{{title}}">{{#shorttitle}}{{shorttitle}}{{/shorttitle}}{{^shorttitle}}{{title}}{{/shorttitle}}</span>
+            {{/events}}
           </li>
+          {{/complements}}
+          {{^complements}}
+            <li class="complement">
+              <a href="#" class="add_complement">Complément</a>
+            </li>
+          {{/complements}}
+
         </ul>
 
-      </div>
+    </script>
+
+
+
+    <!-- -->
+    <script type="text/template" id="complement_template">
+    
+      <li class="complement">
+        <a href="#" class="add_complement name" title="{{name}}">{{shortname}}</a>
+        {{#events}}
+          <span>{{title}}</span>
+        {{/events}}
+      </li>
 
     </script>
+
+
+    <div id="categories">
+    </div>
+
 
 
 
@@ -104,7 +115,7 @@
         {{#date.end}}<time datetime="{{date.end}}">- {{date.end}}</time>{{/date.end}}
         <a class="close" href="#">close</a>
       </div>
-      {{#img}}<img src="./img/media/{{img}}" alt="{{title}}" class="visuel">{{/img}}
+      {{#img}}<div class="visuel" style="background-image: url('./img/media/{{img}}');"></div>{{/img}}
       <div class="fiche-content">
         <h2>{{title}}</h2>
         {{#author}}<p class="author">{{author}}</p>{{/author}}

@@ -43,9 +43,6 @@ yepnope({
       //collection: itemscollection
       });
 
-      //Backbone.history.start();
-
-
     });
 
   } // Fin de complete

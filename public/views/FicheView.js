@@ -2,17 +2,18 @@ var TimeLine = (function(timeline) {
 
   timeline.Views.FicheView = Backbone.View.extend({
 
-    el: $("#fiche"),
+    el: "#fiche",
 
 
     initialize: function() {
       console.log("FicheView initialize");
       this.template = $("#fiche_template").html();
+      this.is_open = false;
     },
 
-    render: function( event ) {
-      console.log("FicheView render", event);
-      var renderedContent = Mustache.to_html( this.template , event );
+    render: function() {
+      console.log("FicheView render");
+      var renderedContent = Mustache.to_html( this.template , this.event );
       this.$el.html(renderedContent);
     },
 
@@ -21,16 +22,30 @@ var TimeLine = (function(timeline) {
     },
 
 
-    open_fiche: function ( id ) {
+    open_fiche: function ( id , add_class) {
       
       // Ajout des .active sur #themes et #map
-      mainView.categoriesView.add_active_class( id, null);
+      //mainView.categoriesView.add_active_class( id, null);
 
-      var event = this.find_id( id );
-      this.render( event );
+      this.id = id;
+
+      this.find_data( id );
+
+      this.render();
+
+      this.is_open = true;
+      this.$el.addClass("open");
+
+      if ( add_class ) {
+        var categoryview = _.where(  mainView.categoriesView.subviews_arr , { "id": this.category_id })[0];
+        categoryview.add_event_class( this.id, null );
+        categoryview.add_category_class();
+        mainView.mapView.active_id( this.id );
+      }
+
       // Todo: Si l'event sera caché par la fiche : if ( body.width - event.pos.x ) < ( fiche.width + 50 )
       // alors on décal le scroll de Xpx vers la gauche.
-      $(this.el).addClass("open");
+      
       // Pour éviter de cacher une partie de la timeline avec la fiche,
       // nous pourrions mettre #fiche à 25%, #themes à 75% et un enfant de theme avec width="2001px".
       // C'est une solution pure css. A tester.
@@ -40,16 +55,22 @@ var TimeLine = (function(timeline) {
     },
 
     close_fiche: function () {
-      $(this.el).removeClass("open");
-      $("#categories").find(".event.active").removeClass("active");
+      this.is_open = false;
+      this.$el.removeClass("open")
+      .siblings("#categories").find(">.active").removeClass("active")
+      .find(".events > .active").removeClass("active");
     },
 
 
-    find_id: function ( id ) {
+    find_data: function ( id ) {
       var res, i; var cats_length = mainView.tl.categories.length;
       for ( i=0 ; i < cats_length ; i++ ) {
         res = _.where( mainView.tl.categories[i].events , { "id": id } )[0];
-        if ( res ) return res;
+        if ( res ) {
+          this.category_id = mainView.tl.categories[i].id;
+          this.event = res;
+          return;
+        }
       }
     }
 

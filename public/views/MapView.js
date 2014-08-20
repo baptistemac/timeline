@@ -26,15 +26,15 @@ var TimeLine = (function(timeline) {
     },
 
     show: function () {
-      $(this.el).addClass("show");
+      this.$el.addClass("show");
     },
 
     hide : function () {
-      $(this.el).removeClass("show");
+      this.$el.removeClass("show");
     },
 
     active_id: function ( id ) {
-      $(this.el).find(".event.active").removeClass("active").end()
+      this.$el.find(".event.active").removeClass("active").end()
       .find('.event[data-id='+id+']').addClass("active");
     }
 

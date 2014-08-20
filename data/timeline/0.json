@@ -3,7 +3,7 @@
 	"settings": {
 		"title": "Histoire de la sédition",
 		"date": { "start": "1880", "end": "1980" },
-		"echelle_1an": 20,
+		"scale_1year_in_px": 20,
 		"last_save": "2014-08-13 21:00"
 	},
 
@@ -14,7 +14,7 @@
 	    	"id": 0,
 	    	"name": "Global",
 	    	"events": [
-	    		{"id":1, "title":"1ère guerre mondiale", "date": { "start":"1914-01-01", "end":"1918-08-08" }, "img":"premiere-guerre-mondiale.jpg" }
+	    		{"id":1, "title":"1ère guerre mondiale", "type":"period", "date": { "start":"1914-01-01", "end":"1918-08-08" }, "img":"premiere-guerre-mondiale.jpg" }
 	    	],
 	    	"pos": 0
 	    },

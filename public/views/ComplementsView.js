@@ -6,10 +6,15 @@ var TimeLine = (function(timeline) {
     initialize: function() {
       console.log("ComplementsView initialize");
 
+      this.template = $("#complement_template").html();
+      this.render();
+
     },
 
     render: function() {
       console.log("ComplementsView render");
+
+      this.getComplement( this.id );
 
     },
 
@@ -21,11 +26,13 @@ var TimeLine = (function(timeline) {
         url: '/complements/'+id,
         error: function (err) {
           console.log("[Error] Impossible de récupérer le fichier JSON.", err);
-          var error = { "title":"Oops. Un problème est survenu.", "message":"Impossible de récupèrer le fichier JSON." };
-          that.mainView.modalView.show_error( error );
+          var error = { "title":"Oops. Un problème est survenu.", "message":"Impossible de récupèrer le complément." };
+          mainView.modalView.show_error( error );
         },
         success: function (comp) {
           console.log("comp", comp);
+          that.complement = comp;
+          that.display_complement();
           //that.mainView.comp = comp;
           //that.instantiation();
           //that.render();
@@ -33,9 +40,12 @@ var TimeLine = (function(timeline) {
       });
     },
 
-    display_complement : function ( id ) {
-      console.log("display_complement", id);
-      this.getComplement( id );
+    display_complement : function () {
+      console.log("display_complement", this.complement );
+      
+      var renderedContent = Mustache.to_html( this.template , this.complement );
+      this.$el.html( renderedContent );
+      this.delegateEvents();
 
     }
 

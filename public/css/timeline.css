@@ -36,11 +36,11 @@ ul {
   box-sizing: border-box;
 }
 
-/*
-html, body, .container, .screen {
-	height: 100%;
+/* line 15, ../sass/core.scss */
+html, body, .container, .timeline {
+  height: 100%;
 }
-*/
+
 /* line 20, ../sass/core.scss */
 body {
   font: 1em/1.3 "Lato", "sans-serif";
@@ -402,7 +402,13 @@ header a.btn {
   transition: all 0.3s;
 }
 
-/* line 2, ../sass/categories.scss */
+/* line 1, ../sass/categories.scss */
+.timeline {
+  overflow: scroll;
+  position: relative;
+}
+
+/* line 7, ../sass/categories.scss */
 #categories {
   width: 100%;
   height: 100%;
@@ -412,7 +418,7 @@ header a.btn {
   z-index: 1;
   background: white;
 }
-/* line 11, ../sass/categories.scss */
+/* line 16, ../sass/categories.scss */
 #categories .line {
   width: 100%;
   height: 40px;
@@ -422,19 +428,19 @@ header a.btn {
   padding-top: 11px;
   font-weight: 500;
 }
-/* line 21, ../sass/categories.scss */
+/* line 26, ../sass/categories.scss */
 #categories .line time, #categories .line span {
   display: block;
   float: left;
   position: relative;
-  margin-right: 150px;
+  margin-right: 175px;
   margin-left: -25px;
   width: 50px;
   font-size: 1.2em;
   color: #404040;
   text-align: center;
 }
-/* line 31, ../sass/categories.scss */
+/* line 36, ../sass/categories.scss */
 #categories .line time::before, #categories .line span::before {
   content: '';
   position: absolute;
@@ -445,61 +451,61 @@ header a.btn {
   height: 6px;
   background-color: #a1a1a1;
 }
-/* line 44, ../sass/categories.scss */
+/* line 49, ../sass/categories.scss */
 #categories.categories-1 > .category {
   height: 100%;
 }
-/* line 45, ../sass/categories.scss */
+/* line 50, ../sass/categories.scss */
 #categories.categories-2 > .category {
   height: 50%;
 }
-/* line 46, ../sass/categories.scss */
+/* line 51, ../sass/categories.scss */
 #categories.categories-3 > .category {
   height: 33.33%;
 }
-/* line 47, ../sass/categories.scss */
+/* line 52, ../sass/categories.scss */
 #categories.categories-4 > .category {
   height: 25%;
 }
-/* line 48, ../sass/categories.scss */
+/* line 53, ../sass/categories.scss */
 #categories.categories-5 > .category {
   height: 20%;
 }
-/* line 49, ../sass/categories.scss */
+/* line 54, ../sass/categories.scss */
 #categories.categories-6 > .category {
   height: 16.66%;
 }
-/* line 50, ../sass/categories.scss */
+/* line 55, ../sass/categories.scss */
 #categories.categories-7 > .category {
   height: 14.28%;
 }
-/* line 51, ../sass/categories.scss */
+/* line 56, ../sass/categories.scss */
 #categories.categories-8 > .category {
   height: 12.5%;
 }
-/* line 52, ../sass/categories.scss */
+/* line 57, ../sass/categories.scss */
 #categories.categories-9 > .category {
   height: 11.11%;
 }
-/* line 53, ../sass/categories.scss */
+/* line 58, ../sass/categories.scss */
 #categories.categories-10 > .category {
   height: 10%;
 }
-/* line 55, ../sass/categories.scss */
+/* line 60, ../sass/categories.scss */
 #categories .category {
   position: relative;
   width: 100%;
   border-bottom: 1px solid whitesmoke;
 }
-/* line 62, ../sass/categories.scss */
+/* line 67, ../sass/categories.scss */
 #categories .category .events {
   position: absolute;
   top: 0px;
   width: 100%;
-  height: 60%;
+  height: 70%;
   font-size: .8em;
 }
-/* line 69, ../sass/categories.scss */
+/* line 74, ../sass/categories.scss */
 #categories .category .events .name {
   position: fixed;
   left: 0px;
@@ -515,7 +521,7 @@ header a.btn {
   background-image: -o-linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
   background-image: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
 }
-/* line 80, ../sass/categories.scss */
+/* line 85, ../sass/categories.scss */
 #categories .category .events .name::before {
   content: '...';
   position: absolute;
@@ -528,16 +534,17 @@ header a.btn {
   -o-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-/* line 89, ../sass/categories.scss */
+/* line 94, ../sass/categories.scss */
 #categories .category .events .name:hover::before {
   display: block;
 }
-/* line 94, ../sass/categories.scss */
+/* line 99, ../sass/categories.scss */
 #categories .category .events .event {
   position: absolute;
   bottom: 0px;
   left: 500px;
-  max-width: 150px;
+  width: 120px;
+  margin-left: -60px;
   text-align: center;
   font-size: .9em;
   line-height: 1.4em;
@@ -552,7 +559,7 @@ header a.btn {
   border-radius: 2px;
   z-index: 2;
 }
-/* line 109, ../sass/categories.scss */
+/* line 115, ../sass/categories.scss */
 #categories .category .events .event time {
   display: none;
   position: absolute;
@@ -562,7 +569,7 @@ header a.btn {
   font-weight: 700;
   color: #c9c9c9;
 }
-/* line 121, ../sass/categories.scss */
+/* line 127, ../sass/categories.scss */
 #categories .category .events .event::before {
   content: '✶';
   position: absolute;
@@ -582,19 +589,43 @@ header a.btn {
   -o-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 136, ../sass/categories.scss */
+/* line 142, ../sass/categories.scss */
 #categories .category .events .event.book::before {
   content: '◆';
   font-size: .7em;
   line-height: 1.4em;
 }
-/* line 141, ../sass/categories.scss */
+/* line 147, ../sass/categories.scss */
 #categories .category .events .event.author::before {
   content: '♥';
   font-size: .5em;
   line-height: 1.9em;
 }
-/* line 147, ../sass/categories.scss */
+/* line 152, ../sass/categories.scss */
+#categories .category .events .event.period {
+  background: whitesmoke;
+  padding: 5px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  border-color: transparent;
+  margin-left: 0;
+}
+/* line 158, ../sass/categories.scss */
+#categories .category .events .event.period::before {
+  display: none;
+}
+/* line 161, ../sass/categories.scss */
+#categories .category .events .event.period::after {
+  left: 0%;
+  width: 100%;
+  border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+  background-color: transparent;
+}
+/* line 171, ../sass/categories.scss */
 #categories .category .events .event::after {
   content: '';
   position: absolute;
@@ -607,57 +638,70 @@ header a.btn {
   background-color: whitesmoke;
   z-index: -1;
 }
-/* line 160, ../sass/categories.scss */
-#categories .category .events .event:hover, #categories .category .events .event:focus {
+/* line 184, ../sass/categories.scss */
+#categories .category .events .event:hover, #categories .category .events .event:focus, #categories .category .events .event.active {
   border: 1px solid whitesmoke;
 }
-/* line 163, ../sass/categories.scss */
-#categories .category .events .event:hover time, #categories .category .events .event:focus time {
+/* line 187, ../sass/categories.scss */
+#categories .category .events .event:hover time, #categories .category .events .event:focus time, #categories .category .events .event.active time {
   display: block;
 }
-/* line 164, ../sass/categories.scss */
-#categories .category .events .event:hover::after, #categories .category .events .event:focus::after {
+/* line 188, ../sass/categories.scss */
+#categories .category .events .event:hover::after, #categories .category .events .event:focus::after, #categories .category .events .event.active::after {
   display: block;
 }
-/* line 168, ../sass/categories.scss */
+/* line 192, ../sass/categories.scss */
 #categories .category .events .event.active {
   border: 1px solid #42bb93;
 }
-/* line 170, ../sass/categories.scss */
+/* line 194, ../sass/categories.scss */
 #categories .category .events .event.active time {
   display: block;
   color: #a1a1a1;
 }
-/* line 177, ../sass/categories.scss */
+/* line 201, ../sass/categories.scss */
 #categories .category .complements .complement {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 40%;
+  height: 30%;
   font-size: .8em;
   border-top: 1px solid whitesmoke;
   box-sizing: initial;
 }
-/* line 187, ../sass/categories.scss */
-#categories .category .complements .complement .name {
+/* line 211, ../sass/categories.scss */
+#categories .category .complements .complement .name, #categories .category .complements .complement .add_complement {
   position: fixed;
+  margin-top: -1px;
+  font-size: .9em;
   padding: 12px 20px 10px 10px;
   background-image: -webkit-gradient(linear, to right, to left, color-stop(0%, #ffffff), color-stop(90%, rgba(255, 255, 255, 0.9)), color-stop(100%, transparent));
   background-image: -webkit-linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
   background-image: -moz-linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
   background-image: -o-linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
   background-image: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9) 90%, transparent);
+  z-index: 1;
 }
-/* line 193, ../sass/categories.scss */
+/* line 220, ../sass/categories.scss */
 #categories .category .complements .complement > span {
+  position: absolute;
   display: inline-block;
   height: 100%;
-  padding: 12px 0 0 5px;
+  padding: 10px 0 0 5px;
   text-overflow: ellipsis;
   overflow: hidden;
   width: 44px;
   color: #c9c9c9;
   border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+}
+/* line 231, ../sass/categories.scss */
+#categories .category .complements .complement > span:hover {
+  background-color: whitesmoke;
+}
+/* line 241, ../sass/categories.scss */
+#categories .category.active .events .name {
+  color: #404040;
 }
 
 /* line 2, ../sass/map.scss */
@@ -809,34 +853,38 @@ header a.btn {
 /* line 59, ../sass/fiche.scss */
 #fiche .fiche .visuel {
   width: 100%;
-  max-height: 250px;
+  height: 250px;
+  overflow: hidden;
+  background-position: center center;
+  background-size: cover;
 }
-/* line 63, ../sass/fiche.scss */
+/* line 66, ../sass/fiche.scss */
 #fiche .fiche.book .visuel {
-  display: block;
-  max-width: 30%;
-  margin: 40px auto 20px;
+  height: 200px;
+  margin: 40px 0 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-/* line 68, ../sass/fiche.scss */
+/* line 72, ../sass/fiche.scss */
 #fiche .fiche .fiche-content {
   padding: 0 30px;
 }
-/* line 71, ../sass/fiche.scss */
+/* line 75, ../sass/fiche.scss */
 #fiche .fiche h2 {
-  padding: 10px 0;
+  padding: 20px 0 15px;
   font-size: 1.3em;
 }
-/* line 75, ../sass/fiche.scss */
+/* line 79, ../sass/fiche.scss */
 #fiche .fiche p {
   padding: 10px 0;
   font-size: 0.9em;
   line-height: 1.5em;
 }
-/* line 80, ../sass/fiche.scss */
+/* line 84, ../sass/fiche.scss */
 #fiche .fiche .author {
   color: #a1a1a1;
 }
-/* line 83, ../sass/fiche.scss */
+/* line 87, ../sass/fiche.scss */
 #fiche .fiche .chapeau {
   font-size: 1.05em;
   font-style: italic;
