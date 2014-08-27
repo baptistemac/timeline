@@ -1,7 +1,8 @@
 #timeline {
 	display: none;
-	//overflow: scroll;
-	//position: relative;
+	overflow: scroll;
+	position: relative;
+	
 	&.show {
 		display: block;
 	}

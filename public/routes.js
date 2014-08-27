@@ -32,6 +32,8 @@ var TimeLine = (function(timeline) {
 
     timeline: function ( id ) {
       console.log("root timeline", id);
+      mainView.homeView.hide();
+      mainView.profilView.hide();
       mainView.tlView.getTimeline( id );
     },
 

@@ -59,7 +59,7 @@
       <input type="search" class="search_in_collection" placeholder="Rechercher">
       <ul>
         {{#timelines}}
-          <li class="mini_tl"><a href="timeline/{{id}}">{{name}}</a></li>
+          <li class="mini_tl"><a href="/timeline/{{id}}">{{name}}</a></li>
         {{/timelines}}
       </ul>
     </div>
@@ -95,7 +95,7 @@
 
   <div id="timeline">
   
-  
+
     <!-- -->
     <script type="text/template" id="tl_template">
 
@@ -170,7 +170,7 @@
         {{#date.end}}<time datetime="{{date.end}}">- {{date.end}}</time>{{/date.end}}
         <a class="close" href="#">close</a>
       </div>
-      {{#img}}<div class="visuel" style="background-image: url('./img/media/{{img}}');"></div>{{/img}}
+      {{#img}}<div class="visuel" style="background-image: url('../img/media/{{img}}');"></div>{{/img}}
       <div class="fiche-content">
         <h2>{{title}}</h2>
         {{#author}}<p class="author">{{author}}</p>{{/author}}

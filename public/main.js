@@ -1,33 +1,35 @@
 yepnope({
   load: {
-    jquery          : 'libs/vendors/jquery-1.10.2.js',
-    underscore      : 'libs/vendors/underscore.js',
-    backbone        : 'libs/vendors/backbone.js',
-    mustache        : 'libs/vendors/mustache.js',
+    jquery            : 'libs/vendors/jquery-1.10.2.js',
+    underscore        : 'libs/vendors/underscore.js',
+    backbone          : 'libs/vendors/backbone.js',
+    mustache          : 'libs/vendors/mustache.js',
     
     //NameSpace
-    timeline        : 'TimeLine.js',
+    timeline          : 'TimeLine.js',
     
     //Models
-    tl              : 'models/tl.js',
+    tl                : 'models/tl.js',
     
     //Controllers
-    mainview        : 'views/MainView.js',
-    headerview      : 'views/HeaderView.js',
-    modalview       : 'views/ModalView.js',
-    homeview        : 'views/HomeView.js',
-    profilview      : 'views/ProfilView.js',
-    tlview          : 'views/TlView.js',
-
-    navview         : 'views/NavView.js',
-    categoryview    : 'views/CategoryView.js',
-    complementsview : 'views/ComplementsView.js',
-    mapview         : 'views/MapView.js',
-    ficheview       : 'views/FicheView.js',
-    handlecompview  : 'views/HandlecompView.js',
+    mainview          : 'views/MainView.js',
     
+    headerview        : 'views/HeaderView.js',
+    modalview         : 'views/ModalView.js',
+    
+    homeview          : 'views/HomeView.js',
+    profilview        : 'views/ProfilView.js',
+
+    tlview            : 'views/TlView.js',
+    tlcategoryview    : 'views/TlCategoryView.js',
+    tlcomplementsview : 'views/TlComplementsView.js',
+    tlmapview         : 'views/TlMapView.js',
+    tlficheview       : 'views/TlFicheView.js',
+    tlcompview        : 'views/TlCompView.js',
+    //navview         : 'views/NavView.js',
+
     //Routes
-    routes          : 'routes.js'
+    routes            : 'routes.js'
 
   },
 

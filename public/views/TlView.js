@@ -15,7 +15,7 @@ var TimeLine = (function(timeline) {
 
       //this.complementsView  = new TimeLine.Views.ComplementsView();
       this.mapView          = new TimeLine.Views.MapView();
-      this.ficheView        = new TimeLine.Views.FicheView();
+      this.ficheView        = new TimeLine.Views.FicheView( { parent: this } );
       this.handlecompView   = new TimeLine.Views.HandlecompView();
 
     },
