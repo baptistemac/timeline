@@ -1,0 +1,13 @@
+
+#profil {
+	display: none;
+	z-index: 4;
+	margin: 100px;
+	&.show {
+		display: block;
+	}
+}
+
+.delete_account {
+	color: $red;
+}

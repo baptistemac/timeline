@@ -11,13 +11,17 @@ var TimeLine = (function(timeline) {
     routes: {
       "edit"          : "edit",
       "hello"         : "hello",
+      "login"         : "login",
+      "timeline/:id"  : "timeline",
       "*path"         : "root"
     },
 
     root: function() {
-      var that = this;
-      console.log("Routes root");
+      console.log("root *");
+      mainView.homeView.render();
+
       /*
+      var that = this;
       this.collection.all().fetch({
         success: function(result) {
          mainView.render(result);
@@ -26,8 +30,17 @@ var TimeLine = (function(timeline) {
       */
     },
 
+    timeline: function ( id ) {
+      console.log("root timeline", id);
+      mainView.tlView.getTimeline( id );
+    },
+
     edit: function () {
       $("h1").html("Edit");
+    },
+
+    login: function () {
+      console.log("root login");
     },
 
     hello: function() {

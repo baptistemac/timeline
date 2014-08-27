@@ -9,18 +9,22 @@ yepnope({
     timeline        : 'TimeLine.js',
     
     //Models
-    //objets          : 'models/objects.js',
+    tl              : 'models/tl.js',
     
     //Controllers
     mainview        : 'views/MainView.js',
     headerview      : 'views/HeaderView.js',
-    navview         : 'views/NavView.js',
     modalview       : 'views/ModalView.js',
+    homeview        : 'views/HomeView.js',
+    profilview      : 'views/ProfilView.js',
+    tlview          : 'views/TlView.js',
+
+    navview         : 'views/NavView.js',
     categoryview    : 'views/CategoryView.js',
-    categoriesview  : 'views/CategoriesView.js',
     complementsview : 'views/ComplementsView.js',
     mapview         : 'views/MapView.js',
     ficheview       : 'views/FicheView.js',
+    handlecompview  : 'views/HandlecompView.js',
     
     //Routes
     routes          : 'routes.js'

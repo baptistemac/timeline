@@ -15,21 +15,32 @@ var TimeLine = (function(timeline) {
     render: function( md_content ) {
       console.log("ModalView render", md_content);
 
-      var md_content = md_content || {};
-      var renderedContent = Mustache.to_html( this.template , md_content );
+      this.md_content = md_content || {};
+      var renderedContent = Mustache.to_html( this.template ,this.md_content );
       this.$el.html(renderedContent);
 
     },
 
 
     events : {
-      "click a.close"     : "remove_modal",
-      "click .overlay"    : "remove_modal"
+      "click .login"      : "login",
+
+      "click a.close"     : "close_modal",
+      "click .overlay"    : "overlay_remove"
     },
 
-    remove_modal : function (e) {
+    // Si je clique explicitement sur Annuler. Permet d'éviter les annulation involontaire en cliquant sur l'overlay. 
+    close_modal : function (e) {
       if (e) { e.preventDefault(); }
-      $(this.el).find(".modal").removeClass("show error");
+      this.$el.find(".modal").removeClass("show error");
+      //this.render( {} ); // Marche pas // Permet de toujours regénérer les modal. Car sinon le autofus du input ne se relance pas.
+    },
+
+    // Si je clique sur l'overlay.
+    overlay_remove : function () {
+      console.log("ModalView overlay_remove", this.md_content.overlay_remove);
+      if ( this.md_content.overlay_remove || this.md_content.overlay_remove == undefined ) 
+        this.$el.find(".modal").removeClass("show error");
     },
 
     show_error: function( error ) {
@@ -39,11 +50,40 @@ var TimeLine = (function(timeline) {
     },
 
     show_login: function () {
+      console.log("ModalView show_login");
       var login = {};
       login.title = "Connectez-vous";
-      login.message = '<form><label for="identifiant">Identifiant</label><input type="text" id="identifiant" placeholder="Identifiant"><label for="password">Mot de passe</label><input type="password" id="password" placeholder="Mot de passe"><button class="btn style1" type="submit" name="connection">Connection</button></form><a href="close" class="close">Annuler</a>';
+      login.message = '<form><label for="identifiant">Identifiant</label><input type="text" id="identifiant" placeholder="Identifiant" autofocus><label for="password">Mot de passe</label><input type="password" id="password" placeholder="Mot de passe"><button class="btn style1 login" type="submit" name="connection">Connection</button></form><a href="close" class="close">Annuler</a>';
       login.show = true;
       this.render( login );
+    },
+
+    login: function (e) {
+      e.preventDefault();
+      console.log("ModalView login");
+      mainView.log = {
+        is_logged : true,
+        id        : "Baptiste",
+        courriel  : "baptiste.mac@gmail.com",
+        timelines : [
+                      { "id": 0, "name": "Histoire de la sédition" },
+                      { "id": 1, "name": "La guerre en Irak" }
+                    ]
+      };
+      this.close_modal();
+      mainView.headerView.render();
+      mainView.homeView.render();
+
+    },
+
+    show_create: function () {
+      console.log("ModalView show_login");
+      var create = {};
+      create.title = "Créer une nouvelle timeline";
+      create.message = '<form><label for="title">Titre</label><input type="text" id="title" placeholder="Titre" autofocus required><label for="startdate">Année de début</label><input type="text" pattern="\\d*" id="startdate" placeholder="Année de début" required><label for="enddate">Année de fin</label><input type="text" pattern="\\d*" id="enddate" placeholder="Année de fin" required><button class="btn style1" type="submit" name="create">Créer</button></form><a href="close" class="close">Annuler</a>';
+      create.overlay_remove = false;
+      create.show = true;
+      this.render( create );
     },
 
     show_portrait: function () {

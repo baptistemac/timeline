@@ -3,6 +3,7 @@ Déclaration des librairies
 --------------------------------------------*/
 var express = require('express');
 var logfmt = require("logfmt");
+var infobox = require('wiki-infobox');
 var fs = require('fs');
 var app = module.exports = express();
 
@@ -65,6 +66,7 @@ function Routes() {
   });
   */
 
+  
   // GET timeline
   app.get('/timeline/:id', function(req, res){
     var id = req.params.id;
@@ -91,6 +93,28 @@ function Routes() {
       res.json(data);
     });
     
+  });
+
+
+
+
+  app.get('/wiki', function(req, res){
+
+    var data = {};
+    var page = req.params.page;
+    var language = req.params.language;
+
+    //var page = 'Ronald Reagan';
+    //var language = 'en';
+
+    infobox(page, language, function(err, data){
+      if (err) {
+        // Oh no! Something goes wrong!
+        return;
+      }
+      console.log(data);
+      res.json(data);
+    });
   });
 
   

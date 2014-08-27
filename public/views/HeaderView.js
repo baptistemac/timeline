@@ -4,18 +4,23 @@ var TimeLine = (function(timeline) {
 
     el: $("#header"),
 
-    initialize: function() {
+    initialize: function( options ) {
 
       console.log("HeaderView initialize");
       this.template = $("#header_template").html();
-      //this.render();
+      this.parent = options.parent;
 
     },
 
     render: function() {
 
-      console.log("HeaderView render");
-      var renderedContent = Mustache.to_html( this.template, mainView.tl.settings );
+      console.log( "HeaderView render", this.parent.log ); 
+
+      var res       = {};
+      res.log       = this.parent.log || {};
+
+      console.log("HeaderView render", res);
+      var renderedContent = Mustache.to_html( this.template, res );
       this.$el.html(renderedContent);
 
     },
@@ -23,7 +28,11 @@ var TimeLine = (function(timeline) {
 
     events : {
       "click .burger"       : "nav",
+
+      "click .home"         : "home",
       "click .login"        : "login",
+      "click .profil"       : "profil",
+
       "click .edit"         : "edit"
     },
 
@@ -32,9 +41,21 @@ var TimeLine = (function(timeline) {
       window.mainView.navView.toggle();
     },
 
+    home: function (e) {
+      e.preventDefault();
+      mainView.homeView.show();
+      mainView.profilView.hide();
+    },
+
     login: function (e) {
       e.preventDefault();
       mainView.modalView.show_login();
+    },
+
+    profil: function (e) {
+      e.preventDefault();
+      mainView.homeView.hide();
+      mainView.profilView.render();
     },
 
     edit: function (e) {

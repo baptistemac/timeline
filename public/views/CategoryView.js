@@ -5,24 +5,25 @@ var TimeLine = (function(timeline) {
 
     initialize: function( options ) {
 
-      console.log("CategoryView initialize", options);
+      console.log("CategoryView initialize", options, this);
 
       this.template       = $("#category_template").html();
       this.parent         = options.parent;
-      this.id             = options.model.id;
-      this.name           = options.model.name;
-      this.eventslist     = options.model.events;
-      this.complements    = options.model.complements;
-      this.pos            = options.model.pos;
+      //this.id             = options.model.id;
+      //this.name           = options.model.name;
+      //this.eventslist     = options.model.events;
+      //this.complements    = options.model.complements;
+      //this.pos            = options.model.pos;
 
       // Définition de la position (left, prct, width) de chaque events
-      this.calcul_events_positions( this.eventslist );
+      this.calcul_events_positions( this.model.events );
 
       
       var i;
-      if ( this.complements && this.complements.length ) {
-        for ( i=0 ; i<this.complements.length ; i++ ) {
-          this.getComplement( this.complements[i].id , this.complements[i] );
+      var m = this.model;
+      if ( m.complements && m.complements.length ) {
+        for ( i=0 ; i<m.complements.length ; i++ ) {
+          this.getComplement( m.complements[i].id , m.complements[i] );
         }
       }
 
@@ -47,7 +48,7 @@ var TimeLine = (function(timeline) {
 
     events : {
       "click .event"            : "click_event",
-      "click .add_complement"   : "add_complement"
+      "click .handlecomp"       : "open_handlecomp"
     },
 
 
@@ -88,6 +89,10 @@ var TimeLine = (function(timeline) {
       }
     },
 
+    open_handlecomp: function () {
+      mainView.handlecompView.open( this.model );
+    },
+
 
     // Calcul de la position de chaque event (left et prct).
     // On attribu ensuite les valeurs directement dans le json.
@@ -95,7 +100,7 @@ var TimeLine = (function(timeline) {
       console.log("calcul_events_positions", events);
       
       //var that = this;
-      var settings = mainView.tl.settings;
+      var settings = this.parent.tl.settings;
       var i;
 
       for ( i=0 ; i<events.length ; i++ ) {
@@ -121,11 +126,13 @@ var TimeLine = (function(timeline) {
 
         // calcul width
         // si c'est une période
-        var e_end       = ( e.date && e.date.end );
-        var duree_days  = this.parent.calcul_duration_between_dates( e_start, e_end );
-        var duree_years = duree_days / 365;
-        var width       = Math.round( duree_years * settings.scale_1year_in_px );
-        e.width         = width;
+        if  ( e.date && e.date.end ) {
+          var e_end       = ( e.date && e.date.end );
+          var duree_days  = this.parent.calcul_duration_between_dates( e_start, e_end );
+          var duree_years = duree_days / 365;
+          var width       = Math.round( duree_years * settings.scale_1year_in_px );
+          e.width         = width;
+        }
 
         console.log("left", e.left, "e.prct", e.prct,"duree_years", duree_years, "e.width", e.width );
 

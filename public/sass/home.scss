@@ -1,0 +1,50 @@
+
+#home {
+	display: none;
+	z-index: 3;
+	margin: 100px;
+	&.show {
+		display: block;
+	}
+}
+
+.bloc {
+	display: block;
+	width: 100%;
+	&:after {
+	  content: '';
+	  display: table;
+	  clear: both;
+	}
+}
+
+.search_in_collection {
+	width: 100%;
+	margin-bottom: 3%;
+	border-color: $grey3;
+	background-color: transparent;
+}
+
+.mini_tl {
+	float: left;
+	width: 23.5%;
+	margin: 0 2% 2% 0;
+	text-align: center;
+
+	&:nth-child(4n) {
+		margin-right: 0;
+	}
+
+	> a {
+		display:block;
+		height: auto;
+		min-height: 100px;
+		max-height: 150px;
+		padding: 20px;
+		background-color: white;
+	}
+	&.create > a {
+		border: 2px solid white;
+		background-color: transparent;
+	}
+}

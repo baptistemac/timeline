@@ -3,34 +3,101 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>TimeLine</title>
-  <link href="css/timeline.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
+  
 
-  <div class="container">
-    
-    <!-- -->
-    <script type="text/template" id="header_template">
+  <!-- -->
+  <script type="text/template" id="header_template">
+    {{#title}}
       <a class="burger" href="nav">
         <span></span><span></span><span></span>
       </a>
       <h1>{{title}}</h1>
       <p class="date"><time datetime="{{date.start}}">{{date.start}}</time> - <time datetime="{{date.end}}">{{date.end}}</time></p>
-      <a href="./login" class="btn style2 login">Login</a>
       <!--
       <a href="#" class="btn style2 add">Add</a>
       <a href="edit" class="btn style1 edit">Edit</a>
       <a href="./" class="btn style1 exitedit">Exit edit</a>
       -->
-    </script>
+    {{/title}}
+    {{^title}}
+      <h1><a href="#" class="home">Timeline</a></h1>
+    {{/title}}
+    {{#log.is_logged}}<a href="./#profil" class="btn style2 profil">{{log.id}}</a>{{/log.is_logged}}
+    {{^log.is_logged}}<a href="#" class="btn style2 login">Login</a>{{/log.is_logged}}
+  </script>
 
-    <header id="header"></header>
+  <header id="header"></header>
+
+  <!-- -->
+  <script type="text/template" id="home_template">
+    {{#log.is_logged}}
+      <div class="bloc">
+        <h2>Mes timelines</h2>
+        <ul>
+          {{#log.timelines}}
+            <li class="mini_tl"><a href="./timeline/{{id}}">{{name}}</a></li>
+          {{/log.timelines}}
+          <li class="mini_tl create"><a href="./create">Créer une autre timeline</a></li>
+        </ul>
+      </div>
+    {{/log.is_logged}}
+    {{^log.is_logged}}
+      <div class="bloc">
+        <h2>Timeline: Visualiser en peu de temps lensemble des événements simultanés.</h2>
+        <a href="./#timeline/0" class="btn style1">Démo</a>
+        <a href="#" class="btn style2 login">Créer ma timeline</a>
+      </div>
+    {{/log.is_logged}}
+
+    <div class="bloc collections">
+      <h2>Chercher dans la collection</h2>
+      <input type="search" class="search_in_collection" placeholder="Rechercher">
+      <ul>
+        {{#timelines}}
+          <li class="mini_tl"><a href="timeline/{{id}}">{{name}}</a></li>
+        {{/timelines}}
+      </ul>
+    </div>
+
+  </script>
+
+  <div id="home"></div>
+
+  <!-- -->
+  <script type="text/template" id="profil_template">
+    {{#log.is_logged}}
+      <div class="bloc">
+        <a href="#" class="logout">Se déconnecter</a>
+        <h2>Mon profil</h2>
+        <h3>Modifier mes informations personnelles</h3>
+        <label for="id">Identifiant</label><input type="text" id="id" value="{{id}}">
+        <label for="email">Courriel</label><input type="email" id="email" value="{{email}}">
+        <label for="password">Mot de passe</label><input type="password" id="password" value="">
+        <label for="password">Répéter le mot de passe</label><input type="password" id="password" value="">
+        <a href="#" class="delete_account">Supprimer mon compte</a>
+      </div>
+    {{/log.is_logged}}
+    {{^log.is_logged}}
+      <div class="bloc">
+        <a href="#" class="login">Connectez-vous pour accéder à votre page profil.</a>
+      </div>
+    {{/log.is_logged}}
+  </script>
+
+  <div id="profil"></div>
 
 
+
+  <div id="timeline">
+  
+  
     <!-- -->
-    <script type="text/template" id="categories_template">
+    <script type="text/template" id="tl_template">
 
       <div class="line">
       {{#dates}}
@@ -45,18 +112,6 @@
 
     </script>
 
-  <!--
-<span>1890</span>
-<span>1900</span>
-<span>1910</span>
-<span>1920</span>
-<span>1930</span>
-<span>1940</span>
-<span>1950</span>
-<span>1960</span>
-<span>1970</span>
-<span>1980</span>
-  -->
 
     <!-- -->
     <script type="text/template" id="category_template">
@@ -64,22 +119,22 @@
         <div class="events">
           <span class="name">{{name}}</span>
           {{#events}}
-            <a href="#" class="event {{type}}" data-id="{{id}}" style="left:{{left}}px; width:{{width}}px;">{{title}}<time datetime="{{date.start}}">{{date.start}}</time></a>
+            <a href="#" class="event {{type}}" data-id="{{id}}" style="left:{{left}}px;{{#width}} width:{{width}}px;{{/width}}">{{title}}<time datetime="{{date.start}}">{{date.start}}</time></a>
           {{/events}}
         </div>
         
         <ul class="complements">
         {{#complements}}
           <li class="complement">
-            <a href="#" class="add_complement name" title="{{name}}">{{shortname}}</a>
+            <a href="#" class="handlecomp name" title="{{name}}">{{shortname}}</a>
             {{#events}}
-              <span style="left:{{left}}px; width:{{width}}px;" title="{{title}}">{{#shorttitle}}{{shorttitle}}{{/shorttitle}}{{^shorttitle}}{{title}}{{/shorttitle}}</span>
+              <span class="{{type}}" style="left:{{left}}px;{{#width}} width:{{width}}px;{{/width}}" title="{{title}}">{{#shorttitle}}{{shorttitle}}{{/shorttitle}}{{^shorttitle}}{{title}}{{/shorttitle}}</span>
             {{/events}}
           </li>
           {{/complements}}
           {{^complements}}
             <li class="complement">
-              <a href="#" class="add_complement">Complément</a>
+              <a href="#" class="handlecomp">+</a>
             </li>
           {{/complements}}
 
@@ -89,7 +144,7 @@
 
 
 
-    <!-- -->
+    <!-- 
     <script type="text/template" id="complement_template">
     
       <li class="complement">
@@ -100,10 +155,10 @@
       </li>
 
     </script>
+    -->
 
+    <div id="tl"></div>
 
-    <div id="categories">
-    </div>
 
 
 
@@ -129,6 +184,36 @@
 
     <div id="fiche"></div>
   
+
+  <script type="text/template" id="handlecomp_template">
+  <div class="events">
+    <span class="name">{{name}}</span>
+    {{#events}}
+      <a href="#" class="event {{type}}" data-id="{{id}}" style="left:{{left}}px;{{#width}} width:{{width}}px;{{/width}}">{{title}}<time datetime="{{date.start}}">{{date.start}}</time></a>
+    {{/events}}
+  </div>
+  
+  <ul class="complements">
+  {{#complements}}
+    <li class="complement">
+      <a href="#" class="handlecomp name" title="{{name}}">{{shortname}}</a>
+      {{#events}}
+        <span class="{{type}}" style="left:{{left}}px;{{#width}} width:{{width}}px;{{/width}}" title="{{title}}">{{#shorttitle}}{{shorttitle}}{{/shorttitle}}{{^shorttitle}}{{title}}{{/shorttitle}}</span>
+      {{/events}}
+    </li>
+    {{/complements}}
+    {{^complements}}
+      <li class="complement">
+        <a href="#" class="handlecomp">+</a>
+      </li>
+    {{/complements}}
+
+  </ul>
+  </script>
+
+  <div id="handlecomp"></div>
+
+
     <!-- -->
     <script type="text/template" id="map_template">
 

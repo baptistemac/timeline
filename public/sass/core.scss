@@ -27,10 +27,11 @@ h1 {
 	font-size: 1.3em;
 	color: $grey1;
 	font-weight: 500;
+	padding: 10px;
 }
 
 h2 {
-	padding: 20px;
+	padding: 20px 0;
 }
 
 a {
@@ -82,7 +83,6 @@ button {
 	&.style2 {
 		padding: 6px 14px 7px;
 		color: $mainColor;
-		background: white;
 		border: 1px solid $mainColor;
 		&:hover, &:focus {
 			color: $mainColorDark;
@@ -102,14 +102,54 @@ a, input, button {
 
 // classes utiles
 
+
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+// hide
+
 .hide { display: none !important; }
 
+
+// selection
 
 ::-moz-selection { background: black; color: #FFFFFF; text-shadow: none; }
 ::selection { background: black; color: #FFFFFF; text-shadow: none; opacity: .1; }
 
 
-::-webkit-input-placeholder { color: #FFFFFF; }
-:-moz-placeholder { color: #FFFFFF; } 
-::-moz-placeholder { color: #FFFFFF; }
-:-ms-input-placeholder { color: #FFFFFF; } 
+// placeholder
+
+::-webkit-input-placeholder { color: $grey3; }
+:-moz-placeholder { color: $grey3; } 
+::-moz-placeholder { color: $grey3; }
+:-ms-input-placeholder { color: $grey3; } 
