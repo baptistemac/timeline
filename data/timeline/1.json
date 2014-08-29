@@ -13,7 +13,7 @@
 
 	    {
 	    	"id": 0,
-	    	"name": "Global",
+	    	"name": "Catégorie1",
 	    	"events": [
 	    		{"id":1, "title":"1ère guerre mondiale", "type":"period", "date": { "start":"1914-01-01", "end":"1918-08-08" }, "img":"premiere-guerre-mondiale.jpg" }
 	    	],
@@ -21,7 +21,7 @@
 	    },
 		{
 			"id": 1,
-			"name": "États-Unis",
+			"name": "Catégorie2",
 			"events": [
 				{"id":0, "title":"Massacre de Haymarket Square", "date": { "start":"1886-05-04" , "end":"1906-01-01" }, "img":"HaymarketRiot-Harpers.jpg", "link":"http://fr.wikipedia.org/wiki/Massacre_de_Haymarket_Square", "chapeau": "Le massacre de Haymarket Square, survenu à Chicago le 4 mai 1886, constitue le point culminant de la lutte pour la journée de huit heures aux États-Unis, et un élément majeur de l'histoire de la fête des travailleurs du 1er mai.", "text":"Tout commence lors du rassemblement du 1er mai 1886 à l'usine McCormick de Chicago. Il s’intégrait dans la revendication pour la journée de huit heures de travail quotidien, pour laquelle une grève générale mobilisant 340 000 travailleurs avait été lancée. August Spies, militant anarchiste, est le dernier à prendre la parole devant la foule des manifestants. Au moment où la foule se disperse, 200 policiers font irruption et chargent les ouvriers. Il y a un mort et une dizaine de blessés. Spies rédige alors dans le journal Arbeiter Zeitung un appel à un rassemblement de protestation contre la violence policière, qui se tient le 4 mai. Ce rassemblement se voulait avant tout pacifiste. Un appel dans le journal The Alarm appelait les travailleurs à venir armés, mais dans un seul but d’autodéfense, pour empêcher des carnages comme il s’en était produit lors de bien d’autres grèves. Le jour venu, Spies, ainsi que deux autres anarchistes, Albert Parsons et Samuel Fielden, prennent la parole. Le maire de Chicago, Carter Harrison, assiste aussi au rassemblement. Lorsque la manifestation s'achève, Harrison, convaincu que rien ne va se passer, appelle le chef de la police, l'inspecteur John Bonfield, pour qu'il renvoie chez eux les policiers postés à proximité. Il est 10 heures du soir, les manifestants se dispersent, il n'en reste plus que quelques centaines dans Haymarket Square, quand 180 policiers de Chicago chargent la foule encore présente. Quelqu'un jette une bombe sur la masse de policiers, en tuant un sur le coup. Dans le chaos qui en résulte, sept agents sont tués, et les préjudices subis par la foule élevés, la police ayant « tiré pour tuer ». L’événement devait stigmatiser à jamais le mouvement anarchiste comme violent et faire de Chicago un point chaud des luttes sociales de la planète. Après l’attentat, sept hommes sont arrêtés, accusés des meurtres de Haymarket. August Spies, George Engel, Adolph Fischer, Louis Lingg, Michael Schwab, Oscar Neebe et Samuel Fielden. Un huitième nom s'ajoute à la liste quand Albert Parsons se livre à la police."  }
 			],
@@ -32,7 +32,7 @@
 		},
 		{
 			"id": 2,
-			"name": "Russie",
+			"name": "Catégorie3",
 			"events": [
 				{"id":2, "title":"L'Entraide, un facteur de l'évolution", "type": "book", "author": "Pierre Kropotkine", "date": { "start":"1902-01-01" }, "img":"l-entraide-un-facteur-de-l-evolution.jpg" }
 			],
@@ -40,7 +40,7 @@
 		},
 		{
 			"id": 3,
-			"name": "Allemagne",
+			"name": "Catégorie4",
 			"events": [
 				{"id":8, "title":"Friedrich Nietzsche", "type": "author", "date": { "start":"1918-01-01" } },
 				{"id":3, "title":"Ainsi parla Zarathoustra", "type": "book", "author": "Friedrich Nietzsche", "date": { "start":"1883-01-01" }, "img":"ainsi-parlait-zarathoustra.jpg" }

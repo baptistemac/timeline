@@ -61,25 +61,14 @@ var TimeLine = (function(timeline) {
     login: function (e) {
       e.preventDefault();
       console.log("ModalView login");
-      mainView.log = {
-        is_logged : true,
-        id        : "Baptiste",
-        courriel  : "baptiste.mac@gmail.com",
-        timelines : [
-                      { "id": 0, "name": "Histoire de la sédition" },
-                      { "id": 1, "name": "La guerre en Irak" }
-                    ]
-      };
+      mainView.log.set("is_logged", true);
       this.close_modal();
-      mainView.headerView.render();
-      mainView.homeView.render();
-
     },
 
     show_create: function () {
       console.log("ModalView show_login");
       var create = {};
-      create.title = "Créer une nouvelle timeline";
+      create.title = "Créer une timeline";
       create.message = '<form><label for="title">Titre</label><input type="text" id="title" placeholder="Titre" autofocus required><label for="startdate">Année de début</label><input type="text" pattern="\\d*" id="startdate" placeholder="Année de début" required><label for="enddate">Année de fin</label><input type="text" pattern="\\d*" id="enddate" placeholder="Année de fin" required><button class="btn style1" type="submit" name="create">Créer</button></form><a href="close" class="close">Annuler</a>';
       create.overlay_remove = false;
       create.show = true;

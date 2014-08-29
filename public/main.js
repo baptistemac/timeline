@@ -10,6 +10,7 @@ yepnope({
     
     //Models
     tl                : 'models/tl.js',
+    log               : 'models/log.js',
     
     //Controllers
     mainview          : 'views/MainView.js',

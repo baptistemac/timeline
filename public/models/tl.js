@@ -1,23 +1,18 @@
 var TimeLine = (function(timeline) {
 
-  timeline.Models.tl = Backbone.Model.extend({
+  timeline.Models.Tl = Backbone.Model.extend({
 
     //urlRoot: "/objects",
 
     defaults: {
-      current_key: ""
+      title               : "Machin bidule",
+      date                : { start: 1880, end: 1980 },
+      scale_1year_in_px   : 20,
+      last_save           : "2014-08-13 21:00"
     },
 
     initialize: function( args, properties ) {
-      var that = this;
-      console.log("args", args, "properties", properties);
-
-      // Positionnement aléatoire de l'objet
-      var mapview = args.mapview;
-      var key = args.mapview.keys_available[ Math.floor( Math.random() * args.mapview.keys_available.length ) ];
-      // La touche choisie est retirée du tableau des touches disponibles pour ne pas avoir 2 objets sur la même touche.
-      args.mapview.keys_available = _.without( args.mapview.keys_available, key );
-      this.setKey(key);
+      console.log("Tlmodel initialize");
 
       /*
       this.on("change:message", function() {
@@ -35,18 +30,11 @@ var TimeLine = (function(timeline) {
     /* les getters et les setters à l'ancienne */
     setKey: function (key) {
       this.set("current_key", key);
-      window.keyboard.display_bonus(key);
     },
     getKey: function() {
       return this.get("current_key");
     }
 
-  });
-
-
-  timeline.Collections.Objects = Backbone.Collection.extend({
-    model: timeline.Models.Objects,
-    initialize: function () {}
   });
 
   return timeline;

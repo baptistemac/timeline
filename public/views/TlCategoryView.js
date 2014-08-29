@@ -100,7 +100,7 @@ var TimeLine = (function(timeline) {
       console.log("calcul_events_positions", events);
       
       //var that = this;
-      var settings = this.parent.tl.settings;
+      var settings = this.parent.tl.attributes;
       var i;
 
       for ( i=0 ; i<events.length ; i++ ) {

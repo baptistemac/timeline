@@ -25,6 +25,8 @@ var TimeLine = (function(timeline) {
 
     open_fiche: function ( id , add_class) {
       
+      console.log("FicheView render");
+
       // Ajout des .active sur #themes et #map
       //mainView.categoriesView.add_active_class( id, null);
 
@@ -38,7 +40,7 @@ var TimeLine = (function(timeline) {
       this.$el.addClass("open");
 
       if ( add_class ) {
-        var categoryview = _.where(  this.parent.categoriesView.subviews_arr , { "id": this.category_id })[0];
+        var categoryview = _.where(  this.parent.tlView.subviews_arr , { "id": this.category_id })[0];
         categoryview.add_event_class( this.id, null );
         categoryview.add_category_class();
         this.parent.mapView.active_id( this.id );
@@ -64,11 +66,11 @@ var TimeLine = (function(timeline) {
 
 
     find_data: function ( id ) {
-      var res, i; var cats_length = this.parent.tl.categories.length;
+      var res, i; var cats_length = this.parent.tl.attributes.categories.length;
       for ( i=0 ; i < cats_length ; i++ ) {
-        res = _.where( this.parent.tl.categories[i].events , { "id": id } )[0];
+        res = _.where( this.parent.tl.attributes.categories[i].events , { "id": id } )[0];
         if ( res ) {
-          this.category_id = this.parent.tl.categories[i].id;
+          this.category_id = this.parent.tl.attributes.categories[i].id;
           this.event = res;
           return;
         }

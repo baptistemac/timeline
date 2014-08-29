@@ -2,7 +2,7 @@ var TimeLine = (function(timeline) {
 
   timeline.Views.HeaderView = Backbone.View.extend({
 
-    el: $("#header"),
+    el: "#header",
 
     initialize: function( options ) {
 
@@ -14,12 +14,11 @@ var TimeLine = (function(timeline) {
 
     render: function() {
 
-      console.log( "HeaderView render", this.parent.log ); 
-
       var res       = {};
-      res.log       = this.parent.log || {};
-
+      res.log       = this.parent.log.attributes;
+      res.tl        = this.parent.tlView.tl.attributes;
       console.log("HeaderView render", res);
+
       var renderedContent = Mustache.to_html( this.template, res );
       this.$el.html(renderedContent);
 
@@ -29,7 +28,7 @@ var TimeLine = (function(timeline) {
     events : {
       "click .burger"       : "nav",
 
-      "click .home"         : "home",
+      "click .logo"         : "logo",
       "click .login"        : "login",
       "click .profil"       : "profil",
 
@@ -41,10 +40,13 @@ var TimeLine = (function(timeline) {
       window.mainView.navView.toggle();
     },
 
-    home: function (e) {
+    logo: function (e) {
       e.preventDefault();
-      mainView.homeView.show();
-      mainView.profilView.hide();
+      var href = $(e.currentTarget).attr("href");
+      console.log("navigate", href);
+      window.router.navigate( href, true );
+      //mainView.homeView.show();
+      //mainView.profilView.hide();
     },
 
     login: function (e) {
@@ -54,8 +56,9 @@ var TimeLine = (function(timeline) {
 
     profil: function (e) {
       e.preventDefault();
-      mainView.homeView.hide();
-      mainView.profilView.render();
+      var href = $(e.currentTarget).attr("href");
+      console.log("navigate", href);
+      window.router.navigate( href, true );
     },
 
     edit: function (e) {

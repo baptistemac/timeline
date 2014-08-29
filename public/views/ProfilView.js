@@ -11,27 +11,37 @@ var TimeLine = (function(timeline) {
 
     },
 
-    render: function() {
+    render: function( options ) {
 
-      var res = {};
-      res.log = window.mainView.log;
-
+      var res       = {};
+      res.log       = mainView.log.attributes;
+      var show      = (options && options.show) || false;
       console.log("ProfilView render", res);
+
       var renderedContent = Mustache.to_html( this.template , res );
       this.$el.html(renderedContent);
-      this.show();
+      if ( show ) this.show();
+
     },
 
 
     events : {
-      "click .logout"     : "logout"
+      "click .logout"     : "logout",
+      "click .login"      : "login"
     },
 
-    logout: function () {
+    logout: function (e) {
+      e.preventDefault();
       console.log("ProfilView logout");
-      window.mainView.log.is_logged = false;
-      mainView.headerView.render();
-      mainView.homeView.render();
+      mainView.log.set( "is_logged", false);
+      var href = $(e.currentTarget).attr("href");
+      console.log("navigate", href);
+      window.router.navigate( href, true );
+    },
+
+    login: function (e) {
+      e.preventDefault();
+      mainView.modalView.show_login();
     },
 
     show : function () {

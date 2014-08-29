@@ -12,23 +12,23 @@
 
   <!-- -->
   <script type="text/template" id="header_template">
-    {{#title}}
+    {{#tl.title}}
       <a class="burger" href="nav">
         <span></span><span></span><span></span>
       </a>
-      <h1>{{title}}</h1>
-      <p class="date"><time datetime="{{date.start}}">{{date.start}}</time> - <time datetime="{{date.end}}">{{date.end}}</time></p>
+      <h1>{{tl.title}}</h1>
+      <p class="date"><time datetime="{{tl.date.start}}">{{tl.date.start}}</time> - <time datetime="{{tl.date.end}}">{{tl.date.end}}</time></p>
       <!--
       <a href="#" class="btn style2 add">Add</a>
       <a href="edit" class="btn style1 edit">Edit</a>
       <a href="./" class="btn style1 exitedit">Exit edit</a>
       -->
-    {{/title}}
-    {{^title}}
-      <h1><a href="#" class="home">Timeline</a></h1>
-    {{/title}}
-    {{#log.is_logged}}<a href="./#profil" class="btn style2 profil">{{log.id}}</a>{{/log.is_logged}}
-    {{^log.is_logged}}<a href="#" class="btn style2 login">Login</a>{{/log.is_logged}}
+    {{/tl.title}}
+    {{^tl.title}}
+      <a href="/" class="logo">Timeline</a>
+    {{/tl.title}}
+    {{#log.is_logged}}<a href="profil" class="btn style2 profil">{{log.id}}</a>{{/log.is_logged}}
+    {{^log.is_logged}}<a href="#" class="btn style1 login">Login</a>{{/log.is_logged}}
   </script>
 
   <header id="header"></header>
@@ -36,20 +36,21 @@
   <!-- -->
   <script type="text/template" id="home_template">
     {{#log.is_logged}}
-      <div class="bloc">
+      <div class="bloc mytimelines">
+        <h1>Timeline</h1>
         <h2>Mes timelines</h2>
         <ul>
           {{#log.timelines}}
-            <li class="mini_tl"><a href="./timeline/{{id}}">{{name}}</a></li>
+            <li class="mini_tl"><a href="/timeline/{{id}}">{{name}}</a></li>
           {{/log.timelines}}
           <li class="mini_tl create"><a href="./create">Créer une autre timeline</a></li>
         </ul>
       </div>
     {{/log.is_logged}}
     {{^log.is_logged}}
-      <div class="bloc">
-        <h2>Timeline: Visualiser en peu de temps lensemble des événements simultanés.</h2>
-        <a href="./#timeline/0" class="btn style1">Démo</a>
+      <div class="bloc discover">
+        <h1>Timeline: Visualiser en peu de temps lensemble des événements simultanés.</h1>
+        <a href="/timeline/0" class="btn style1 demo">Démo</a>
         <a href="#" class="btn style2 login">Créer ma timeline</a>
       </div>
     {{/log.is_logged}}
@@ -72,7 +73,7 @@
   <script type="text/template" id="profil_template">
     {{#log.is_logged}}
       <div class="bloc">
-        <a href="#" class="logout">Se déconnecter</a>
+        <a href="/" class="logout">Se déconnecter</a>
         <h2>Mon profil</h2>
         <h3>Modifier mes informations personnelles</h3>
         <label for="id">Identifiant</label><input type="text" id="id" value="{{id}}">

@@ -6,6 +6,7 @@ var logfmt = require("logfmt");
 var infobox = require('wiki-infobox');
 var fs = require('fs');
 var app = module.exports = express();
+app.use(app.router);
 
 app.use(logfmt.requestLogger());
 
@@ -66,9 +67,16 @@ function Routes() {
   });
   */
 
-  
+  app.get('/profil', function(req, res){
+    res.sendfile( __dirname + '/public/index.html' );
+  });
+
+  app.get('/timeline/0', function(req, res){
+    res.sendfile( __dirname + '/public/index.html' );
+  });
+
   // GET timeline
-  app.get('/timeline/:id', function(req, res){
+  app.get('/data/timeline/:id', function(req, res){
     var id = req.params.id;
     console.log("get data", timeline_folder, id );
     var data = {};

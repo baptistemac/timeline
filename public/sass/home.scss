@@ -2,7 +2,7 @@
 #home {
 	display: none;
 	z-index: 3;
-	margin: 100px;
+	margin-top: 50px;
 	&.show {
 		display: block;
 	}
@@ -11,12 +11,28 @@
 .bloc {
 	display: block;
 	width: 100%;
+	padding-right: 100px;
+	padding-left: 100px;
 	&:after {
 	  content: '';
 	  display: table;
 	  clear: both;
 	}
 }
+
+.discover {
+	background-color: white;
+	padding-top: 120px;
+	padding-bottom: 100px;
+	margin-bottom: 20px;
+}
+.mytimelines {
+	padding-top: 50px;
+}
+.collections {
+	padding: 20px 100px;
+}
+
 
 .search_in_collection {
 	width: 100%;

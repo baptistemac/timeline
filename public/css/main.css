@@ -50,23 +50,24 @@ body {
 
 /* line 26, ../sass/core.scss */
 h1 {
+  display: inline-block;
   font-size: 1.3em;
   color: #404040;
   font-weight: 500;
   padding: 10px;
 }
 
-/* line 33, ../sass/core.scss */
+/* line 34, ../sass/core.scss */
 h2 {
   padding: 20px 0;
 }
 
-/* line 37, ../sass/core.scss */
+/* line 38, ../sass/core.scss */
 a {
   color: #42bb93;
 }
 
-/* line 43, ../sass/core.scss */
+/* line 44, ../sass/core.scss */
 label {
   display: block;
   float: left;
@@ -75,7 +76,7 @@ label {
   width: 30%;
 }
 
-/* line 51, ../sass/core.scss */
+/* line 52, ../sass/core.scss */
 input {
   width: 70%;
   float: left;
@@ -89,18 +90,18 @@ input {
   -o-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 59, ../sass/core.scss */
+/* line 60, ../sass/core.scss */
 input:focus {
   border-color: #c9c9c9;
 }
 
-/* line 64, ../sass/core.scss */
+/* line 65, ../sass/core.scss */
 button {
   margin: 20px;
   cursor: pointer;
 }
 
-/* line 69, ../sass/core.scss */
+/* line 70, ../sass/core.scss */
 .btn {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -110,29 +111,29 @@ button {
   border: none;
   font-size: 1em;
 }
-/* line 74, ../sass/core.scss */
+/* line 75, ../sass/core.scss */
 .btn.style1 {
   padding: 7px 15px 8px;
   color: white;
   background-color: #42bb93;
 }
-/* line 78, ../sass/core.scss */
+/* line 79, ../sass/core.scss */
 .btn.style1:hover, .btn.style1:focus {
   background-color: #3ea684;
 }
-/* line 83, ../sass/core.scss */
+/* line 84, ../sass/core.scss */
 .btn.style2 {
   padding: 6px 14px 7px;
   color: #42bb93;
   border: 1px solid #42bb93;
 }
-/* line 87, ../sass/core.scss */
+/* line 88, ../sass/core.scss */
 .btn.style2:hover, .btn.style2:focus {
   color: #3ea684;
   border-color: #3ea684;
 }
 
-/* line 96, ../sass/core.scss */
+/* line 97, ../sass/core.scss */
 a, input, button {
   outline: none;
 }
@@ -148,7 +149,7 @@ a, input, button {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-/* line 120, ../sass/core.scss */
+/* line 121, ../sass/core.scss */
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -157,7 +158,7 @@ a, input, button {
   /* 2 */
 }
 
-/* line 125, ../sass/core.scss */
+/* line 126, ../sass/core.scss */
 .clearfix:after {
   clear: both;
 }
@@ -166,24 +167,24 @@ a, input, button {
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-/* line 134, ../sass/core.scss */
+/* line 135, ../sass/core.scss */
 .clearfix {
   *zoom: 1;
 }
 
-/* line 141, ../sass/core.scss */
+/* line 142, ../sass/core.scss */
 .hide {
   display: none !important;
 }
 
-/* line 146, ../sass/core.scss */
+/* line 147, ../sass/core.scss */
 ::-moz-selection {
   background: black;
   color: #FFFFFF;
   text-shadow: none;
 }
 
-/* line 147, ../sass/core.scss */
+/* line 148, ../sass/core.scss */
 ::selection {
   background: black;
   color: #FFFFFF;
@@ -191,22 +192,22 @@ a, input, button {
   opacity: .1;
 }
 
-/* line 152, ../sass/core.scss */
+/* line 153, ../sass/core.scss */
 ::-webkit-input-placeholder {
   color: #c9c9c9;
 }
 
-/* line 153, ../sass/core.scss */
+/* line 154, ../sass/core.scss */
 :-moz-placeholder {
   color: #c9c9c9;
 }
 
-/* line 154, ../sass/core.scss */
+/* line 155, ../sass/core.scss */
 ::-moz-placeholder {
   color: #c9c9c9;
 }
 
-/* line 155, ../sass/core.scss */
+/* line 156, ../sass/core.scss */
 :-ms-input-placeholder {
   color: #c9c9c9;
 }
@@ -255,18 +256,19 @@ header .burger:hover > span, header .burger:focus > span {
   width: 30px;
 }
 /* line 33, ../sass/header.scss */
-header h1 {
+header .logo {
   display: inline-block;
+  font-size: 1.3em;
   padding: 10px 20px;
 }
-/* line 37, ../sass/header.scss */
+/* line 38, ../sass/header.scss */
 header p.date {
   display: inline-block;
   color: #a1a1a1;
   padding-left: 5px;
   font-size: .95em;
 }
-/* line 43, ../sass/header.scss */
+/* line 44, ../sass/header.scss */
 header a.btn {
   float: right;
   margin: 8px 8px 8px 0;
@@ -276,7 +278,7 @@ header a.btn {
 #home {
   display: none;
   z-index: 3;
-  margin: 100px;
+  margin-top: 50px;
 }
 /* line 6, ../sass/home.scss */
 #home.show {
@@ -287,15 +289,35 @@ header a.btn {
 .bloc {
   display: block;
   width: 100%;
+  padding-right: 100px;
+  padding-left: 100px;
 }
-/* line 14, ../sass/home.scss */
+/* line 16, ../sass/home.scss */
 .bloc:after {
   content: '';
   display: table;
   clear: both;
 }
 
-/* line 21, ../sass/home.scss */
+/* line 23, ../sass/home.scss */
+.discover {
+  background-color: white;
+  padding-top: 120px;
+  padding-bottom: 100px;
+  margin-bottom: 20px;
+}
+
+/* line 29, ../sass/home.scss */
+.mytimelines {
+  padding-top: 50px;
+}
+
+/* line 32, ../sass/home.scss */
+.collections {
+  padding: 20px 100px;
+}
+
+/* line 37, ../sass/home.scss */
 .search_in_collection {
   width: 100%;
   margin-bottom: 3%;
@@ -303,18 +325,18 @@ header a.btn {
   background-color: transparent;
 }
 
-/* line 28, ../sass/home.scss */
+/* line 44, ../sass/home.scss */
 .mini_tl {
   float: left;
   width: 23.5%;
   margin: 0 2% 2% 0;
   text-align: center;
 }
-/* line 34, ../sass/home.scss */
+/* line 50, ../sass/home.scss */
 .mini_tl:nth-child(4n) {
   margin-right: 0;
 }
-/* line 38, ../sass/home.scss */
+/* line 54, ../sass/home.scss */
 .mini_tl > a {
   display: block;
   height: auto;
@@ -323,7 +345,7 @@ header a.btn {
   padding: 20px;
   background-color: white;
 }
-/* line 46, ../sass/home.scss */
+/* line 62, ../sass/home.scss */
 .mini_tl.create > a {
   border: 2px solid white;
   background-color: transparent;

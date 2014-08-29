@@ -1,9 +1,9 @@
 /*
 Syntax error: Undefined variable: "$grey3".
-        on line 24 of /Applications/MAMP/htdocs/12 - Timeline/site/public/sass/home.scss
+        on line 40 of /Applications/MAMP/htdocs/12 - Timeline/site/public/sass/home.scss
 
 Backtrace:
-/Applications/MAMP/htdocs/12 - Timeline/site/public/sass/home.scss:24
+/Applications/MAMP/htdocs/12 - Timeline/site/public/sass/home.scss:40
 /Library/Ruby/Gems/1.8/gems/sass-3.2.12/lib/sass/../sass/script/variable.rb:49:in `_perform'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.12/lib/sass/../sass/script/node.rb:40:in `perform'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.12/lib/sass/../sass/tree/visitors/perform.rb:298:in `visit_prop'
@@ -83,4 +83,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$grey3\".\A         on line 24 of /Applications/MAMP/htdocs/12 - Timeline/site/public/sass/home.scss"; }
+  content: "Syntax error: Undefined variable: \"$grey3\".\A         on line 40 of /Applications/MAMP/htdocs/12 - Timeline/site/public/sass/home.scss"; }
