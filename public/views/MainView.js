@@ -3,8 +3,6 @@ var TimeLine = (function(timeline) {
   timeline.Views.MainView = Backbone.View.extend({
 
     el: "body",
-
-    curr_page: "home",
     
     map_display_duration: 2000, // a mettre dans TlMapView à terme.
 
@@ -12,6 +10,8 @@ var TimeLine = (function(timeline) {
     initialize: function() {
 
       console.log("MainView initialize");
+
+      this.currentpage      = new TimeLine.Models.Currentpage();
       
       // Initialize Models
       this.log              = new TimeLine.Models.Log();
@@ -24,12 +24,7 @@ var TimeLine = (function(timeline) {
       this.tlView           = new TimeLine.Views.TlView();
 
       // check if user is logged
-      //this.log.is_logged = true;
-
-      // detect scroll
-      window.is_scroll = false;
-      _.bindAll(this, 'scroll'); // _.bindAll is very usefull to keep the context of this in the scroll function.
-      $(window).bind("scroll", this.scroll);
+      this.log.is_logged = true;
 
       // render
       this.render();
@@ -43,23 +38,35 @@ var TimeLine = (function(timeline) {
     },
 
 
-    events : {},
-
-    scroll: function() {
-      console.log( "scrolling...");
-      if ( !window.is_scroll ) {
-        window.setTimeout(this.end_scroll, this.map_display_duration);
-        //this.mapView.show();
-        window.is_scroll = true;
-      }
+    events : {
+      "keyup"                   : "keyup"
     },
 
-    end_scroll: function() {
-      console.log("end_scroll");
-      //mainView.mapView.hide();
-      window.is_scroll = false;
-    }
+    keyup: function (e) {
+      console.log("keyup", e.keyCode);
 
+      switch(e.keyCode) {
+        case 38 :
+          console.log("38");
+          break;
+        case 39 :
+          console.log("39");
+          break;
+        case 40 :
+          console.log("40");
+          break;
+        case 37 :
+          console.log("37");
+          break;
+      }
+      console.log(this.currentpage.getCurrentpage(), this.tlView.currentevent);
+      if ( this.currentpage.getCurrentpage() == "timeline" && this.tlView.currentevent ) {
+        e.preventDefault();
+        // On check si l'event courant a des siblings
+        this.tlView.nextEvent( current_event );
+      }
+    }
+  
   });
   return timeline;
 }(TimeLine));

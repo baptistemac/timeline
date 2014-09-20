@@ -14,9 +14,10 @@ var TimeLine = (function(timeline) {
 
     render: function() {
 
-      var res       = {};
-      res.log       = this.parent.log.attributes;
-      res.tl        = this.parent.tlView.tl.attributes;
+      var res           = {};
+      res.currentpage   = { timeline: this.parent.currentpage.is_page( "timeline" ) };
+      res.log           = this.parent.log.attributes;
+      res.tl            = ( this.parent.tlView.tl && this.parent.tlView.tl.attributes ) || null ;
       console.log("HeaderView render", res);
 
       var renderedContent = Mustache.to_html( this.template, res );
@@ -32,12 +33,15 @@ var TimeLine = (function(timeline) {
       "click .login"        : "login",
       "click .profil"       : "profil",
 
+      "click .add"          : "add_event",
       "click .edit"         : "edit"
     },
 
     nav: function (e) {
       e.preventDefault();
-      window.mainView.navView.toggle();
+      var href = $(e.currentTarget).attr("href");
+      console.log("navigate", href);
+      window.router.navigate( href, true );
     },
 
     logo: function (e) {
@@ -59,6 +63,13 @@ var TimeLine = (function(timeline) {
       var href = $(e.currentTarget).attr("href");
       console.log("navigate", href);
       window.router.navigate( href, true );
+    },
+
+    add_event: function (e) {
+      console.log("add_event");
+      e.preventDefault();
+      var new_event = new TimeLine.Models.Event();
+      mainView.ficheView.add_event();
     },
 
     edit: function (e) {

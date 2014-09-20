@@ -3,7 +3,7 @@ var TimeLine = (function(timeline) {
   timeline.Router.RoutesManager = Backbone.Router.extend({
 
     initialize: function(args) {
-      Backbone.history.start( { pushState: true } );
+      Backbone.history.start( { pushState: true, root: '/' } );
       //this.collection = args.collection;
       //console.log("this.collection", this.collection);
     },
@@ -13,7 +13,7 @@ var TimeLine = (function(timeline) {
       "hello"         : "hello",
       "login"         : "login",
       "profil"        : "profil",
-      "timeline/:id"  : "timeline",
+      ":id"           : "timeline",
       "*path"         : "root"
     },
 
@@ -60,13 +60,13 @@ var TimeLine = (function(timeline) {
     timeline: function ( id ) {
       console.log("root timeline", id);
       
-      mainView.curr_page = "timeline";
+      //mainView.currentpage.setCurrentpage( "timeline" );
+      
+      mainView.tlView.getTimeline( id );
 
       mainView.homeView.hide();
       mainView.profilView.hide();
 
-      mainView.headerView.render();
-      mainView.tlView.getTimeline( id );
     }
 
 

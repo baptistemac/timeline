@@ -9,7 +9,7 @@ var TimeLine = (function(timeline) {
       console.log("FicheView initialize");
       this.template = $("#fiche_template").html();
       this.parent   = options.parent;
-      this.is_open  = false;
+      //this.is_open  = false;
     },
 
     render: function() {
@@ -19,24 +19,26 @@ var TimeLine = (function(timeline) {
     },
 
     events : {
-      "click .close"      : "close_fiche"
+      "click .close"      : "close"
     },
 
 
-    open_fiche: function ( id , add_class) {
+    open: function ( id , add_class) {
       
-      console.log("FicheView render");
+      console.log("FicheView open");
 
       // Ajout des .active sur #themes et #map
       //mainView.categoriesView.add_active_class( id, null);
 
-      this.id = id;
+      //this.id = id;
 
       this.find_data( id );
 
       this.render();
 
-      this.is_open = true;
+      //this.is_open = true;
+      this.parent.currentevent = true;
+      this.parent.currentevent_id = id;
       this.$el.addClass("open");
 
       if ( add_class ) {
@@ -57,13 +59,13 @@ var TimeLine = (function(timeline) {
       //console.log( "width", width, parseInt(width+300)+"px" );
     },
 
-    close_fiche: function () {
-      this.is_open = false;
+    close: function () {
+      //this.is_open = false;
+      this.parent.currentevent = false;
       this.$el.removeClass("open")
-      .siblings("#categories").find(">.active").removeClass("active")
+      .siblings("#timeline").find("#tl").find(">.active").removeClass("active")
       .find(".events > .active").removeClass("active");
     },
-
 
     find_data: function ( id ) {
       var res, i; var cats_length = this.parent.tl.attributes.categories.length;
@@ -75,6 +77,18 @@ var TimeLine = (function(timeline) {
           return;
         }
       }
+    },
+
+    add_event: function () {
+      this.create();
+    },
+
+    create: function () {
+      console.log("FicheView create_fiche");
+      //this.is_open = true;
+      this.$el.addClass("open");
+
+
     }
 
 

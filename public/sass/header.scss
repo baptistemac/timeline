@@ -1,3 +1,4 @@
+@import "compass/css3";
 
 header {
 	position: fixed;
@@ -35,11 +36,23 @@ header {
 		font-size: 1.3em;
 		padding: 10px 20px;	
 	}
+	h1 {
+		display: inline-block;
+		font-size: 1.3em;
+		color: $grey1;
+		font-weight: 500;
+		padding: 10px;
+	}
 	p.date {
 		display: inline-block;
 		color: $grey2;
 		padding-left: 5px;
 		font-size: .95em;
+	}
+	a.profil, a.login {
+		float: right;
+		margin: 10px;
+		padding: 5px 10px 6px 5px;
 	}
 	a.btn {
 		float: right;

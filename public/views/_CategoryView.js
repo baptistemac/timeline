@@ -3,13 +3,13 @@ var TimeLine = (function(timeline) {
   timeline.Views.CategoryView = Backbone.View.extend({
 
 
-    initialize: function( options ) {
+    initialize: function( ) {
 
-      console.log("CategoryView initialize");
+      console.log("CategoryView initialize", this);
 
       this.template       = $("#category_template").html();
       this.parent         = options.parent;
-      //this.id             = options.model.id;
+      this.id             = options.model.id;
       //this.name           = options.model.name;
       //this.eventslist     = options.model.events;
       //this.complements    = options.model.complements;
@@ -37,7 +37,7 @@ var TimeLine = (function(timeline) {
     },
 
     render: function() {
-      console.log("CategoryView render");
+      console.log("CategoryView render", this.model);
       
       var renderedContent = Mustache.to_html( this.template , this.model );
       this.$el.html( renderedContent );
@@ -53,19 +53,19 @@ var TimeLine = (function(timeline) {
 
 
     click_event: function (e) {
-      console.log("click_event", e, this.id, this);
+      console.log("click_ event", this);
       var curr = e.currentTarget;
       var id = parseInt( $(curr).data("id") );
-
+      console.log("this", this);
       // Si cette fiche est déjà ouverte, on la referme
-      if ( this.parent.currentevent && this.parent.currentevent_id == id ) {
+      if ( mainView.ficheView.is_open && mainView.ficheView.id == id ) {
         this.parent.ficheView.close();
       } else {
         // sinon on l'ouvre
         this.add_event_class( id, e );
         this.parent.ficheView.open( id , false );
         this.add_category_class();
-        this.parent.mapView.active_id( id ); 
+        mainView.mapView.active_id( id ); 
       }
 
     },
@@ -90,7 +90,7 @@ var TimeLine = (function(timeline) {
     },
 
     open_handlecomp: function () {
-      this.parent.handlecompView.open( this.model );
+      mainView.handlecompView.open( this.model );
     },
 
 
@@ -100,11 +100,11 @@ var TimeLine = (function(timeline) {
       console.log("calcul_events_positions", events);
       
       //var that = this;
-      var settings = this.parent.tl.attributes;
+      var settings = this.parent.tl.settings;
       var i;
 
       for ( i=0 ; i<events.length ; i++ ) {
-        //console.log("- event :", events[i]);
+        console.log("- event :", events[i]);
 
         var e = events[i];
         // calcul left
@@ -115,13 +115,13 @@ var TimeLine = (function(timeline) {
         var years_before = days_before / 365;
         var left        = Math.round( years_before * settings.scale_1year_in_px );
         e.left          = left;
-        //console.log("- event -- e_start", e_start, "tl_start", tl_start,"days_before", days_before, "years_before", years_before, "left", left );
+        console.log("- event -- e_start", e_start, "tl_start", tl_start,"days_before", days_before, "years_before", years_before, "left", left );
 
 
         // calcul prct
         // La distance left mais en pourcentage par rapport à la largeur total de la timeline.
         // Utile pour ne pas recalculer les left dans #map
-        var prct        = Math.round( ( left / settings.width ) * 100 );
+        var prct        = Math.round( ( left / this.parent.width ) * 100 );
         e.prct          = prct;
 
         // calcul width
@@ -134,7 +134,7 @@ var TimeLine = (function(timeline) {
           e.width         = width;
         }
 
-        //console.log("left", e.left, "e.prct", e.prct,"duree_years", duree_years, "e.width", e.width );
+        console.log("left", e.left, "e.prct", e.prct,"duree_years", duree_years, "e.width", e.width );
 
       }
 

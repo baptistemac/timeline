@@ -2,8 +2,8 @@
 
 	"settings": {
 		"id": 0,
-		"title": "Histoire de la sédition",
-		"date": { "start": "1880", "end": "1980" },
+		"title": "La guerre en Irak",
+		"date": { "start": "1000", "end": "2000" },
 		"scale_1year_in_px": 20,
 		"last_save": "2014-08-13 21:00"
 	},

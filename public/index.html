@@ -13,13 +13,12 @@
   <!-- -->
   <script type="text/template" id="header_template">
     {{#tl.title}}
-      <a class="burger" href="nav">
+      <a class="burger" href="/">
         <span></span><span></span><span></span>
       </a>
       <h1>{{tl.title}}</h1>
       <p class="date"><time datetime="{{tl.date.start}}">{{tl.date.start}}</time> - <time datetime="{{tl.date.end}}">{{tl.date.end}}</time></p>
       <!--
-      <a href="#" class="btn style2 add">Add</a>
       <a href="edit" class="btn style1 edit">Edit</a>
       <a href="./" class="btn style1 exitedit">Exit edit</a>
       -->
@@ -27,8 +26,19 @@
     {{^tl.title}}
       <a href="/" class="logo">Timeline</a>
     {{/tl.title}}
-    {{#log.is_logged}}<a href="profil" class="btn style2 profil">{{log.id}}</a>{{/log.is_logged}}
-    {{^log.is_logged}}<a href="#" class="btn style1 login">Login</a>{{/log.is_logged}}
+    {{#log.is_logged}}
+      {{#tl.title}}
+        <a href="#" class="btn style1 edi">Éditer</a>
+        <a href="#" class="btn style2 add">+</a>
+      {{/tl.title}}
+      <a href="profil" class="profil">{{log.id}}</a>
+    {{/log.is_logged}}
+    {{^log.is_logged}}
+      <a href="#" class="btn style2 login">Créer ma timeline</a>
+      <a href="#" class="login">Login</a>
+    {{/log.is_logged}}
+
+
   </script>
 
   <header id="header"></header>
@@ -40,16 +50,16 @@
         <h1>Timeline</h1>
         <h2>Mes timelines</h2>
         <ul>
+          <li class="mini_tl create"><a href="./create">Créer une autre timeline</a></li>
           {{#log.timelines}}
             <li class="mini_tl"><a href="/timeline/{{id}}">{{name}}</a></li>
           {{/log.timelines}}
-          <li class="mini_tl create"><a href="./create">Créer une autre timeline</a></li>
         </ul>
       </div>
     {{/log.is_logged}}
     {{^log.is_logged}}
       <div class="bloc discover">
-        <h1>Timeline: Visualiser en peu de temps lensemble des événements simultanés.</h1>
+        <h1>Timeline</h1><h2>Connaitre le passé pour comprendre le présent.</h2>
         <a href="/timeline/0" class="btn style1 demo">Démo</a>
         <a href="#" class="btn style2 login">Créer ma timeline</a>
       </div>
@@ -60,7 +70,7 @@
       <input type="search" class="search_in_collection" placeholder="Rechercher">
       <ul>
         {{#timelines}}
-          <li class="mini_tl"><a href="/timeline/{{id}}">{{name}}</a></li>
+          <li class="mini_tl"><a href="/{{id}}">{{name}}</a></li>
         {{/timelines}}
       </ul>
     </div>
@@ -94,6 +104,30 @@
 
 
 
+
+  <script type="text/template" id="fiche_template">
+  <div class="fiche {{type}}">
+    <a class="close" href="#">close</a>
+    {{#img}}<div class="visuel" style="background-image: url('../img/media/{{img}}');"></div>{{/img}}
+    <div class="fiche-content">
+      <h2>{{title}}</h2>
+      {{#author}}<p class="author">{{author}}</p>{{/author}}
+      {{#date.start}}<time datetime="{{date.start}}">{{date.start}}</time>{{/date.start}}
+      {{#date.end}}<time datetime="{{date.end}}">- {{date.end}}</time>{{/date.end}}
+
+      {{#link}}<a href="{{link}}" target="blank">Wikipédia</a>{{/link}}
+      {{type}}
+      {{#chapeau}}<p class="chapeau">{{chapeau}}</p>{{/chapeau}}
+      {{#text}}<p class="text">{{text}}</p>{{/text}}
+    </div>
+  </div>
+  </script>
+
+  <div id="fiche"></div>
+
+
+
+
   <div id="timeline">
   
 
@@ -101,10 +135,9 @@
     <script type="text/template" id="tl_template">
 
       <div class="line">
-      {{#dates}}
-        <time datetime="{{.}}">{{.}}</time>
-      {{/dates}}
-
+        {{#dates}}
+          <time datetime="{{.}}">{{.}}</time>
+        {{/dates}}
       </div>
 
       {{#categories}}
@@ -120,7 +153,7 @@
         <div class="events">
           <span class="name">{{name}}</span>
           {{#events}}
-            <a href="#" class="event {{type}}" data-id="{{id}}" style="left:{{left}}px;{{#width}} width:{{width}}px;{{/width}}">{{title}}<time datetime="{{date.start}}">{{date.start}}</time></a>
+            <a href="#" class="event {{type}}" data-id="{{id}}" style="left:{{prct}}%;{{#width}} width:{{width}}px;{{/width}}">{{title}}<time datetime="{{date.start}}">{{date.start}}</time></a>
           {{/events}}
         </div>
         
@@ -161,29 +194,24 @@
     <div id="tl"></div>
 
 
-
-
-
-    <script type="text/template" id="fiche_template">
-    <div class="fiche {{type}}">
-      <div class="fiche-top">
-        {{#date.start}}<time datetime="{{date.start}}">{{date.start}}</time>{{/date.start}}
-        {{#date.end}}<time datetime="{{date.end}}">- {{date.end}}</time>{{/date.end}}
-        <a class="close" href="#">close</a>
-      </div>
-      {{#img}}<div class="visuel" style="background-image: url('../img/media/{{img}}');"></div>{{/img}}
-      <div class="fiche-content">
-        <h2>{{title}}</h2>
-        {{#author}}<p class="author">{{author}}</p>{{/author}}
-        {{#link}}<a href="{{link}}" target="blank">Wikipédia</a>{{/link}}
-        {{type}}
-        {{#chapeau}}<p class="chapeau">{{chapeau}}</p>{{/chapeau}}
-        {{#text}}<p class="text">{{text}}</p>{{/text}}
-      </div>
-    </div>
+    <!-- -->
+    <script type="text/template" id="map_template">
+      <div class="sight"><a href="#" class="handle left"></a><a href="#" class="handle right"></a></div>
+      {{#categories}}
+        <div class="categorie">
+          {{#events}}
+            <span class="event {{type}}" data-id="{{id}}" style="left:{{prct}}%" title="{{title}}"></span>
+          {{/events}}
+          </div>
+      {{/categories}}
     </script>
 
-    <div id="fiche"></div>
+    <div id="map"></div>
+
+  
+  </div> <!-- fin de #timeline -->
+
+
   
 
   <script type="text/template" id="handlecomp_template">
@@ -215,22 +243,7 @@
   <div id="handlecomp"></div>
 
 
-    <!-- -->
-    <script type="text/template" id="map_template">
 
-      {{#categories}}
-        <div class="categorie">
-          {{#events}}
-            <span class="event {{type}}" data-id="{{id}}" style="left:{{prct}}%" title="{{title}}"></span>
-          {{/events}}
-          </div>
-      {{/categories}}
-
-    </script>
-
-    <div id="map"></div>
-
-  </div> <!-- fin de .container -->
   
   <script type="text/template" id="modal_template">
   

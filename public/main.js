@@ -11,6 +11,8 @@ yepnope({
     //Models
     tl                : 'models/tl.js',
     log               : 'models/log.js',
+    currentpage       : 'models/currentpage.js',
+    event             : 'models/event.js',
     
     //Controllers
     mainview          : 'views/MainView.js',

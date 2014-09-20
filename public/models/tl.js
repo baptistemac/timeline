@@ -5,7 +5,7 @@ var TimeLine = (function(timeline) {
     //urlRoot: "/objects",
 
     defaults: {
-      title               : "Machin bidule",
+      //title               : "Machin bidule",
       date                : { start: 1880, end: 1980 },
       scale_1year_in_px   : 20,
       last_save           : "2014-08-13 21:00"
@@ -28,6 +28,7 @@ var TimeLine = (function(timeline) {
     },
 
     /* les getters et les setters à l'ancienne */
+
     setKey: function (key) {
       this.set("current_key", key);
     },

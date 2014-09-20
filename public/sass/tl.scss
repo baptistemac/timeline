@@ -1,7 +1,10 @@
+
+
 #timeline {
 	display: none;
 	overflow: scroll;
 	position: relative;
+	width: 100%;
 	
 	&.show {
 		display: block;
@@ -49,6 +52,11 @@
 				background-color: $grey2;
 			}
 		}
+	}
+	.add {
+		position: fixed;
+		right: 7px;
+		top: 52px;
 	}
 
 	&.categories-1 > .category { height: 100% }

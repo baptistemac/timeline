@@ -5,8 +5,13 @@ var TimeLine = (function(timeline) {
     el: "#tl",
 
     // Variables disponibles :
+
+    currentevent: false,
+    // currentevent_id
+
     // this.tl.years = nombre d'année de la timleine
     // this.tl.width = largeur en px
+    // this.tl.view_prct = largeur de la vue en pourcentage
 
 
     initialize: function( tl ) {
@@ -17,9 +22,6 @@ var TimeLine = (function(timeline) {
       this.mapView          = new TimeLine.Views.MapView();
       this.ficheView        = new TimeLine.Views.FicheView( { parent: this } );
       this.handlecompView   = new TimeLine.Views.HandlecompView();
-
-      // model
-      this.tl               = new TimeLine.Models.Tl();
 
     },
 
@@ -44,20 +46,11 @@ var TimeLine = (function(timeline) {
     },
 
 
-    detect_scroll: function () {
-      console.log("TlView detect_scroll");
-
-      /*
-      // detect scroll
-      window.is_scroll = false;
-      _.bindAll(this, 'scroll'); // _.bindAll is very usefull to keep the context of this in the scroll function.
-      $(window).bind("scroll", this.scroll);
-      */
-    },
-
-
     initialize_tl: function( tl ) {
       console.log("TlView initialize_tl");
+
+      // model
+      this.tl               = new TimeLine.Models.Tl();
 
       this.tl.set( "id", tl.settings.id );
       this.tl.set( "title", tl.settings.title );
@@ -68,10 +61,13 @@ var TimeLine = (function(timeline) {
 
       console.log( "this.tl", this.tl.attributes );
 
+      // Mise à jour du Header avec le bon title et date..
+      mainView.headerView.render();
+
       // Définiton principale de la timeline
       this.setup_timeline();
 
-      // Render de la la vue Categories
+      // Render de la la vue Tl
       this.render_main();
 
       // Définiton du tableau contenant les subviews
@@ -92,14 +88,15 @@ var TimeLine = (function(timeline) {
       this.render();
       this.$el.parent("#timeline").addClass("show");
 
+      // Render de la map
+      this.mapView.render();
+
     },
 
 
     setup_timeline: function ( s ) {
-      console.log("TlView set_timeline");
-
       var s = this.tl.attributes;
-      console.log("TlView set_timeline", s);
+      console.log("TlView set_timeline");
 
       // Définition de la longueur de #themes
       var days    = this.calcul_duration_between_dates( s.date.start, s.date.end );
@@ -111,6 +108,10 @@ var TimeLine = (function(timeline) {
       this.tl.set("width", width);
 
       this.define_all_dates();
+
+      // Définition du pourcentage de largeur entre le viewport et la timeline
+      var view_prct = $(window).width() / width * 100;
+      this.tl.set("view_prct", view_prct);
 
     },
 
@@ -143,6 +144,12 @@ var TimeLine = (function(timeline) {
     },
 
 
+
+    nextEvent: function () {
+      console.log("nextEvent");
+      this.ficheView.open(9);
+    },
+
     // Retourn une durée en jours
     calcul_duration_between_dates: function ( date1, date2 ) {
       var date1 = new Date(date1);
@@ -155,10 +162,10 @@ var TimeLine = (function(timeline) {
 
 
     define_all_dates: function () {
-
       this.tl.set( "dates", [ 1880, 1890, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980 ] );
-
     },
+
+
 
     hide: function () {
       console.log("TlView hide");

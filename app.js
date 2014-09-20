@@ -10,6 +10,7 @@ app.use(app.router);
 
 app.use(logfmt.requestLogger());
 
+//nStore = nStore.extend(require('nstore/query')());
 
 
 /*--------------------------------------------
@@ -71,7 +72,7 @@ function Routes() {
     res.sendfile( __dirname + '/public/index.html' );
   });
 
-  app.get('/timeline/0', function(req, res){
+  app.get('/0', function(req, res){
     res.sendfile( __dirname + '/public/index.html' );
   });
 

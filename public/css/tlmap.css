@@ -1,5 +1,5 @@
 /*
-Syntax error: Undefined variable: "$grey2".
+Syntax error: Undefined variable: "$grey3".
         on line 11 of /Applications/MAMP/htdocs/12 - Timeline/site/public/sass/tlmap.scss
 
 Backtrace:
@@ -49,15 +49,15 @@ Backtrace:
 /Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:126:in `timed'
 /Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/compiler.rb:100:in `run'
 /Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:147:in `recompile'
-/Library/Ruby/Gems/1.8/gems/compass-0.12.2/lib/compass/commands/watch_project.rb:95:in `perform'
+/Library/Ruby/Site/1.8/rubygems/core_ext/kernel_require.rb:55:in `to_proc'
 /Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `call'
 /Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `run_callback'
 /Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:55:in `callback_action'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:39:in `delete'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:32:in `deleted'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:31:in `each'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:31:in `deleted'
-/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:16:in `refresh'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:35:in `update'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:39:in `modified'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `each'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `modified'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:18:in `refresh'
 /Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/rbfsevent.rb:30:in `temporary_multipath_handler'
 /Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/rbfsevent.rb:27:in `each'
 /Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/rbfsevent.rb:27:in `temporary_multipath_handler'
@@ -83,4 +83,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$grey2\".\A         on line 11 of /Applications/MAMP/htdocs/12 - Timeline/site/public/sass/tlmap.scss"; }
+  content: "Syntax error: Undefined variable: \"$grey3\".\A         on line 11 of /Applications/MAMP/htdocs/12 - Timeline/site/public/sass/tlmap.scss"; }
