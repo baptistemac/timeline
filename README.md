@@ -10,10 +10,10 @@ Install & Run
 	git clone https://github.com/baptistemac/timeline.git
 	cd timeline
 	npm install
-	node server.js
+	node app.js
 
 
-Then visit [http://localhost:3000](http://localhost:3000) in a browser.
+Then visit [http://localhost:5000](http://localhost:5000) in a browser.
 
 
 To do
@@ -31,7 +31,7 @@ License
 ------------
 The MIT License (MIT)
 
-Copyright (c) 2013 Alex Ehrnschwender
+Copyright (c) 2014 Baptiste Macaire
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
