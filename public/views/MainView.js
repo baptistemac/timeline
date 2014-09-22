@@ -11,12 +11,14 @@ var TimeLine = (function(timeline) {
 
       console.log("MainView initialize");
 
+
       this.currentpage      = new TimeLine.Models.Currentpage();
       
       // Initialize Models
-      this.log              = new TimeLine.Models.Log();
+      //this.log              = new TimeLine.Models.Log();
 
       // Initialize Views
+      this.loginView        = new TimeLine.Views.LoginView();
       this.modalView        = new TimeLine.Views.ModalView();
       this.headerView       = new TimeLine.Views.HeaderView( { parent: this } );
       this.homeView         = new TimeLine.Views.HomeView( { parent: this } );
@@ -24,7 +26,7 @@ var TimeLine = (function(timeline) {
       this.tlView           = new TimeLine.Views.TlView();
 
       // check if user is logged
-      this.log.is_logged = true;
+      //this.log.is_logged = true;
 
       // render
       this.render();

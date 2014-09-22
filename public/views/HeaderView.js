@@ -16,7 +16,8 @@ var TimeLine = (function(timeline) {
 
       var res           = {};
       res.currentpage   = { timeline: this.parent.currentpage.is_page( "timeline" ) };
-      res.log           = this.parent.log.attributes;
+      res.logged_in     = TimeLine.session.attributes.logged_in;
+      res.user          = TimeLine.session.user.attributes;
       res.tl            = ( this.parent.tlView.tl && this.parent.tlView.tl.attributes ) || null ;
       console.log("HeaderView render", res);
 
@@ -55,7 +56,7 @@ var TimeLine = (function(timeline) {
 
     login: function (e) {
       e.preventDefault();
-      mainView.modalView.show_login();
+      mainView.loginView.show();
     },
 
     profil: function (e) {

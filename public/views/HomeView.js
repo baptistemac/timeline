@@ -16,10 +16,11 @@ var TimeLine = (function(timeline) {
 
     render: function( options ) {
 
-      var res       = {};
-      res.log       = this.parent.log.attributes;
-      res.timelines = this.timelines || {};
-      var show      = (options && options.show) || false;
+      var res           = {};
+      res.logged_in     = TimeLine.session.attributes.logged_in;
+      res.user          = TimeLine.session.user.attributes;
+      res.timelines     = this.timelines || {};
+      var show          = (options && options.show) || false;
       console.log("HomeView render", res);
 
       var renderedContent = Mustache.to_html( this.template , res );

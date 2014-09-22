@@ -53,7 +53,8 @@ var TimeLine = (function(timeline) {
       console.log("ModalView show_login");
       var login = {};
       login.title = "Connectez-vous";
-      login.message = '<form><label for="identifiant">Identifiant</label><input type="text" id="identifiant" placeholder="Identifiant" autofocus><label for="password">Mot de passe</label><input type="password" id="password" placeholder="Mot de passe"><button class="btn style1 login" type="submit" name="connection">Connection</button></form><a href="close" class="close">Annuler</a>';
+      login.message = '<form><label for="login-identifiant">Identifiant</label><input type="text" id="login-identifiant" placeholder="Identifiant" autofocus><label for="login-password">Mot de passe</label><input type="password" id="login-password" placeholder="Mot de passe"><button class="btn style1 login" type="submit" name="connection">Connection</button></form><a href="close" class="close">Annuler</a>';
+      login.message += '<form><label for="signin-identifiant">Identifiant</label><input type="text" id="signin-identifiant" placeholder="Identifiant" autofocus><label for="signin-password">Mot de passe</label><input type="password" id="signin-password" placeholder="Mot de passe"><label for="signin-password2">Mot de passe</label><input type="password" id="signin-password2" placeholder="Mot de passe"><button class="btn style1 login" type="submit" name="connection">Creer mon compte</button></form>';
       login.show = true;
       this.render( login );
     },

@@ -1,7 +1,7 @@
 {
-  "name": "keygame",
+  "name": "timeline",
   "version": "0.1.0",
-  "description": "Play with me",
+  "description": "Know the past, my friend.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,11 @@
   "author": "Baptiste",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "logfmt": "~0.21.0",
+    "_logfmt": "~0.21.0",
+    "sqlite3": "~2.x.x",
+    "bcrypt": "~0.7.7",
+    "underscore": "~1.5.2",
+    "hbs": "~2.4.0",
     "express": "~3.5.0"
   }
 }

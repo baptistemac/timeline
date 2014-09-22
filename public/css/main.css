@@ -374,8 +374,33 @@ header a.btn {
   color: #f14c4c;
 }
 
-/* line 4, ../sass/modal.scss */
-#modal .modal {
+/* line 1, ../sass/modal.scss */
+.alert {
+  margin-top: 10px;
+  padding: 3px 35px 3px 14px;
+  margin-bottom: 5px;
+  margin-left: 40px;
+}
+
+/* line 7, ../sass/modal.scss */
+.alert-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+/* line 12, ../sass/modal.scss */
+.alert {
+  position: absolute;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  z-index: 10000;
+}
+
+/* line 24, ../sass/modal.scss */
+.modal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -396,8 +421,8 @@ header a.btn {
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
-/* line 17, ../sass/modal.scss */
-#modal .modal .md-content {
+/* line 37, ../sass/modal.scss */
+.modal .md-content {
   position: relative;
   -webkit-transform: scale(0.7);
   -moz-transform: scale(0.7);
@@ -416,12 +441,12 @@ header a.btn {
   margin: 0 auto;
   padding: 40px;
 }
-/* line 29, ../sass/modal.scss */
-#modal .modal.show {
+/* line 49, ../sass/modal.scss */
+.modal.show {
   visibility: visible;
 }
-/* line 31, ../sass/modal.scss */
-#modal .modal.show .md-content {
+/* line 51, ../sass/modal.scss */
+.modal.show .md-content {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);
@@ -430,21 +455,22 @@ header a.btn {
   visibility: visible;
   opacity: 1;
 }
-/* line 36, ../sass/modal.scss */
-#modal .modal.show ~ .overlay {
+/* line 56, ../sass/modal.scss */
+.modal.show ~ .overlay {
   opacity: 1;
   visibility: visible;
 }
-/* line 43, ../sass/modal.scss */
-#modal .modal.error h2 {
+/* line 63, ../sass/modal.scss */
+.modal.error h2 {
   color: #f14c4c;
 }
-/* line 46, ../sass/modal.scss */
-#modal .modal.error ~ .overlay {
+/* line 66, ../sass/modal.scss */
+.modal.error ~ .overlay {
   border-color: #f14c4c;
 }
-/* line 51, ../sass/modal.scss */
-#modal .overlay {
+
+/* line 71, ../sass/modal.scss */
+.overlay {
   position: fixed;
   width: 100%;
   height: 100%;

@@ -5,10 +5,66 @@
   <title>TimeLine</title>
   <link href="css/main.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{csrfToken}}">
 </head>
 
 <body>
   
+
+  <div id="header-alert" class="alert alert-success col-md-7 navbar-button" style="display:none;"></div>
+
+
+  <script type="text/template" id="login_template">
+  
+  <div class="modal show">
+    <div class="md-content">
+
+      <div class="height:50px;">
+          <ul id="login-errors" class="parsley-error-list"></ul>
+      </div>
+
+      <form id="login-form" data-validate="parsley">
+        <h2>Se connecter</h2>
+
+        <label for="login-username-input">Identifiant</label>
+        <input type="text" id="login-username-input" placeholder="Identifiant" value="" data-notblank="true" required autofocus>
+        <span class="help-block"></span>
+
+        <label for="login-password-input">Mot de passe</label>
+        <input type="password" id="login-password-input" placeholder="Mot de passe" value="" required>
+        <span class="help-block"></span>
+
+        <button id="login-btn" class="btn style1 login" type="submit" name="connection">Connection</button>
+      </form>
+      <a href="#" class="close">Annuler</a>
+
+      <form id="signup-form" data-validate="parsley">
+        <h2>S enregistrer</h2>
+
+        <label for="signup-username-input">Identifiant</label>
+        <input type="text" id="signup-username-input" placeholder="Identifiant" value="Antoine" data-notblank="true" required autofocus>
+        <span class="help-block"></span>
+
+        <label for="signup-password-input">Mot de passe</label>
+        <input type="password" id="signup-password-input" placeholder="Mot de passe" value="antoine" data-notblank="true" data-rangelength="[5,25]" required>
+        <span class="help-block"></span>
+
+        <label for="signup-password-confirm-input">Mot de passe</label>
+        <input type="password" id="signup-password-confirm-input" placeholder="Confirm Mot de passe" value="antoine" data-notblank="true" data-rangelength="[5,25]" data-equalto="#signup-password-input" required>
+        <span class="help-block"></span>
+
+        <button id="signup-btn" class="btn style1 login" type="submit" name="connection">Creer mon compte</button>
+      </form>
+
+    </div>
+
+  </div>
+  <div class="overlay"></div>
+  </script>
+
+  <div id="login"></div>
+
+
 
   <!-- -->
   <script type="text/template" id="header_template">
@@ -26,17 +82,17 @@
     {{^tl.title}}
       <a href="/" class="logo">Timeline</a>
     {{/tl.title}}
-    {{#log.is_logged}}
+    {{#logged_in}}
       {{#tl.title}}
         <a href="#" class="btn style1 edi">Éditer</a>
         <a href="#" class="btn style2 add">+</a>
       {{/tl.title}}
-      <a href="profil" class="profil">{{log.id}}</a>
-    {{/log.is_logged}}
-    {{^log.is_logged}}
+      <a href="profil" class="profil">{{user.username}}</a>
+    {{/logged_in}}
+    {{^logged_in}}
       <a href="#" class="btn style2 login">Créer ma timeline</a>
-      <a href="#" class="login">Login</a>
-    {{/log.is_logged}}
+      <a href="#" class="login">Se connecter</a>
+    {{/logged_in}}
 
 
   </script>
@@ -81,23 +137,23 @@
 
   <!-- -->
   <script type="text/template" id="profil_template">
-    {{#log.is_logged}}
+    {{#logged_in}}
       <div class="bloc">
         <a href="/" class="logout">Se déconnecter</a>
         <h2>Mon profil</h2>
         <h3>Modifier mes informations personnelles</h3>
-        <label for="id">Identifiant</label><input type="text" id="id" value="{{id}}">
-        <label for="email">Courriel</label><input type="email" id="email" value="{{email}}">
+        <label for="id">Identifiant</label><input type="text" id="id" value="{{user.username}}">
+        <label for="email">Courriel</label><input type="email" id="email" value="{{user.email}}">
         <label for="password">Mot de passe</label><input type="password" id="password" value="">
         <label for="password">Répéter le mot de passe</label><input type="password" id="password" value="">
         <a href="#" class="delete_account">Supprimer mon compte</a>
       </div>
-    {{/log.is_logged}}
-    {{^log.is_logged}}
+    {{/logged_in}}
+    {{^logged_in}}
       <div class="bloc">
         <a href="#" class="login">Connectez-vous pour accéder à votre page profil.</a>
       </div>
-    {{/log.is_logged}}
+    {{/logged_in}}
   </script>
 
   <div id="profil"></div>
@@ -257,6 +313,8 @@
   </script>
 
   <div id="modal"></div>
+
+
 
 </body>
 
