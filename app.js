@@ -97,6 +97,7 @@ Routes();
 
 var connectedUsers = [];
 
+/*
 function addUser(user) {
   users.save(null, user, function(err, key) {
     if (err) {
@@ -116,13 +117,6 @@ function findUserByMail(email) {
   })[0];
 }
 
-function findUserBySession(sessionID) {
-    // Permet de retrouver un utilisateur par son id de session
-    return connectedUsers.filter(function(user) {
-        return user.sessionID == sessionID;
-    })[0];
-}
-
 function findUserByUsername( username, callback ) {
   console.log("fct findUserByUsername", username);
   users.find({ username: username }, function (err, results) {
@@ -135,6 +129,13 @@ function findUserByUsername( username, callback ) {
       if(callback && 'error' in callback ) callback.error(results);
     }
   });
+}
+*/
+function findUserBySession(sessionID) {
+    // Permet de retrouver un utilisateur par son id de session
+    return connectedUsers.filter(function(user) {
+        return user.sessionID == sessionID;
+    })[0];
 }
 
 
