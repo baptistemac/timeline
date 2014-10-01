@@ -54,16 +54,20 @@ var TimeLine = (function(timeline) {
     onLoginAttempt: function(e){
         if(e) e.preventDefault();
 
-        if(this.$("#login-form").parsley('validate')){
+        if(this.$el.find("#login-form").parsley('validate')){
             var that = this;
             TimeLine.session.login({
-                username: this.$("#login-username-input").val(),
-                password: this.$("#login-password-input").val()
+                username: that.$el.find("#login-username-input").val(),
+                password: that.$el.find("#login-password-input").val()
             }, {
                 success: function(mod, res){
                     if(DEBUG) console.log("SUCCESS", mod, res);
                     that.hide();
                     mainView.headerView.render();
+                    mainView.homeView.render();
+                    mainView.profilView.render();
+                    mainView.tlView.ficheView.render();
+                    mainView.tlView.tl.setEditable();
                 },
                 error: function(err){
                     if(DEBUG) console.log("ERROR", err);
@@ -83,16 +87,18 @@ var TimeLine = (function(timeline) {
         console.log("onSignupAttempt");
         if(evt) evt.preventDefault();
 
-        if(this.$("#signup-form").parsley('validate')){
+        if(this.$el.find("#signup-form").parsley('validate')){
           var that = this;
           TimeLine.session.signup({
-              username: that.$("#signup-username-input").val(),
-              password: that.$("#signup-password-input").val()
+              username: that.$el.find("#signup-username-input").val(),
+              password: that.$el.find("#signup-password-input").val()
           }, {
               success: function(mod, res){
                   if(DEBUG) console.log("SUCCESS", mod, res);
                   that.hide();
                   mainView.headerView.render();
+                  mainView.homeView.render();
+                  mainView.profilView.render();
               },
               error: function(err){
                   if(DEBUG) console.log("ERROR", err);

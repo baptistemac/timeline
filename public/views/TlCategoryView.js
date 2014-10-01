@@ -63,7 +63,7 @@ var TimeLine = (function(timeline) {
       } else {
         // sinon on l'ouvre
         this.add_event_class( id, e );
-        this.parent.ficheView.open( id , false );
+        this.parent.ficheView.open( id , { edit: false, add_class:false } );
         this.add_category_class();
         this.parent.mapView.active_id( id ); 
       }
@@ -100,7 +100,7 @@ var TimeLine = (function(timeline) {
       console.log("calcul_events_positions", events);
       
       //var that = this;
-      var settings = this.parent.tl.attributes;
+      var settings = this.parent.tl.attributes.settings;
       var i;
 
       for ( i=0 ; i<events.length ; i++ ) {

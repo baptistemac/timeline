@@ -4,16 +4,16 @@
   "description": "Know the past, my friend.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make test"
   },
   "author": "Baptiste",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "dependencies": {
-    "_logfmt": "~0.21.0",
-    "sqlite3": "~2.x.x",
-    "bcrypt": "~0.7.7",
+    "express": "~3.5.0",
+    "nstore": "~0.5.2",
+    "logfmt": "~0.21.0",
+    "mongoose": "~3.8.17",
     "underscore": "~1.5.2",
-    "hbs": "~2.4.0",
-    "express": "~3.5.0"
+    "hbs": "~2.4.0"
   }
 }

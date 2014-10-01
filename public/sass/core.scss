@@ -58,6 +58,25 @@ input {
 	}
 }
 
+.group_input {
+	input {
+		width: 30%;
+		@include border-radius(3px 0 0 3px);
+	}
+	.between_input {
+		float: left;
+		height: 50px;
+		width: 10%;
+		margin: 10px 0px;
+		padding-top: 15px;
+		background-color: $grey4;
+
+		& + input {
+			@include border-radius(0 3px 3px 0);
+		}
+	}
+}
+
 button {
 	margin: 20px;
 	cursor: pointer;

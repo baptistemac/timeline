@@ -35,10 +35,11 @@ var TimeLine = (function(timeline) {
 
         // Fxn to update user attributes after recieving API response
         updateSessionUser: function( userData ){
-            console.log("updateSessionUser");
-            this.user.set( _.pick( userData, _.keys(this.user.defaults) ) );
+            console.log("updateSessionUser", userData);
+            this.user.attributes = userData;
+            //this.user.set( _.pick( userData, _.keys(this.user.defaults) ) );
+            console.log("this.user", this.user.attributes);
         },
-
 
 
         /*
@@ -59,14 +60,14 @@ var TimeLine = (function(timeline) {
                     if ( res.user ) {
                         console.log("checkAuth success", res.user);
                         that.updateSessionUser( res.user );
-                        that.set({ logged_in : true });
+                        that.set({ logged_in: true });
                     } else {
                         // USer is not already connected
-                        that.set({ logged_in : false });
+                        that.set({ logged_in: false });
                     }
                 },
                 error: function(mod, res){
-                    if(callback && 'error' in callback ) callback.error(res);
+
                 }
             }).complete( function(){
                 if(callback && 'complete' in callback ) callback.complete();

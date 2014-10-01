@@ -23,25 +23,10 @@ var TimeLine = (function(timeline) {
 
 
     events : {
-      "click .login"      : "login",
-
-      "click a.close"     : "close_modal",
-      "click .overlay"    : "overlay_remove"
+      "click a.close"     : "hide",
+      "click .overlay"    : "hide_from_overlay"
     },
 
-    // Si je clique explicitement sur Annuler. Permet d'éviter les annulation involontaire en cliquant sur l'overlay. 
-    close_modal : function (e) {
-      if (e) { e.preventDefault(); }
-      this.$el.find(".modal").removeClass("show error");
-      //this.render( {} ); // Marche pas // Permet de toujours regénérer les modal. Car sinon le autofus du input ne se relance pas.
-    },
-
-    // Si je clique sur l'overlay.
-    overlay_remove : function () {
-      console.log("ModalView overlay_remove", this.md_content.overlay_remove);
-      if ( this.md_content.overlay_remove || this.md_content.overlay_remove == undefined ) 
-        this.$el.find(".modal").removeClass("show error");
-    },
 
     show_error: function( error ) {
       error.class = "error";
@@ -49,25 +34,8 @@ var TimeLine = (function(timeline) {
       this.render( error );
     },
 
-    show_login: function () {
-      console.log("ModalView show_login");
-      var login = {};
-      login.title = "Connectez-vous";
-      login.message = '<form><label for="login-identifiant">Identifiant</label><input type="text" id="login-identifiant" placeholder="Identifiant" autofocus><label for="login-password">Mot de passe</label><input type="password" id="login-password" placeholder="Mot de passe"><button class="btn style1 login" type="submit" name="connection">Connection</button></form><a href="close" class="close">Annuler</a>';
-      login.message += '<form><label for="signin-identifiant">Identifiant</label><input type="text" id="signin-identifiant" placeholder="Identifiant" autofocus><label for="signin-password">Mot de passe</label><input type="password" id="signin-password" placeholder="Mot de passe"><label for="signin-password2">Mot de passe</label><input type="password" id="signin-password2" placeholder="Mot de passe"><button class="btn style1 login" type="submit" name="connection">Creer mon compte</button></form>';
-      login.show = true;
-      this.render( login );
-    },
-
-    login: function (e) {
-      e.preventDefault();
-      console.log("ModalView login");
-      mainView.log.set("is_logged", true);
-      this.close_modal();
-    },
-
     show_create: function () {
-      console.log("ModalView show_login");
+      console.log("ModalView show_create");
       var create = {};
       create.title = "Créer une timeline";
       create.message = '<form><label for="title">Titre</label><input type="text" id="title" placeholder="Titre" autofocus required><label for="startdate">Année de début</label><input type="text" pattern="\\d*" id="startdate" placeholder="Année de début" required><label for="enddate">Année de fin</label><input type="text" pattern="\\d*" id="enddate" placeholder="Année de fin" required><button class="btn style1" type="submit" name="create">Créer</button></form><a href="close" class="close">Annuler</a>';
@@ -81,7 +49,22 @@ var TimeLine = (function(timeline) {
       portrait.title = "Connectez-vous";
       portrait.show = true;
       this.render( portrait );
+    },
+
+    // Si je clique explicitement sur Annuler. Permet d'éviter les annulation involontaire en cliquant sur l'overlay. 
+    hide : function (e) {
+      if (e) { e.preventDefault(); }
+      this.$el.find(".modal").removeClass("show error");
+      //this.render( {} ); // Marche pas // Permet de toujours regénérer les modal. Car sinon le autofus du input ne se relance pas.
+    },
+
+    // Si je clique sur l'overlay.
+    hide_from_overlay : function () {
+      console.log("ModalView overlay_remove", this.md_content.overlay_remove);
+      if ( this.md_content.overlay_remove || this.md_content.overlay_remove == undefined ) 
+        this.$el.find(".modal").removeClass("show error");
     }
+
 
   });
   return timeline;

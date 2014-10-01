@@ -6,35 +6,27 @@ var TimeLine = (function(timeline) {
     /* valeurs par défaut du modèle */
     defaults: {
       title     : "Title",
-      type      : "baptiste.mac@gmail.com",
+      type      : "book",
       date      : { start: "2014 08 28", end: "2014 08 50" },
-      img       : "",
+      img       : ""
     },
 
 
     initialize: function() {
 
-      console.log("Log initialize is_logged", this.attributes.is_logged);
-      this.on( "change:is_logged", this.update );
+      console.log("Event initialize");
       
     },
 
     /* les getters et les setters à l'ancienne */
     // ...
 
-    update: function() {
-      console.log("-- Log change:is_logged update");
-      mainView.headerView.render();
-      mainView.homeView.render();
-      mainView.profilView.render();
+    getTitle: function () {
+      return this.attributes.title;
     },
 
-    getKey: function () {
-      return this.attributes.key;
-    },
-
-    setKey: function ( value ) {
-      this.set("key",value);
+    setTitle: function ( value ) {
+      this.set("title",value);
     }
 
   });

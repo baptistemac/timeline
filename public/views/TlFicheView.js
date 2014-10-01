@@ -19,13 +19,19 @@ var TimeLine = (function(timeline) {
     },
 
     events : {
-      "click .close"      : "close"
+      "click .close"      : "close",
+      "click .edit"       : "edit",
+      //"click .save"       : "save",
+
+      "input [contenteditable=true]" : "save"
     },
 
 
-    open: function ( id , add_class) {
+    open: function ( id , options) {
       
       console.log("FicheView open");
+
+      // options : { edit, add_class }
 
       // Ajout des .active sur #themes et #map
       //mainView.categoriesView.add_active_class( id, null);
@@ -39,9 +45,14 @@ var TimeLine = (function(timeline) {
       //this.is_open = true;
       this.parent.currentevent = true;
       this.parent.currentevent_id = id;
-      this.$el.addClass("open");
 
-      if ( add_class ) {
+      if ( options.edit ) {
+        this.$el.addClass("open fiche-edit");
+      } else {
+        this.$el.addClass("open");
+      }
+
+      if ( options.add_class ) {
         var categoryview = _.where(  this.parent.tlView.subviews_arr , { "id": this.category_id })[0];
         categoryview.add_event_class( this.id, null );
         categoryview.add_category_class();
@@ -79,19 +90,55 @@ var TimeLine = (function(timeline) {
       }
     },
 
-    add_event: function () {
-      this.create();
+    
+
+    //
+    // Édition de la fiche
+    //
+
+
+    edit: function (e) {
+      e.preventDefault();
+      console.log("FicheView edit");
+      this.$el.addClass("fiche-edit");
+      this.make_contenteditable();
     },
 
-    create: function () {
-      console.log("FicheView create_fiche");
-      //this.is_open = true;
-      this.$el.addClass("open");
+    save: function (e) {
+      e.preventDefault();
+      console.log("FicheView save", mainView.tlView.tl.attributes);
+      var json  = _.omit(mainView.tlView.tl.attributes, ['dates','editable']);
+      console.log("json", json);
+      //this.remove_contenteditable();
+      //this.$el.removeClass("fiche-edit");
+    },
 
 
+    make_contenteditable: function () {
+        this.$el.find(".title")
+                    .attr("contenteditable", "true")
+                    .attr("data-placeholder", "Title")
+                    .attr("data-maxlength", "10")
+                    //.addClass( (item.getTitle()) ? "" : "defaut-value" )
+                    .focus()
+                .siblings(".author")
+                    .attr("contenteditable", "true")
+                    .attr("data-placeholder", "Author")
+                .siblings(".chapeau")
+                    .attr("contenteditable", "true")
+                    .attr("data-placeholder", "Chapeau")
+                .siblings(".text")
+                    .attr("contenteditable", "true")
+                    .attr("data-placeholder", "Text");
+                //.data("bar", "foobar")
+                //.addClass( (item.getAuthor()) ? "" : "defaut-value" );
+
+    },
+
+    remove_contenteditable: function (li) {
+      this.$el.find(".item-title").attr("contenteditable", "false").removeClass("defaut-value")
+          .siblings(".item-author").attr("contenteditable", "false").removeClass("defaut-value");
     }
-
-
 
   });
   return timeline;

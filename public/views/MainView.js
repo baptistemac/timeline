@@ -11,22 +11,17 @@ var TimeLine = (function(timeline) {
 
       console.log("MainView initialize");
 
-
-      this.currentpage      = new TimeLine.Models.Currentpage();
-      
       // Initialize Models
-      //this.log              = new TimeLine.Models.Log();
+      this.currentpage      = new TimeLine.Models.Currentpage();
 
       // Initialize Views
       this.loginView        = new TimeLine.Views.LoginView();
+      this.createTlView     = new TimeLine.Views.CreateTlView();
       this.modalView        = new TimeLine.Views.ModalView();
       this.headerView       = new TimeLine.Views.HeaderView( { parent: this } );
       this.homeView         = new TimeLine.Views.HomeView( { parent: this } );
       this.profilView       = new TimeLine.Views.ProfilView();
       this.tlView           = new TimeLine.Views.TlView();
-
-      // check if user is logged
-      //this.log.is_logged = true;
 
       // render
       this.render();
@@ -41,7 +36,7 @@ var TimeLine = (function(timeline) {
 
 
     events : {
-      "keyup"                   : "keyup"
+      //"keyup"                   : "keyup"
     },
 
     keyup: function (e) {

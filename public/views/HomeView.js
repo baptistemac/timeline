@@ -33,7 +33,7 @@ var TimeLine = (function(timeline) {
     events : {
       "click .login"        : "login",
       "click .demo"         : "demo",
-      "click .create"       : "create",
+      "click .create"       : "create_timeline",
       "click .mini_tl > a"  : "mini_tl"
     },
 
@@ -51,10 +51,15 @@ var TimeLine = (function(timeline) {
       window.router.navigate( href, true );
     },
 
-    create: function (e) {
+    create_timeline: function (e) {
       e.preventDefault();
-      console.log("HomeView create");
-      mainView.modalView.show_create();
+      console.log("create_timeline", TimeLine.session.attributes.logged_in );
+      //window.router.navigate( "/create", {trigger: true, replace: false} );
+      if ( TimeLine.session.attributes.logged_in ) {
+        mainView.createTlView.show();
+      } else {
+        mainView.loginView.show();
+      }
     },
 
     mini_tl: function (e) {

@@ -9,16 +9,21 @@ var TimeLine = (function(timeline) {
     },
 
     routes: {
-      "edit"          : "edit",
       "hello"         : "hello",
       "login"         : "login",
       "profil"        : "profil",
+      "create"        : "create_timeline",
+
       ":id"           : "timeline",
+      "edit"          : "edit",
+
       "*path"         : "root"
     },
 
     root: function() {
       console.log("root *");
+      $("body").removeClass().addClass("page-home");
+
       mainView.profilView.hide();
       mainView.tlView.hide();
 
@@ -35,10 +40,6 @@ var TimeLine = (function(timeline) {
       */
     },
 
-    edit: function () {
-      $("h1").html("Edit");
-    },
-
     hello: function() {
       $("h1").html("Hello World !!!");
     },
@@ -49,6 +50,7 @@ var TimeLine = (function(timeline) {
 
     profil: function () {
       console.log("root profil");
+      $("body").removeClass().addClass("page-profil");
       mainView.homeView.hide();
       mainView.tlView.hide();
 
@@ -57,9 +59,16 @@ var TimeLine = (function(timeline) {
 
     },
 
+    create_timeline : function () {
+      console.log("root create_timeline");
+      // A définir...
+    },
+
+
     timeline: function ( id ) {
       console.log("root timeline", id);
-      
+      $("body").removeClass().addClass("page-timeline");
+
       //mainView.currentpage.setCurrentpage( "timeline" );
       
       mainView.tlView.getTimeline( id );
@@ -67,6 +76,10 @@ var TimeLine = (function(timeline) {
       mainView.homeView.hide();
       mainView.profilView.hide();
 
+    },
+
+    edit: function () {
+      $("h1").html("Edit");
     }
 
 

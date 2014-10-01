@@ -15,7 +15,7 @@ var TimeLine = (function(timeline) {
 
 
     initialize: function( tl ) {
-      console.log("TlView initialize");
+      console.log("TlView initialize", tl);
       this.template = $("#tl_template").html();
 
       //this.complementsView  = new TimeLine.Views.ComplementsView();
@@ -38,7 +38,7 @@ var TimeLine = (function(timeline) {
           window.mainView.modalView.show_error( error );
         },
         success: function (tl) {
-          console.log("tl", tl);
+          console.log("getTimeline tl", tl);
           that.initialize_tl( tl );
         }
       });
@@ -47,17 +47,19 @@ var TimeLine = (function(timeline) {
 
 
     initialize_tl: function( tl ) {
-      console.log("TlView initialize_tl");
+      console.log("TlView initialize_tl", tl.settings.id);
 
       // model
-      this.tl               = new TimeLine.Models.Tl();
+      this.tl = new TimeLine.Models.Tl( tl );
 
-      this.tl.set( "id", tl.settings.id );
-      this.tl.set( "title", tl.settings.title );
-      this.tl.set( "date", tl.settings.date );
-      this.tl.set( "scale_1year_in_px", tl.settings.scale_1year_in_px );
+      this.tl.attributes = tl;
 
-      this.tl.set( "categories", tl.categories );
+      //if (tl.settings.id != undefined) this.tl.set( "id", tl.settings.id );
+      //this.tl.set( "title", tl.settings.title );
+      //this.tl.set( "date", tl.settings.date );
+      //if (tl.settings.scale_1year_in_px) this.tl.set( "scale_1year_in_px", tl.settings.scale_1year_in_px );
+
+      //this.tl.set( "categories", tl.categories || 0 );
 
       console.log( "this.tl", this.tl.attributes );
 
@@ -99,19 +101,19 @@ var TimeLine = (function(timeline) {
       console.log("TlView set_timeline");
 
       // Définition de la longueur de #themes
-      var days    = this.calcul_duration_between_dates( s.date.start, s.date.end );
+      var days    = this.calcul_duration_between_dates( s.settings.date.start, s.settings.date.end );
       var years   = days / 365 ;
-      var width   = Math.round( years * s.scale_1year_in_px );
+      var width   = Math.round( years * s.settings.scale_1year_in_px );
 
       this.$el.css("width", width+"px");
-      this.tl.set("years", years);
-      this.tl.set("width", width);
+      this.tl.attributes.settings.years = years;
+      this.tl.attributes.settings.width = width;
 
       this.define_all_dates();
 
       // Définition du pourcentage de largeur entre le viewport et la timeline
       var view_prct = $(window).width() / width * 100;
-      this.tl.set("view_prct", view_prct);
+      this.tl.attributes.settings.view_prct = view_prct;
 
     },
 
@@ -143,6 +145,15 @@ var TimeLine = (function(timeline) {
     events : {
     },
 
+
+    add_event: function () {
+      console.log("add_event", this.tl.events);
+      var new_event = new TimeLine.Models.Event();
+      var u = _.max( this.tl.events, function(event) { console.log("-",event.id); return event.id; } );
+      console.log("u", u);
+      var id  = 18; //new_event.id;
+      this.ficheView.open( id, { edit: true, add_class:false } );
+    },
 
 
     nextEvent: function () {

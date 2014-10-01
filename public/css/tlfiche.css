@@ -20,7 +20,6 @@
   overflow: scroll;
   background: whitesmoke;
   border-left: 1px solid whitesmoke;
-  border-top: 2px solid #42bb93;
   z-index: 2;
 }
 /* line 24, ../sass/tlfiche.scss */
@@ -32,34 +31,30 @@
   width: 70%;
 }
 /* line 32, ../sass/tlfiche.scss */
-#fiche .fiche {
-  /*
-  .fiche-top {
-  	width: 100%;
-  	height: 40px;
-  	padding: 9px 30px;
-  	background-color: $grey4;
-  }
-  */
+#fiche .top {
+  position: fixed;
+  top: 50px;
+  width: 30%;
+  height: 40px;
+  background-color: #c9c9c9;
 }
-/* line 41, ../sass/tlfiche.scss */
-#fiche .fiche .close {
+/* line 38, ../sass/tlfiche.scss */
+#fiche .top .close {
   text-indent: -99999px;
   position: absolute;
   top: 0px;
   left: 0px;
   width: 40px;
   height: 40px;
-  background-color: #42bb93;
 }
-/* line 50, ../sass/tlfiche.scss */
-#fiche .fiche .close::before, #fiche .fiche .close::after {
+/* line 47, ../sass/tlfiche.scss */
+#fiche .top .close::before, #fiche .top .close::after {
   content: '';
   position: absolute;
-  top: 11px;
-  left: 19px;
+  top: 8px;
+  left: 22px;
   width: 2px;
-  height: 16px;
+  height: 25px;
   background: white;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -72,19 +67,42 @@
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-/* line 61, ../sass/tlfiche.scss */
-#fiche .fiche .close::after {
+/* line 58, ../sass/tlfiche.scss */
+#fiche .top .close::after {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-/* line 64, ../sass/tlfiche.scss */
-#fiche .fiche .close:hover {
+/* line 61, ../sass/tlfiche.scss */
+#fiche .top .close:hover {
   background-color: #3ea684;
 }
-/* line 71, ../sass/tlfiche.scss */
+/* line 65, ../sass/tlfiche.scss */
+#fiche .top .edit {
+  float: right;
+  height: 100%;
+  padding: 10px 15px;
+}
+/* line 70, ../sass/tlfiche.scss */
+#fiche .top .save {
+  float: right;
+  display: none;
+}
+/* line 76, ../sass/tlfiche.scss */
+#fiche .fiche {
+  margin-top: 40px;
+  /*
+  .fiche-top {
+  	width: 100%;
+  	height: 40px;
+  	padding: 9px 30px;
+  	background-color: $grey4;
+  }
+  */
+}
+/* line 91, ../sass/tlfiche.scss */
 #fiche .fiche .visuel {
   width: 100%;
   height: 250px;
@@ -92,35 +110,44 @@
   background-position: center center;
   background-size: cover;
 }
-/* line 78, ../sass/tlfiche.scss */
+/* line 98, ../sass/tlfiche.scss */
 #fiche .fiche.book .visuel {
   height: 200px;
-  margin: 40px 0 10px;
+  margin: 70px 0 10px;
   background-size: contain;
   background-repeat: no-repeat;
 }
-/* line 84, ../sass/tlfiche.scss */
+/* line 104, ../sass/tlfiche.scss */
 #fiche .fiche .fiche-content {
   padding: 0 30px;
 }
-/* line 87, ../sass/tlfiche.scss */
+/* line 107, ../sass/tlfiche.scss */
 #fiche .fiche h2 {
   padding: 20px 0 15px;
   font-size: 1.3em;
 }
-/* line 91, ../sass/tlfiche.scss */
+/* line 111, ../sass/tlfiche.scss */
 #fiche .fiche p {
   padding: 10px 0;
   font-size: 0.9em;
   line-height: 1.5em;
 }
-/* line 96, ../sass/tlfiche.scss */
+/* line 116, ../sass/tlfiche.scss */
 #fiche .fiche .author {
   color: #a1a1a1;
 }
-/* line 99, ../sass/tlfiche.scss */
+/* line 119, ../sass/tlfiche.scss */
 #fiche .fiche .chapeau {
   font-size: 1.05em;
   font-style: italic;
   color: #a1a1a1;
+}
+
+/* line 130, ../sass/tlfiche.scss */
+#fiche.fiche-edit .edit {
+  display: none;
+}
+/* line 133, ../sass/tlfiche.scss */
+#fiche.fiche-edit .save {
+  display: block;
 }

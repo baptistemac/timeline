@@ -18,8 +18,7 @@ var TimeLine = (function(timeline) {
 
         defaults: {
             username: '',
-            email: '',
-            timelines: []
+            email: ''
         },
 
         url: function(){

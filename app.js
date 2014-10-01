@@ -1,20 +1,53 @@
 /*--------------------------------------------
 Déclaration des librairies
 --------------------------------------------*/
-var express = require('express'),
-    http  = require('http'),
-    config = require("./config"),
-    nStore  = require('nstore'),
-    logfmt = require("logfmt"),
-    _ = require("underscore"),
+
+var config    = require("./config");
+
+var express   = require('express'),
+    http      = require('http'),
+    fs        = require("fs"),
+    //nStore    = require('nstore'),
+    //nStore    = nStore.extend(require('nstore/query')());
+    mongoose  = require('mongoose'),
+    logfmt    = require("logfmt"),
+    _         = require("underscore"),
     //infobox = require('wiki-infobox'),
-    app     = module.exports = express();
+    app       = module.exports = express();
 
-    app.use(logfmt.requestLogger());
-    nStore = nStore.extend(require('nstore/query')());
 
-    server  = http.createServer(app).listen( process.env.PORT || config.port);
 
+/*--------------------------------------------
+Database and Models
+--------------------------------------------*/ 
+
+//mongoose.connect('mongodb://baptiste:baptiste@localhost:27017/uw15dfpu');
+mongoose.connect('mongodb://localhost:27017');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () { });
+
+var UserSchema = new mongoose.Schema({
+    username: String,
+    password: String,
+    email: String,
+    timelines: Array,
+    first_connexion: Date,
+    last_connexion: Date
+});
+
+var User = mongoose.model('users', UserSchema);
+
+
+
+/*--------------------------------------------
+Middlewares and configurations
+--------------------------------------------*/
+
+app.use(logfmt.requestLogger());
+
+server  = http.createServer(app).listen( process.env.PORT || config.port);
 
 // Logging config
 app.configure('local', function(){
@@ -27,23 +60,17 @@ app.configure('production', function(){
     app.use(express.errorHandler());
 });
 
-
 // Compression (gzip)
 app.use( express.compress() );
 app.use( express.methodOverride() );
 app.use( express.urlencoded() );            // Needed to parse POST data sent as JSON payload
 app.use( express.json() );
 
-
-/*--------------------------------------------
-Paramétrages de fonctionnement d'Express
---------------------------------------------*/
-
+// Paramétrages de fonctionnement d'Express
 app.use(express.bodyParser());
 app.use(express.static(__dirname + '/public'));
 app.use(express.cookieParser( config.cookieSecret ));
 //app.use(express.session());
-
 //app.use(express.cookieSession( config.sessionSecret ) );
 app.use(express.session({
   secret: config.sessionSecret
@@ -53,34 +80,14 @@ app.use(express.session({
 
 /*--------------------------------------------
 Définition de la "base" users
---------------------------------------------*/
+--------------------------------------------
 var users;
 users = nStore.new("data/users/users.db", function() {
   Routes();
 });
-
-
-
-/*
-// Cookie config
-app.use( express.cookieParser( config.cookieSecret ) );           // populates req.signedCookies
-app.use( express.cookieSession( config.sessionSecret ) );         // populates req.session, needed for CSRF
 */
+Routes();
 
-/*
-// We need serverside view templating to initially set the CSRF token in the <head> metadata
-// Otherwise, the html could just be served statically from the public directory
-app.set('view engine', 'html');
-app.set('views', __dirname + '/views' );
-app.engine('html', require('hbs').__express);
-
-*/
-//app.use(express.static(__dirname+'/public'));
-//console.log("express.csrf()", app );
-//app.use(express.csrf());
-
-
-//app.use(app.router);
 
 
 /*======= Authentification =======*/
@@ -108,10 +115,10 @@ function findUserByMail(email) {
 }
 
 function findUserBySession(sessionID) {
-  // Permet de retrouver un utilisateur par son id de session
-  return connectedUsers.filter(function(user) {
-    return user.sessionID == sessionID;
-  })[0];
+    // Permet de retrouver un utilisateur par son id de session
+    return connectedUsers.filter(function(user) {
+        return user.sessionID == sessionID;
+    })[0];
 }
 
 function findUserByUsername( username, callback ) {
@@ -136,14 +143,26 @@ function Routes() {
   // GET /api/auth
   // @desc: checks a user's auth status based on cookie
   app.get("/api/auth", function(req, res){
-    console.log("/api/auth");
-    var user = findUserBySession(req.sessionID);
-    console.log("user", user);
-    if (user) {
-      res.json({ user: _.omit(user, ['password', 'auth_token']) });
-    } else {
-      res.json({});
-    }
+      console.log("/api/auth");
+
+      // Get user
+      var user_data = findUserBySession(req.sessionID);
+      console.log("user_data", user_data);
+      if (user_data) {
+
+          // Save user with last_connexion property
+          User.findOne({'_id': user_data.id}, 'username id', function (err, result) {
+              result.last_connexion = get_timestamp();
+              result.save();
+          });
+
+          // Send
+          res.json({ user: _.omit(user_data, ['password']) });
+
+      } else {
+          res.json({});
+      }
+
   });
 
   // POST /api/auth/login
@@ -151,8 +170,30 @@ function Routes() {
   app.post("/api/auth/login", function(req, res){
     console.log("POST /api/auth/login", req.body );
 
-    var user = req.body;
+    var user_data = req.body;
+    
+    // Check if username/password is correct
+    User.findOne({ 'username': user_data.username , 'password': user_data.password }, 'username password', function (err, result) {
+      console.log("result", result);
 
+      if (err) { console.error("Erreur lors de la recherche du user courant."); } 
+      if (!result) { res.json({ error: "Le nom d'utilisateur ou le mot de passe est incorrect." }); }
+      if (result) {
+
+        // Save user with last_connexion property
+        result.last_connexion = get_timestamp();
+        result.save();
+
+        // Keep
+        result.sessionID = req.sessionID;
+        connectedUsers.push(result);
+
+        // Send
+        res.json({ user: _.omit(result, ['password']) });
+      }
+    });
+
+    /*
     users.find({
       username: user.username,
       password: user.password
@@ -160,7 +201,7 @@ function Routes() {
     function(err, results) {
       console.log( "find", err, results );
       if (err) {
-        res.json({ error: "Oops, Problème." });
+        res.json({ error: "Le nom d'utilisateur ou le mot de passe est incorrect." });
       } else {
 
         //J'ai trouvé l'utilisateur
@@ -210,31 +251,67 @@ function Routes() {
   app.post("/api/auth/signup", function(req, res){
       console.log("POST /api/auth/signup", req.body.username, req.body.password);
       
-      var user = req.body;
+      var user_data = req.body;
       
+      // Check if this username already exist
+      User.findOne({ 'username': user_data.username }, 'username', function (err, result) {
+          if (err) { return handleError(err); }
+          else if (!result) {
+
+              // Create user
+              user_data.timelines = [0];
+              user_data.first_connexion = get_timestamp();
+              var user = new User( user_data );
+
+              // Save user
+              user.save(function (err, data) {
+                  if (err) return console.error(err);
+                  console.log("sauvé:", data);
+              });
+
+              // Keep
+              user_data.sessionID = req.sessionID;
+              connectedUsers.push(user_data);
+
+              // Send
+              res.json({ user: _.omit(user_data, ['password']) });
+
+          } else {
+              console.log("Username has been taken.");
+              res.json({ error: "Username has been taken.", field: "username" }); 
+          }
+
+      })
+
+
+
+/*
       // Check if username is not already taken
-      findUserByUsername( user.username, {
+      findUserByUsername( user_data.username, {
         error: function() {
           console.log("Username has been taken.");
           res.json({ error: "Username has been taken.", field: "username" }); 
         },
         success: function() {
-          console.log("ADD new user");
-          user.id = addUser(user);
+          console.log("ADD new user", user_data);
 
-          user.sessionID = req.sessionID;
+
+
+          //user.id = addUser(user);
+
+          //user.sessionID = req.sessionID;
 
           //Ajouter l'utilisateur authentifié à la liste des utilisateurs connectés
-          connectedUsers.push(user);
+          //connectedUsers.push(user);
 
           // Set the user cookies and return the cleansed user data
           //Todo: signed cookie
           //res.cookie('user_id', user.id, { signed: true, maxAge: config.cookieMaxAge  });
           //res.cookie('user_id', user.id, { maxAge: config.cookieMaxAge }); 
-          res.json({ user: _.omit(user, ['password', 'auth_token']) });
+          res.json({ user: _.omit(user_data, ['password', 'auth_token']) });
         }
       });
-
+    */
       /*
       db.serialize(function(){
           db.run("INSERT INTO users(username, name, password, auth_token) VALUES (?, ?, ?, ?)", 
@@ -296,14 +373,6 @@ function Routes() {
   });
 
 
-  // Close the db connection on process exit 
-  // (should already happen, but to be safe)
-  process.on("exit", function(){
-      db.close();
-  });
-
-
-
 
 
   // Défintion des variables utiles
@@ -337,6 +406,11 @@ function Routes() {
 
   });
   */
+  /*
+  app.get('*', function(req, res){
+    res.sendfile( __dirname + '/public/index.html' );
+  });
+  */
 
   app.get('/profil', function(req, res){
     res.sendfile( __dirname + '/public/index.html' );
@@ -344,6 +418,10 @@ function Routes() {
 
   app.get('/0', function(req, res){
     res.sendfile( __dirname + '/public/index.html' );
+  });
+
+  app.get('/:user/timelines', function(req, res){
+    res.json( { "timelines": [ { "id":0 , "title":"wqkjdkqjd" } , { "id":8 , "title":"pokljlkjkljkj" } ] } );
   });
 
   // GET timeline
@@ -396,21 +474,27 @@ function Routes() {
     });
   });
 
-  
-  // Fontions utiles
-
-  function get_today () {
-    var today    = new Date();
-    var dd       = today.getDate();
-    var mm       = today.getMonth()+1; //January is 0!`
-    var yyyy     = today.getFullYear();
-    if( dd<10 ) { dd = '0'+dd }
-    if( mm<10 ) { mm = '0'+mm }
-    return yyyy+"-"+mm+"-"+dd;
-  }
-
-
 }
+
+
+/*--------------------------------------------
+FOnctions utiles
+--------------------------------------------*/
+
+function get_today () {
+  var today    = new Date();
+  var dd       = today.getDate();
+  var mm       = today.getMonth()+1; //January is 0!`
+  var yyyy     = today.getFullYear();
+  if( dd<10 ) { dd = '0'+dd }
+  if( mm<10 ) { mm = '0'+mm }
+  return yyyy+"-"+mm+"-"+dd;
+}
+
+function get_timestamp () {
+  return new Date();
+}
+
 
 
 console.log("STARTUP:: Express server listening on port::", server.address().port, ", environment:: ", app.settings.env);

@@ -23,6 +23,7 @@ yepnope({
     headerview        : 'views/HeaderView.js',
     loginview         : 'views/LoginView.js',
     modalview         : 'views/ModalView.js',
+    createtlview      : 'views/CreateTlView.js',
     
     homeview          : 'views/HomeView.js',
     profilview        : 'views/ProfilView.js',
@@ -49,22 +50,12 @@ yepnope({
 
       DEBUG = true;
 
-
       TimeLine.API = "/api";
 
       // Create a new session model and scope it to the app global
       // This will be a singleton, which other modules can access
       TimeLine.session = new TimeLine.Models.SessionModel({ });
-      /*
-      app.session.checkAuth({
-          success: function(res){
-              // If auth successful, render inside the page wrapper
-              $('#content').html( self.currentView.render().$el);
-          }, error: function(res){
-              self.navigate("/", { trigger: true, replace: true });
-          }
-      });
-    */
+
       // Check the auth status upon initialization,
       // before rendering anything or matching routes
       TimeLine.session.checkAuth({
@@ -94,7 +85,22 @@ yepnope({
           }, 7000 );
       };
 
+      TimeLine.get_today = function() {
+        console.log("get_today");
+        var today    = new Date();
+        var dd       = today.getDate();
+        var mm       = today.getMonth()+1; //January is 0!`
+        var yyyy     = today.getFullYear();
+        if( dd<10 ) { dd = '0'+dd }
+        if( mm<10 ) { mm = '0'+mm }
+        return yyyy+"-"+mm+"-"+dd;
+      }
+
     });
+
+    // Fontions utiles
+
+
 
   } // Fin de complete
 });
