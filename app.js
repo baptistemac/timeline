@@ -88,6 +88,17 @@ var EventSchema = new mongoose.Schema({
 var Event = mongoose.model('events', EventSchema);
 
 
+var TimelineSchema = new mongoose.Schema({
+    title: String,
+    date: {
+      start: String,
+      end: String
+    },
+    categories: Array
+});
+var Timeline = mongoose.model('timelines', TimelineSchema);
+
+
 Routes();
 
 
