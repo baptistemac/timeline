@@ -18,30 +18,6 @@ var express   = require('express'),
 
 
 /*--------------------------------------------
-Database and Models
---------------------------------------------*/ 
-
-//mongoose.connect('mongodb://baptiste:baptiste@localhost:27017/uw15dfpu');
-mongoose.connect('mongodb://localhost:27017');
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () { });
-
-var UserSchema = new mongoose.Schema({
-    username: String,
-    password: String,
-    email: String,
-    timelines: Array,
-    first_connexion: Date,
-    last_connexion: Date
-});
-
-var User = mongoose.model('users', UserSchema);
-
-
-
-/*--------------------------------------------
 Middlewares and configurations
 --------------------------------------------*/
 
@@ -79,13 +55,39 @@ app.use(express.session({
 
 
 /*--------------------------------------------
-Définition de la "base" users
---------------------------------------------
-var users;
-users = nStore.new("data/users/users.db", function() {
-  Routes();
+Database and Models
+--------------------------------------------*/ 
+
+//mongoose.connect('mongodb://baptiste:baptiste@localhost:27017/uw15dfpu');
+mongoose.connect('mongodb://localhost:27017');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () { });
+
+
+var UserSchema = new mongoose.Schema({
+    username: String,
+    password: String,
+    email: String,
+    timelines: Array,
+    first_connexion: Date,
+    last_connexion: Date
 });
-*/
+var User = mongoose.model('users', UserSchema);
+
+
+var EventSchema = new mongoose.Schema({
+    title: String,
+    date: {
+      start: String,
+      end: String
+    },
+    type: String
+});
+var Event = mongoose.model('events', EventSchema);
+
+
 Routes();
 
 
