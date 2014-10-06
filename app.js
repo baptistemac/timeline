@@ -68,7 +68,7 @@ db.once('open', function callback () { });
 
 var UserSchema = new mongoose.Schema({
     username: String,
-    password: String,
+    password: {type: String, select: false},
     email: String,
     timelines: Array,
     first_connexion: Date,
@@ -94,7 +94,10 @@ var TimelineSchema = new mongoose.Schema({
       start: String,
       end: String
     },
-    categories: Array
+    categories: Array,
+    creation_date: Date,
+    scale_1year_in_px: Number,
+    creator_id: String
 });
 var Timeline = mongoose.model('timelines', TimelineSchema);
 
@@ -154,14 +157,15 @@ function findUserBySession(sessionID) {
 function Routes() {
   
 
-  // GET /api/auth
-  // @desc: checks a user's auth status based on cookie
+  // Check if user is already connected
+
   app.get("/api/auth", function(req, res){
       console.log("/api/auth");
 
       // Get user
       var user_data = findUserBySession(req.sessionID);
       console.log("user_data", user_data);
+
       if (user_data) {
 
           // Save user with last_connexion property
@@ -171,7 +175,7 @@ function Routes() {
           });
 
           // Send
-          res.json({ user: _.omit(user_data, ['password']) });
+          res.json({ user: user_data });
 
       } else {
           res.json({});
@@ -179,15 +183,17 @@ function Routes() {
 
   });
 
-  // POST /api/auth/login
-  // @desc: logs in a user
+  
+
+  // Login
+
   app.post("/api/auth/login", function(req, res){
     console.log("POST /api/auth/login", req.body );
 
     var user_data = req.body;
     
     // Check if username/password is correct
-    User.findOne({ 'username': user_data.username , 'password': user_data.password }, 'username password', function (err, result) {
+    User.findOne({ 'username': user_data.username , 'password': user_data.password }, 'username email timelines last_connexion first_connexion', function (err, result) {
       console.log("result", result);
 
       if (err) { console.error("Erreur lors de la recherche du user courant."); } 
@@ -201,67 +207,19 @@ function Routes() {
         // Keep
         result.sessionID = req.sessionID;
         connectedUsers.push(result);
+        console.log("connectedUsers", connectedUsers);
 
         // Send
-        res.json({ user: _.omit(result, ['password']) });
+        res.json({ user: result });
       }
-    });
+    }); 
 
-    /*
-    users.find({
-      username: user.username,
-      password: user.password
-    },
-    function(err, results) {
-      console.log( "find", err, results );
-      if (err) {
-        res.json({ error: "Le nom d'utilisateur ou le mot de passe est incorrect." });
-      } else {
-
-        //J'ai trouvé l'utilisateur
-        var key = Object.keys(results)[0];
-        var user = results[key];
-        console.log("authenticatedUser", req.sessionID);
-        //Je rajoute l'id de session à l'objet utilisateur
-
-        user.key = key;
-        user.sessionID = req.sessionID;
-
-        //Ajouter l'utilisateur authentifié à la liste des utilisateurs connectés
-        connectedUsers.push(user);
-        console.log("connectedUsers", connectedUsers);
-        res.json({ user: _.omit(user, ['password', 'auth_token']) });
-
-      }
-    });
-
-
-    /*
-      db.get("SELECT * FROM users WHERE username = ?", [ req.body.username ], function(err, user){
-          if(user){
-
-              // Compare the POSTed password with the encrypted db password
-              if( bcrypt.compareSync( req.body.password, user.password)){
-                  res.cookie('user_id', user.id, { signed: true, maxAge: config.cookieMaxAge  });
-                  res.cookie('auth_token', user.auth_token, { signed: true, maxAge: config.cookieMaxAge  });
-
-                  // Correct credentials, return the user object
-                  res.json({ user: _.omit(user, ['password', 'auth_token']) });   
-
-              } else {
-                  // Username did not match password given
-                  res.json({ error: "Invalid username or password."  });   
-              }
-          } else {
-              // Could not find the username
-              res.json({ error: "Username does not exist."  });   
-          }
-      });
-      */
   });
 
-  // POST /api/auth/signup
-  // @desc: creates a user
+
+
+  // Sign in
+
   app.post("/api/auth/signup", function(req, res){
       console.log("POST /api/auth/signup", req.body.username, req.body.password);
       
@@ -273,14 +231,15 @@ function Routes() {
           else if (!result) {
 
               // Create user
-              user_data.timelines = [0];
+              //user_data.timelines = [0];
               user_data.first_connexion = get_timestamp();
+              user_data.last_connexion  = get_timestamp();
               var user = new User( user_data );
 
               // Save user
               user.save(function (err, data) {
                   if (err) return console.error(err);
-                  console.log("sauvé:", data);
+                  console.log("New user created", data);
               });
 
               // Keep
@@ -288,7 +247,7 @@ function Routes() {
               connectedUsers.push(user_data);
 
               // Send
-              res.json({ user: _.omit(user_data, ['password']) });
+              res.json({ user: user });
 
           } else {
               console.log("Username has been taken.");
@@ -297,65 +256,12 @@ function Routes() {
 
       })
 
-
-
-/*
-      // Check if username is not already taken
-      findUserByUsername( user_data.username, {
-        error: function() {
-          console.log("Username has been taken.");
-          res.json({ error: "Username has been taken.", field: "username" }); 
-        },
-        success: function() {
-          console.log("ADD new user", user_data);
-
-
-
-          //user.id = addUser(user);
-
-          //user.sessionID = req.sessionID;
-
-          //Ajouter l'utilisateur authentifié à la liste des utilisateurs connectés
-          //connectedUsers.push(user);
-
-          // Set the user cookies and return the cleansed user data
-          //Todo: signed cookie
-          //res.cookie('user_id', user.id, { signed: true, maxAge: config.cookieMaxAge  });
-          //res.cookie('user_id', user.id, { maxAge: config.cookieMaxAge }); 
-          res.json({ user: _.omit(user_data, ['password', 'auth_token']) });
-        }
-      });
-    */
-      /*
-      db.serialize(function(){
-          db.run("INSERT INTO users(username, name, password, auth_token) VALUES (?, ?, ?, ?)", 
-                  [ req.body.username, req.body.name, bcrypt.hashSync(req.body.password, 8), bcrypt.genSaltSync(8) ], function(err, rows){
-              if(err){
-                  res.json({ error: "Username has been taken.", field: "username" }); 
-              } else {
-
-                  // Retrieve the inserted user data
-                  db.get("SELECT * FROM users WHERE username = ?", [ req.body.username ], function(err, user){
-                      if(!user) {
-                          console.log(err, rows);
-                          res.json({ error: "Error while trying to register user." }); 
-                      } else {
-
-                          // Set the user cookies and return the cleansed user data
-                          res.cookie('user_id', user.id, { signed: true, maxAge: config.cookieMaxAge  });
-                          res.cookie('auth_token', user.auth_token, { signed: true, maxAge: config.cookieMaxAge  });
-                          res.json({ user: _.omit(user, ['password', 'auth_token']) });   
-                      }
-                  });
-              }
-          });
-      });
-*/
   });
 
+  
 
-  // POST /api/auth/logout
-  // @desc: logs out a user, clearing the signed cookies
+  // Log out
+
   app.post("/api/auth/logout", function(req, res){
       console.log("POST /api/auth/logout");
 
@@ -372,18 +278,97 @@ function Routes() {
       //res.clearCookie('auth_token');
   });
 
-  // POST /api/auth/remove_account
-  // @desc: deletes a user
+
+
+  // Remove account
+
   app.post("/api/auth/remove_account", function(req, res){
-      db.run("DELETE FROM users WHERE id = ? AND auth_token = ?", [ req.signedCookies.user_id, req.signedCookies.auth_token ], function(err, rows){
-          if(err){ 
-              res.json({ error: "Error while trying to delete user." }); 
-          } else {
-              res.clearCookie('user_id');
-              res.clearCookie('auth_token');
-              res.json({ success: "User successfully deleted." });
-          }
-      });
+    
+    var user_data = req.body;
+    console.log( "remove_account", user_data );
+
+    // Retrieve user and delete it
+    User.findByIdAndRemove( user_data._id, function(err, result){
+      if (err) { res.json({ error: "Error while trying to delete user." }); }
+      if(result) {
+        console.log("result", result);
+
+        // Todo : Supprression des timelines associées
+        // Todo : Supression de la session et des cookie
+
+        // Send
+        res.json({ success: "User successfully deleted." });
+      }
+    });
+
+  });
+
+
+
+  // Save
+
+  app.post("/api/auth/save", function(req, res){
+    console.log("POST /api/auth/save" );
+    
+    var user_data = req.body;
+
+    // Check if username/password is correct
+    User.findOne({ 'username': user_data.username }, 'username email timelines', function (err, result) {
+      if (err) { console.error("Erreur lors de la recherche du user courant."); } 
+      if (result) {
+        // Save user with new properties
+        _.extend( result, user_data );
+        //console.log("result", result);
+        result.save();
+      }
+    });
+
+  });
+
+
+
+
+  // Get a timeline
+
+  app.get("/api/timeline/:id", function(req, res){
+
+  });
+
+
+
+  // Save a timeline
+
+  app.post("/api/timeline/create", function(req, res){
+    console.log("Save timeline", req.body);
+
+    // Create 
+    var timeline = new Timeline( req.body );
+
+    // Save user
+    timeline.save(function (err, data) {
+        if (err) return console.error(err);
+        console.log("New timeline created", data);
+    });
+
+    // Send
+    res.json( timeline );
+
+  });
+
+
+
+  // Save a category
+
+  app.post("/api/category/:id", function(req, res){
+
+  });
+
+
+
+  // Save an event
+
+  app.post("/api/event/:id", function(req, res){
+
   });
 
 
@@ -492,7 +477,7 @@ function Routes() {
 
 
 /*--------------------------------------------
-FOnctions utiles
+Fonctions utiles
 --------------------------------------------*/
 
 function get_today () {

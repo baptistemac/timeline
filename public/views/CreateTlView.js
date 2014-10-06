@@ -27,7 +27,6 @@ var TimeLine = (function(timeline) {
       if ( this.$el.find("#create-form").parsley('validate') ) {
         tl = {};
         tl.settings = {
-          //id                  : this.get_new_id(),
           title               : this.$el.find("#createtimeline-title-input").val(),
           date                : { 
                                 start: this.$el.find("#createtimeline-datestart-input").val(), 
@@ -39,7 +38,6 @@ var TimeLine = (function(timeline) {
         mainView.tlView.initialize_tl( tl );
         mainView.homeView.hide();
         this.hide();
-        window.router.navigate( "/0", {trigger: false, replace: false} );
       } else {
         if(DEBUG) console.log("Did not pass clientside validation");
       }

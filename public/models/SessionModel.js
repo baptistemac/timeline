@@ -21,13 +21,28 @@ var TimeLine = (function(timeline) {
         },
 
         initialize: function(){
+
             //_.bindAll(this);
+
+            // Each time logged_in change, rerender views if login ou logout
+            this.bind( "change:logged_in", this.update_views );
 
             // Singleton user object
             // Access or listen on this throughout any module with app.session.user
             this.user = new TimeLine.Models.UserModel({ });
         },
 
+        // Rerender views if login ou logout
+        update_views: function () {
+            console.log("update_views", window.mainView);
+            // Si mainview existe, car au début SessionModel existe avant mainView
+            if (window.mainView) {
+                mainView.headerView.render();
+                mainView.homeView.render();
+                mainView.profilView.render();
+                mainView.tlView.ficheView.render();
+            }
+        },
 
         url: function(){
             return TimeLine.API + '/auth';
@@ -36,7 +51,7 @@ var TimeLine = (function(timeline) {
         // Fxn to update user attributes after recieving API response
         updateSessionUser: function( userData ){
             console.log("updateSessionUser", userData);
-            this.user.attributes = userData;
+            _.extend( this.user.attributes, userData);
             //this.user.set( _.pick( userData, _.keys(this.user.defaults) ) );
             console.log("this.user", this.user.attributes);
         },
@@ -82,9 +97,9 @@ var TimeLine = (function(timeline) {
          * updating the user and session after receiving an API response
          */
         postAuth: function(opts, callback, args){
-            var self = this;
+            var that = this;
             var postData = _.omit(opts, 'method');
-            if(DEBUG) console.log(postData);
+            if(DEBUG) console.log("postAuth postData", postData);
 
             $.ajax({
                 url: this.url() + '/' + opts.method,
@@ -93,18 +108,23 @@ var TimeLine = (function(timeline) {
                 type: 'POST',
                 data:  JSON.stringify( postData ),
                 success: function(res){
-                    console.log("postAuth success");
+                    console.log("postAuth success", res);
                     if( !res.error ){
+
                         console.log("postAuth success no-error");
+
                         if(_.indexOf(['login', 'signup'], opts.method) !== -1){
-                            console.log("postAuth success updateSessionUser", res.user);
-                            self.updateSessionUser( res.user || {} );
-                            self.set({ user_id: res.user.id, logged_in: true });
+
+                            console.log("postAuth success updateSessionUser", res);
+                            that.updateSessionUser( res.user || {} );
+                            that.set({ user_id: res._id, logged_in: true });
+
                         } else {
-                            self.set({ logged_in: false });
+                            that.set({ logged_in: false });
                         }
 
                         if( callback && 'success' in callback ) callback.success(res);
+
                     } else {
                         console.log("postAuth success error");
                         if( callback && 'error' in callback ) callback.error(res);
@@ -132,7 +152,13 @@ var TimeLine = (function(timeline) {
         },
 
         removeAccount: function(opts, callback, args){
+            opts = this.user.attributes;
             this.postAuth(_.extend(opts, { method: 'remove_account' }), callback);
+        },
+
+        save: function(opts, callback, args){
+            opts = this.user.attributes;
+            this.postAuth(_.extend(opts, { method: 'save' }), callback);
         }
 
     });

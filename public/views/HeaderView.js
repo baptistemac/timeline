@@ -43,18 +43,12 @@ var TimeLine = (function(timeline) {
 
     nav: function (e) {
       e.preventDefault();
-      var href = $(e.currentTarget).attr("href");
-      console.log("navigate", href);
-      window.router.navigate( href, true );
+      this.navigate(e);
     },
 
     logo: function (e) {
       e.preventDefault();
-      var href = $(e.currentTarget).attr("href");
-      console.log("navigate", href);
-      window.router.navigate( href, true );
-      //mainView.homeView.show();
-      //mainView.profilView.hide();
+      this.navigate(e);
     },
 
     timeline: function (e) {
@@ -69,9 +63,7 @@ var TimeLine = (function(timeline) {
 
     profil: function (e) {
       e.preventDefault();
-      var href = $(e.currentTarget).attr("href");
-      console.log("navigate", href);
-      window.router.navigate( href, true );
+      this.navigate(e);
     },
 
     create_timeline: function (e) {
@@ -85,6 +77,12 @@ var TimeLine = (function(timeline) {
       }
     },
 
+    set_save_indication: function ( boolean ) {
+      console.log("set_indication_saved", boolean);
+      if ( boolean ) this.$el.find(".save-indication").fadeIn(1000);
+      else this.$el.find(".save-indication").fadeOut(1000);
+    },
+
     add_event: function (e) {
       console.log("add_event");
       e.preventDefault();
@@ -93,7 +91,6 @@ var TimeLine = (function(timeline) {
 
     edit: function (e) {
       e.preventDefault();
-
     },
 
 

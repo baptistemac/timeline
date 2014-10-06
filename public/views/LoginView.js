@@ -63,15 +63,15 @@ var TimeLine = (function(timeline) {
                 success: function(mod, res){
                     if(DEBUG) console.log("SUCCESS", mod, res);
                     that.hide();
-                    mainView.headerView.render();
+/*                    mainView.headerView.render();
                     mainView.homeView.render();
                     mainView.profilView.render();
                     mainView.tlView.ficheView.render();
-                    mainView.tlView.tl.setEditable();
+                    mainView.tlView.tl.setEditable();*/
                 },
                 error: function(err){
                     if(DEBUG) console.log("ERROR", err);
-                    TimeLine.showAlert('Bummer dude!', err.error, 'alert-danger'); 
+                    mainView.showAlert('Bummer dude!', err.error, 'alert-danger'); 
                 }
             });
         
@@ -102,7 +102,7 @@ var TimeLine = (function(timeline) {
               },
               error: function(err){
                   if(DEBUG) console.log("ERROR", err);
-                  TimeLine.showAlert('Uh oh!', err.error, 'alert-danger'); 
+                  mainView.showAlert('Uh oh!', err.error, 'alert-danger'); 
               }
           });
         } else {
@@ -115,8 +115,8 @@ var TimeLine = (function(timeline) {
 
     onLoginStatusChange: function(evt){
       console.log("onLoginStatusChange");
-        if( TimeLine.session.get("logged_in") ) TimeLine.showAlert("Success!", "Logged in as "+TimeLine.session.user.get("username"), "alert-success");
-        else TimeLine.showAlert("See ya!", "Logged out successfully", "alert-success");
+        if( TimeLine.session.get("logged_in") ) mainView.showAlert("Success!", "Logged in as "+TimeLine.session.user.get("username"), "alert-success");
+        else mainView.showAlert("See ya!", "Logged out successfully", "alert-success");
     },
 
 

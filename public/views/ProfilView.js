@@ -27,9 +27,10 @@ var TimeLine = (function(timeline) {
 
 
     events : {
-      "click .logout"       : "logout",
-      "click .login"        : "login",
-      "click .removeAccont" : "removeAccount"
+      "click .logout"         : "logout",
+      "click .login"          : "login",
+      "click .save"           : "save",
+      "click .removeAccount"  : "removeAccount"
     },
 
     logout: function (e) {
@@ -55,7 +56,7 @@ var TimeLine = (function(timeline) {
 
     removeAccount: function(e){
         e.preventDefault();
-        TimeLine.session.removeAccount({});
+        mainView.modalView.show_removeAccount();
     },
 
     show : function () {
@@ -66,6 +67,44 @@ var TimeLine = (function(timeline) {
     hide: function () {
       console.log("ProfilView hide");
       this.$el.removeClass("show");
+    },
+
+    save: function (e) {
+      e.preventDefault();
+      console.log("ProfilView save");
+
+      if(this.$el.find("#profil-form").parsley('validate')){
+
+          var user = {};
+          user.username = this.$el.find("#profil-username-input").val();
+          user.email    = this.$el.find("#profil-email-input").val();
+          
+          console.log("user", user);
+          TimeLine.session.updateSessionUser( user );
+
+          TimeLine.session.save();
+
+          /*
+          var that = this;
+          TimeLine.session.login({
+              username: that.$el.find("#login-username-input").val(),
+              password: that.$el.find("#login-password-input").val()
+          }, {
+              success: function(mod, res){
+                  if(DEBUG) console.log("SUCCESS", mod, res);
+                  that.hide();
+              },
+              error: function(err){
+                  if(DEBUG) console.log("ERROR", err);
+                  mainView.showAlert('Bummer dude!', err.error, 'alert-danger'); 
+              }
+          });
+          */
+
+      } else {
+          // Invalid clientside validations thru parsley
+          if(DEBUG) console.log("Did not pass clientside validation");
+      }
     }
 
   });

@@ -1,0 +1,68 @@
+#header-alert {
+	display: none;
+	width: 100%;
+	position: relative;
+	text-align: center;
+	height: 0;
+	z-index: 10;
+}
+
+.alert {
+	display: inline-block;
+	position: relative;
+	max-width: 300px;
+	margin-top: 29px;
+	padding: 10px 40px 10px 20px;
+	border-radius: 4px;
+	color: $grey1;
+
+	.close {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 40px;
+		height: 100%;
+		background-color: transparent;
+		border: none;
+		color: $mainColor;
+		& span {
+			position: absolute;
+			right: 20px;
+			top: 10px;
+			width: 1px;
+			height: 20px;
+			background-color: red;
+			@include transform( rotate(45deg) );
+			@include transition(scale .3s ease-in-out);
+			&::after {
+				content: '';
+				margin-left: 1px;
+				display: block;
+				width: inherit;
+				height: inherit;
+				background-color: inherit;
+				@include transform( rotate(90deg) );
+			}
+		}
+		&:hover span {
+			@include transform( rotate(45deg) scale(1.2) );
+		}
+	}
+	&.alert-success {
+		background-color: #dff0d8;
+		border-color: #d6e9c6;
+		& span {
+			background-color: $mainColor;
+		}
+	}
+	&.alert-danger {
+		color: red;
+		background-color: #FCDEDE;
+		border-color: red;
+		& span {
+			background-color: red;
+		}
+	}
+	&.alert-warning {}
+	&.alert-info {}
+}

@@ -32,6 +32,8 @@ var TimeLine = (function(timeline) {
 
     events : {
       "click .login"        : "login",
+      "click .logout"       : "logout",
+      "click .profil"       : "profil",
       "click .demo"         : "demo",
       "click .create"       : "create_timeline",
       "click .mini_tl > a"  : "mini_tl"
@@ -41,6 +43,29 @@ var TimeLine = (function(timeline) {
       e.preventDefault();
       console.log("HomeView login");
       mainView.modalView.show_login();
+    },
+
+    logout: function (e) {
+      e.preventDefault();
+      console.log("HomeView logout");
+      TimeLine.session.logout({}, {
+          success: function(mod, res){
+              if(DEBUG) console.log("SUCCESS", mod, res);
+              window.router.navigate( "/", {trigger: true, replace: true} );
+          },
+          error: function(err){
+              if(DEBUG) console.log("ERROR", err);
+              TimeLine.showAlert('Uh oh!', err.error, 'alert-danger'); 
+          }
+      });
+    },
+
+    profil: function (e) {
+      e.preventDefault();
+      console.log("HomeView profil");
+      var href = $(e.currentTarget).attr("href");
+      console.log("navigate", href);
+      window.router.navigate( href, true );
     },
 
     demo : function (e) {
@@ -53,7 +78,7 @@ var TimeLine = (function(timeline) {
 
     create_timeline: function (e) {
       e.preventDefault();
-      console.log("create_timeline", TimeLine.session.attributes.logged_in );
+      console.log("create_timeline  logged_in:", TimeLine.session.attributes.logged_in );
       //window.router.navigate( "/create", {trigger: true, replace: false} );
       if ( TimeLine.session.attributes.logged_in ) {
         mainView.createTlView.show();

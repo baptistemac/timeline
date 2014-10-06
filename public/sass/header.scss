@@ -54,7 +54,8 @@ header {
 	}
 	a.profil, a.login {
 		float: right;
-		margin: 8px 10px 0 5px;
+		margin: 4px 10px 6px;
+		padding: 10px;
 	}
 	a.btn {
 		float: right;
@@ -62,12 +63,19 @@ header {
 	}
 }
 
+.save-indication {
+	display: none;
+	color: $grey2;
+	float: right;
+	padding: 14px 20px;
+}
+
 .page-home header h1 a {
 	color: $mainColor;
 	cursor: pointer;
 }
 
-.profil {
+.icon-profil {
 	position: relative;
 	width: 35px;
 	height: 35px;

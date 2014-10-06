@@ -60,7 +60,12 @@ a {
   color: #42bb93;
 }
 
-/* line 40, ../sass/core.scss */
+/* line 37, ../sass/core.scss */
+a.style-red {
+  color: #f14c4c;
+}
+
+/* line 42, ../sass/core.scss */
 label {
   display: block;
   float: left;
@@ -69,7 +74,7 @@ label {
   width: 30%;
 }
 
-/* line 48, ../sass/core.scss */
+/* line 50, ../sass/core.scss */
 input {
   width: 70%;
   float: left;
@@ -83,12 +88,12 @@ input {
   -o-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 56, ../sass/core.scss */
+/* line 58, ../sass/core.scss */
 input:focus {
   border-color: #c9c9c9;
 }
 
-/* line 62, ../sass/core.scss */
+/* line 64, ../sass/core.scss */
 .group_input input {
   width: 30%;
   -webkit-border-radius: 3px 0 0 3px;
@@ -97,7 +102,7 @@ input:focus {
   -o-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
 }
-/* line 66, ../sass/core.scss */
+/* line 68, ../sass/core.scss */
 .group_input .between_input {
   float: left;
   height: 50px;
@@ -106,7 +111,7 @@ input:focus {
   padding-top: 15px;
   background-color: whitesmoke;
 }
-/* line 74, ../sass/core.scss */
+/* line 76, ../sass/core.scss */
 .group_input .between_input + input {
   -webkit-border-radius: 0 3px 3px 0;
   -moz-border-radius: 0 3px 3px 0;
@@ -115,13 +120,13 @@ input:focus {
   border-radius: 0 3px 3px 0;
 }
 
-/* line 80, ../sass/core.scss */
+/* line 82, ../sass/core.scss */
 button {
   margin: 20px;
   cursor: pointer;
 }
 
-/* line 85, ../sass/core.scss */
+/* line 87, ../sass/core.scss */
 .btn {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -131,29 +136,29 @@ button {
   border: none;
   font-size: 1em;
 }
-/* line 90, ../sass/core.scss */
+/* line 92, ../sass/core.scss */
 .btn.style1 {
   padding: 7px 15px 8px;
   color: white;
   background-color: #42bb93;
 }
-/* line 94, ../sass/core.scss */
+/* line 96, ../sass/core.scss */
 .btn.style1:hover, .btn.style1:focus {
   background-color: #3ea684;
 }
-/* line 99, ../sass/core.scss */
+/* line 101, ../sass/core.scss */
 .btn.style2 {
   padding: 6px 14px 7px;
   color: #42bb93;
   border: 1px solid #42bb93;
 }
-/* line 103, ../sass/core.scss */
+/* line 105, ../sass/core.scss */
 .btn.style2:hover, .btn.style2:focus {
   color: #3ea684;
   border-color: #3ea684;
 }
 
-/* line 112, ../sass/core.scss */
+/* line 114, ../sass/core.scss */
 a, input, button {
   outline: none;
 }
@@ -169,7 +174,7 @@ a, input, button {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-/* line 136, ../sass/core.scss */
+/* line 138, ../sass/core.scss */
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -178,7 +183,7 @@ a, input, button {
   /* 2 */
 }
 
-/* line 141, ../sass/core.scss */
+/* line 143, ../sass/core.scss */
 .clearfix:after {
   clear: both;
 }
@@ -187,24 +192,24 @@ a, input, button {
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-/* line 150, ../sass/core.scss */
+/* line 152, ../sass/core.scss */
 .clearfix {
   *zoom: 1;
 }
 
-/* line 157, ../sass/core.scss */
+/* line 159, ../sass/core.scss */
 .hide {
   display: none !important;
 }
 
-/* line 162, ../sass/core.scss */
+/* line 164, ../sass/core.scss */
 ::-moz-selection {
   background: black;
   color: #FFFFFF;
   text-shadow: none;
 }
 
-/* line 163, ../sass/core.scss */
+/* line 165, ../sass/core.scss */
 ::selection {
   background: black;
   color: #FFFFFF;
@@ -212,22 +217,22 @@ a, input, button {
   opacity: .1;
 }
 
-/* line 168, ../sass/core.scss */
+/* line 170, ../sass/core.scss */
 ::-webkit-input-placeholder {
   color: #c9c9c9;
 }
 
-/* line 169, ../sass/core.scss */
+/* line 171, ../sass/core.scss */
 :-moz-placeholder {
   color: #c9c9c9;
 }
 
-/* line 170, ../sass/core.scss */
+/* line 172, ../sass/core.scss */
 ::-moz-placeholder {
   color: #c9c9c9;
 }
 
-/* line 171, ../sass/core.scss */
+/* line 173, ../sass/core.scss */
 :-ms-input-placeholder {
   color: #c9c9c9;
 }
@@ -303,22 +308,31 @@ header p.date {
 /* line 55, ../sass/header.scss */
 header a.profil, header a.login {
   float: right;
-  margin: 8px 10px 0 5px;
+  margin: 4px 10px 6px;
+  padding: 10px;
 }
-/* line 59, ../sass/header.scss */
+/* line 60, ../sass/header.scss */
 header a.btn {
   float: right;
   margin: 8px 8px 8px 0;
 }
 
-/* line 65, ../sass/header.scss */
+/* line 66, ../sass/header.scss */
+.save-indication {
+  display: none;
+  color: #a1a1a1;
+  float: right;
+  padding: 14px 20px;
+}
+
+/* line 73, ../sass/header.scss */
 .page-home header h1 a {
   color: #42bb93;
   cursor: pointer;
 }
 
-/* line 70, ../sass/header.scss */
-.profil {
+/* line 78, ../sass/header.scss */
+.icon-profil {
   position: relative;
   width: 35px;
   height: 35px;
@@ -334,8 +348,8 @@ header a.btn {
   -o-transition: background-color 0.1s ease-in-out;
   transition: background-color 0.1s ease-in-out;
 }
-/* line 78, ../sass/header.scss */
-.profil span {
+/* line 86, ../sass/header.scss */
+.icon-profil span {
   display: block;
   margin: 6px 0 0 9px;
   width: 15px;
@@ -348,8 +362,8 @@ header a.btn {
   border: 1px solid #42bb93;
   background-color: white;
 }
-/* line 86, ../sass/header.scss */
-.profil span::after {
+/* line 94, ../sass/header.scss */
+.icon-profil span::after {
   content: '';
   display: block;
   margin: 15px -6px;
@@ -363,12 +377,12 @@ header a.btn {
   border: 1px solid #42bb93;
   background-color: white;
 }
-/* line 97, ../sass/header.scss */
-.profil:hover {
+/* line 105, ../sass/header.scss */
+.icon-profil:hover {
   background-color: #42bb93;
 }
 
-/* line 102, ../sass/header.scss */
+/* line 110, ../sass/header.scss */
 .profil-plus {
   display: none;
   position: absolute;
@@ -471,37 +485,7 @@ header a.btn {
   display: block;
 }
 
-/* line 11, ../sass/profil.scss */
-.delete_account {
-  color: #f14c4c;
-}
-
-/* line 1, ../sass/modal.scss */
-.alert {
-  margin-top: 10px;
-  padding: 3px 35px 3px 14px;
-  margin-bottom: 5px;
-  margin-left: 40px;
-}
-
-/* line 7, ../sass/modal.scss */
-.alert-success {
-  color: #468847;
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-}
-
-/* line 12, ../sass/modal.scss */
-.alert {
-  position: absolute;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  z-index: 10000;
-}
-
-/* line 24, ../sass/modal.scss */
+/* line 4, ../sass/modal.scss */
 .modal {
   position: fixed;
   top: 50%;
@@ -523,7 +507,7 @@ header a.btn {
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
-/* line 37, ../sass/modal.scss */
+/* line 17, ../sass/modal.scss */
 .modal .md-content {
   position: relative;
   -webkit-transform: scale(0.7);
@@ -543,11 +527,11 @@ header a.btn {
   margin: 0 auto;
   padding: 40px;
 }
-/* line 49, ../sass/modal.scss */
+/* line 29, ../sass/modal.scss */
 .modal.show {
   visibility: visible;
 }
-/* line 51, ../sass/modal.scss */
+/* line 31, ../sass/modal.scss */
 .modal.show .md-content {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
@@ -557,21 +541,21 @@ header a.btn {
   visibility: visible;
   opacity: 1;
 }
-/* line 56, ../sass/modal.scss */
+/* line 36, ../sass/modal.scss */
 .modal.show ~ .overlay {
   opacity: 1;
   visibility: visible;
 }
-/* line 63, ../sass/modal.scss */
+/* line 43, ../sass/modal.scss */
 .modal.error h2 {
   color: #f14c4c;
 }
-/* line 66, ../sass/modal.scss */
+/* line 46, ../sass/modal.scss */
 .modal.error ~ .overlay {
   border-color: #f14c4c;
 }
 
-/* line 71, ../sass/modal.scss */
+/* line 51, ../sass/modal.scss */
 .overlay {
   position: fixed;
   width: 100%;
@@ -588,6 +572,97 @@ header a.btn {
   -moz-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+}
+
+/* line 1, ../sass/alert.scss */
+#header-alert {
+  display: none;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  height: 0;
+  z-index: 10;
+}
+
+/* line 10, ../sass/alert.scss */
+.alert {
+  display: inline-block;
+  position: relative;
+  max-width: 300px;
+  margin-top: 29px;
+  padding: 10px 40px 10px 20px;
+  border-radius: 4px;
+  color: #404040;
+}
+/* line 19, ../sass/alert.scss */
+.alert .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  color: #42bb93;
+}
+/* line 28, ../sass/alert.scss */
+.alert .close span {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 1px;
+  height: 20px;
+  background-color: red;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: scale 0.3s ease-in-out;
+  -moz-transition: scale 0.3s ease-in-out;
+  -o-transition: scale 0.3s ease-in-out;
+  transition: scale 0.3s ease-in-out;
+}
+/* line 37, ../sass/alert.scss */
+.alert .close span::after {
+  content: '';
+  margin-left: 1px;
+  display: block;
+  width: inherit;
+  height: inherit;
+  background-color: inherit;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+/* line 47, ../sass/alert.scss */
+.alert .close:hover span {
+  -webkit-transform: rotate(45deg) scale(1.2);
+  -moz-transform: rotate(45deg) scale(1.2);
+  -ms-transform: rotate(45deg) scale(1.2);
+  -o-transform: rotate(45deg) scale(1.2);
+  transform: rotate(45deg) scale(1.2);
+}
+/* line 51, ../sass/alert.scss */
+.alert.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+/* line 54, ../sass/alert.scss */
+.alert.alert-success span {
+  background-color: #42bb93;
+}
+/* line 58, ../sass/alert.scss */
+.alert.alert-danger {
+  color: red;
+  background-color: #FCDEDE;
+  border-color: red;
+}
+/* line 62, ../sass/alert.scss */
+.alert.alert-danger span {
+  background-color: red;
 }
 
 /* line 3, ../sass/tl.scss */

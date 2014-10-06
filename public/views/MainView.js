@@ -36,6 +36,7 @@ var TimeLine = (function(timeline) {
 
 
     events : {
+      "click #header-alert .close"       : "hideAlert"
       //"keyup"                   : "keyup"
     },
 
@@ -62,6 +63,26 @@ var TimeLine = (function(timeline) {
         // On check si l'event courant a des siblings
         this.tlView.nextEvent( current_event );
       }
+    },
+
+
+    /*
+      Gestion des alertes
+    */
+    showAlert: function (title, text, klass) {
+        if (timeout) clearTimeout(timeout);
+        this.$el.find("#header-alert .alert")
+        .removeClass("alert-danger alert-warning alert-success alert-info").addClass(klass)
+        .html('<strong>' + title + '</strong> ' + text + '<a href="#" class="close"><span></span></a>')
+        .parent().fadeIn(250);
+        var timeout = setTimeout(function() {
+            $("#header-alert").fadeOut(250);
+        }, 7000 );
+    },
+
+    hideAlert: function (e) {
+      if (e) e.preventDefault();
+      this.$el.find("#header-alert").fadeOut(250);
     }
   
   });

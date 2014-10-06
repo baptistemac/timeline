@@ -10,7 +10,7 @@
 <body>
   
 
-  <div id="header-alert" class="alert alert-success col-md-7 navbar-button" style="display:none;"></div>
+  <div id="header-alert"><div class="alert"></div></div>
 
 
   <script type="text/template" id="login_template">
@@ -18,9 +18,6 @@
   <div class="modal">
     <div class="md-content">
 
-      <div class="height:50px;">
-          <ul id="login-errors" class="parsley-error-list"></ul>
-      </div>
 
       <form id="login-form" data-validate="parsley">
         <h2>Se connecter</h2>
@@ -34,6 +31,8 @@
         <span class="help-block"></span>
 
         <button id="login-btn" class="btn style1 login" type="submit" name="connection">Connection</button>
+        <ul id="login-errors" class="parsley-error-list"></ul>
+
       </form>
       <a href="#" class="close">Annuler</a>
 
@@ -53,6 +52,8 @@
         <span class="help-block"></span>
 
         <button id="signup-btn" class="btn style1 login" type="submit" name="connection">Creer mon compte</button>
+        <ul id="signup-errors" class="parsley-error-list"></ul>
+
       </form>
 
     </div>
@@ -67,24 +68,20 @@
 
   <script type="text/template" id="create_template">
   
-  <div class="modal sh ow">
+  <div class="modal">
     <div class="md-content">
-
-      <div class="height:50px;">
-          <ul id="login-errors" class="parsley-error-list"></ul>
-      </div>
 
       <form id="create-form" data-validate="parsley">
         <h2>Créer une timeline</h2>
 
         <label for="title">Titre</label>
-        <input type="text" id="createtimeline-title-input" placeholder="Le temps des cerises" data-notblank="true" required autofocus>
+        <input type="text" id="createtimeline-title-input" placeholder="Le temps des cerises" data-notblank="true" value="Le temps des cerises" required autofocus>
 
         <label for="createtimeline-datestart-input">Période</label>
         <div class="group_input">
-          <input type="text" pattern="\d*" id="createtimeline-datestart-input" class="numberonly" placeholder="Année" data-notblank="true" required>
+          <input type="text" pattern="\d*" id="createtimeline-datestart-input" class="numberonly" placeholder="Année" data-notblank="true" value="1300" required>
           <span class="between_input">to</span>
-          <input type="text" pattern="\d*" id="createtimeline-dateend-input" class="numberonly" placeholder="Année" data-notblank="true" required>
+          <input type="text" pattern="\d*" id="createtimeline-dateend-input" class="numberonly" placeholder="Année" data-notblank="true" value="1950" required>
         </div>
         <ul id="login-errors" class="parsley-error-list"></ul>
 
@@ -112,6 +109,8 @@
       </a>
       <h1><a href="/{{tl.id}}">{{tl.title}}</a></h1>
       <p class="date"><time datetime="{{tl.date.start}}">{{tl.date.start}}</time> - <time datetime="{{tl.date.end}}">{{tl.date.end}}</time></p>
+      <span class="save-indication">saved</span>
+      
       <!--
       <a href="edit" class="btn style1 edit">Edit</a>
       <a href="./" class="btn style1 exitedit">Exit edit</a>
@@ -121,7 +120,7 @@
       <a href="/" class="logo">Timeline</a>
     {{/tl.title}}
     {{#logged_in}}
-      <a href="profil" class="profil"><span></span></a>
+      <!--<a href="profil" class="profil"><span></span></a>-->
       <div class="profil-plus">{{user.username}}</div>
       {{#tl.title}}
         {{#tl.editable}}
@@ -145,10 +144,12 @@
   <script type="text/template" id="home_template">
     {{#logged_in}}
       <div class="bloc mytimelines">
-        <h1>Timeline</h1>
+        <div class="icon-profil"><span></span></div>
+        <h1>Hello <a href="/profil" class="profil">{{user.username}}</a>.</h1>
+        <a href="/" class="logout">Se déconnecter</a>
         <h2>Mes timelines</h2>
         <ul>
-          <li class="mini_tl create"><a href="./create">Créer une autre timeline</a></li>
+          <li class="mini_tl create"><a href="/create">Créer une autre timeline</a></li>
           {{#user.timelines}}
             <li class="mini_tl"><a href="/timeline/{{id}}">coucou{{name}}</a></li>
           {{/user.timelines}}
@@ -183,12 +184,27 @@
       <div class="bloc">
         <a href="/" class="logout">Se déconnecter</a>
         <h2>Mon compte</h2>
-        <h3>Modifier mes informations personnelles</h3>
-        <label for="id">Identifiant</label><input type="text" id="id" value="{{user.username}}">
-        <label for="email">Courriel</label><input type="email" id="email" value="{{user.email}}">
-        <label for="password">Mot de passe</label><input type="password" id="password" value="">
-        <label for="password">Répéter le mot de passe</label><input type="password" id="password" value="">
-        <a href="#" class="delete_account">Supprimer mon compte</a>
+
+        <form id="profil-form" data-validate="parsley">
+          <h3>Modifier mes informations personnelles</h3>
+          <a href="#" class="save">Enregistrer les modifications</a>
+
+          <label for="profil-username-input">Identifiant</label>
+          <input type="text" id="profil-username-input" placeholder="Prénom" value="{{user.username}}" data-notblank="true" required>
+          
+          <label for="profil-email-input">Courriel</label>
+          <input type="email" id="profil-email-input" placeholder="Email" value="{{user.email}}" data-notblank="true" required>
+          
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" value="">
+          
+          <label for="password">Répéter le mot de passe</label>
+          <input type="password" id="password" value="">
+          
+          <ul id="profil-errors" class="parsley-error-list"></ul>
+        </form>
+
+        <a href="#" class="removeAccount style-red">Supprimer mon compte</a>
       </div>
     {{/logged_in}}
     {{^logged_in}}
